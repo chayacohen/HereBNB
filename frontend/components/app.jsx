@@ -3,12 +3,11 @@ import { Route } from 'react-router-dom';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import GreetingContainer from './greeting/greeting_container'
+import HeaderContainer from './Header/header_container'
 const App = () => (
     <div>
         <header>
-            <h1> HereBnB</h1>
-            <GreetingContainer />
+            <HeaderContainer />
         </header>
         <AuthRoute exact path="/login" component={LoginFormContainer} /> 
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
