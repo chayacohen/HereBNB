@@ -13,9 +13,10 @@ body {
     justify-content: space-between;
     color: white;
     margin: 2% 4%;
+    position: sticky;
 }
 
-#profile-menu{
+#profile-button{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,4 +50,5 @@ body {
 #logo {
     font-family: 'Montserrat', sans-serif;
     font-size: 24px;
+    cursor: pointer;
 }

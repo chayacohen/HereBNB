@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 class Header extends React.Component {
 
     constructor(props) {
-        super(props)
-        this.handleLogoutClick = this.handleLogoutClick.bind(this)
-        this.handleLogoClick = this.handleLogoClick.bind(this)
+        super(props);
+        this.handleLogoutClick = this.handleLogoutClick.bind(this);
+        this.handleLogoClick = this.handleLogoClick.bind(this);
+        this.handleProfileClick = this.handleProfileClick.bind(this); 
+        this.toggleProfileMenu = this.toggleProfileMenu.bind(this);
     }
 
     handleLogoutClick() {
@@ -17,6 +19,16 @@ class Header extends React.Component {
     handleLogoClick() {
         this.props.history.push("/")
     }
+
+    handleProfileClick() {
+        this.toggleProfileMenu()
+    }
+
+    toggleProfileMenu() {
+        const profileMenu = document.getElementById("profile-menu-container"); 
+        profileMenu.style.display = "block"; 
+    }
+
     render() {
             return (
                 <div>
@@ -24,7 +36,7 @@ class Header extends React.Component {
                     <nav className="nav-bar">
                         <p id="logo" onClick={this.handleLogoClick}>herebnb</p>
                         <div id="right-nav">
-                            <section id="profile-menu" onClick={() => console.log("click")}>
+                            <section id="profile-button" onClick={this.handleProfileClick}>
                                 <div className="dropdown-lines">
                                     <p></p>
                                     <p></p>
