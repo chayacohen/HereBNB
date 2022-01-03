@@ -3,4 +3,4 @@
 # end 
 
 # json.partial 'api/users/user', user: @user
-json.user @user
+json.extract! @user, :email

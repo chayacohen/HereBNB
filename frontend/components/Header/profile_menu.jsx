@@ -26,11 +26,11 @@ import React from "react";
                 <div id="profile-menu-background" onClick={this.props.closeDropdown}>
                     <div id="profile-menu-container" onClick={e => e.stopPropagation()}>
                         <div id="profile-menu">
-                            <button value="Trips"></button>
-                            <button value="Wishlist"></button>
-                            <button value="Manage Listings"></button>
-                            <button value="Account"></button>
-                            <button value="Logout" onClick={this.handleLogoutClick()}></button>
+                            <button>Trips</button>
+                            <button>Wishlist</button>
+                            <button>Manage Listings</button>
+                            <button>Account</button>
+                            <button onClick={this.handleLogoutClick}>Logout</button>
                         </div>
                     </div> 
                 </div>

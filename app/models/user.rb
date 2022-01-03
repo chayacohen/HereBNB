@@ -1,13 +1,8 @@
 class User < ApplicationRecord 
- 
-
-    # need to add presence for other columns
-
 
     attr_reader :password 
 
     validates :email, presence: true, uniqueness: true
-    validates :first_name, :last_name, presence: true 
     validates :password_digest, presence: true
     validates :session_token, presence: true, uniqueness: true 
 
@@ -24,9 +19,9 @@ class User < ApplicationRecord
     def self.find_by_email(email)
         user = User.find_by(email: email) 
         if user.nil? 
-            return false
+            return {email: false}
         else 
-            return true 
+            return {email: email} 
         end   
     end 
 

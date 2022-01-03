@@ -8,10 +8,10 @@ class EmailForm extends React.Component {
         this.state = {email: ''} 
         this.handleInput = this.handleInput.bind(this); 
         this.handleSubmit = this.handleSubmit.bind(this); 
+        this.handleDemoClick = this.handleDemoClick.bind(this)
     }
 
     handleInput(field) {
-        debugger
         return e => this.setState({[field]: e.currentTarget.value });
     }
 
@@ -21,14 +21,19 @@ class EmailForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-       this.props.findUser(this.state.email)
-       .then(response => { 
-           if (response.user) {
+        this.props.findUser(this.state.email).then(() => {
+            if (this.props.email) {
                 this.props.openModal('login')
             } else {
-               this.props.openModal('signup')
-            }}
-        )
+                this.props.openModal('signup')
+            }
+        })    
+    }
+
+    handleDemoClick() {
+        const user = {email: 'demo@user.com', password: 'password', first_name: 'Demo', last_name: 'User'}
+        this.props.login(user); 
+        this.props.closeModal();
     }
 
     render () {
@@ -46,7 +51,7 @@ class EmailForm extends React.Component {
                     </div>
                 </form>
                 <p>or</p>
-                <button className="demo-user-button">Continue with Demo User</button>
+                <button className="demo-user-button" onClick={this.handleDemoClick}>Continue with Demo User</button>
             </div>
         )
     }

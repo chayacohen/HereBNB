@@ -11,7 +11,6 @@ class Header extends React.Component {
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
         this.handleLogoClick = this.handleLogoClick.bind(this);
         this.handleProfileClick = this.handleProfileClick.bind(this); 
-        this.toggleProfileMenu = this.toggleProfileMenu.bind(this);
         this.closeDropdown = this.closeDropdown.bind(this)
     }
 
@@ -26,11 +25,6 @@ class Header extends React.Component {
 
     handleProfileClick() {
        this.setState({show: true})
-    }
-
-    toggleProfileMenu() {
-        const profileMenuBackground = document.getElementById("profile-menu-background");
-        profileMenuBackground.style.display = "block";
     }
 
     closeDropdown() {

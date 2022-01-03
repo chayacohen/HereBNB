@@ -6,7 +6,7 @@ class LoginForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            email: "",
+            email: this.props.email,
             password: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,8 +14,10 @@ class LoginForm extends React.Component {
     }
 
     handleSubmit(e) {
-        e.preventDefault()
-        this.props.closeModal();
+        e.preventDefault(); 
+        if(!this.props.errors) {
+            this.props.closeModal();
+        }
         const user = Object.assign({}, this.state);
         this.props.login(user)
             .then(() => this.props.history.push('/'))

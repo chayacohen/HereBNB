@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { signup } from '../../actions/session_actions';
 import {closeModal} from '../../actions/modal_actions';
 import SignupForm from './signup_form';
+import { withRouter } from 'react-router-dom';
 
 
 const mapStateToProps = (state, ownProps) => ({
@@ -14,4 +15,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignupForm); 
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignupForm)) 
