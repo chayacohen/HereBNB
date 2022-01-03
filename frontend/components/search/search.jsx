@@ -1,5 +1,5 @@
 import React from "react";
-import SearchIcon from '../../../app/assets/images/search-icon.png';
+// import SearchIcon from '../../../app/assets/images/search-icon.png';
 
 const Search = () => (
     <section className="search-container">
@@ -26,7 +26,7 @@ const Search = () => (
             </div>
             <div id="search-button-container" >
                 <button type="submit" id="search-icon">
-                    <img src={SearchIcon}/>
+                    {/* <img src={SearchIcon}/> */}
                     {/* <p>Search</p> */}
                 </button>
             </div>
