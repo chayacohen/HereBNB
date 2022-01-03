@@ -5,7 +5,7 @@ class EmailForm extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {email: '', clicked: false} 
+        this.state = {email: '', clicked: false, errors: []} 
         this.handleInput = this.handleInput.bind(this); 
         this.handleSubmit = this.handleSubmit.bind(this); 
         this.handleDemoClick = this.handleDemoClick.bind(this); 
@@ -17,19 +17,35 @@ class EmailForm extends React.Component {
         return e => this.setState({[field]: e.currentTarget.value });
     }
 
-    // componentDidUpdate() {
-    //     this.props.findUser(this.state.email)
-    // }
-
     handleSubmit(e) {
         e.preventDefault();
-        this.props.findUser(this.state.email).then(() => {
-            if (this.props.user) {
-                this.props.openModal('login')
-            } else {
-                this.props.openModal('signup')
-            }
-        })    
+        if (this.validEmail(email)) {
+            this.props.findUser(this.state.email).then(() => {
+                if (this.props.user) {
+                    this.props.openModal('login')
+                } else {
+                    this.props.openModal('signup')
+                }
+            })    
+        }
+        else {
+            this.state.errors.push('Invalid Email') 
+        }
+    }
+
+    validEmail(email) {
+        let atValid = false; 
+        let dotValid = false; 
+        const arr = []
+        const split = email.split('@')
+        if (split.length === 2 && split[1].includes('.')) {
+            atValid = true; 
+        }
+        if(split[1].split('.').length > 1) {
+            dotValid = true; 
+        }
+
+        return atValid && dotValid
     }
 
     handleFocus() {
@@ -53,10 +69,11 @@ class EmailForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <h2>Welcome to Herebnb</h2>
                     <div id="email">
-                        <div id="email-input-container">
+                        <div className="email-input-container" id={this.state.clicked ? 'clicked' : null}>
                             { this.state.clicked ? <label>Email</label> : null }
-                            <input type="email" placeholder="Email" value={this.state.email} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleInput('email')}/>
+                            <input type="text" placeholder="Email" value={this.state.email} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleInput('email')}/>
                         </div>
+                        <p className="error">{this.state.errors}</p>
                         <button type="submit">Continue</button>
                     </div>
                 </form>

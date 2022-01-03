@@ -52,7 +52,7 @@ class LoginForm extends React.Component {
                 <div id="signup-form" onClick={ e => e.stopPropagation()}>
                     <form onSubmit={this.handleSubmit} id="signup-form">
                         <h3>Log in</h3>
-                        <div id="input-field">
+                        <div className="input-field" id={this.state.clicked ? 'clicked' : null}>
                             { this.state.clicked ? <label>Password </label> : null }
                             <input type="password" placeholder="Password" onFocus={this.handleFocus} onBlur={this.handleBlur} value={this.state.password} onChange={this.handleInput('password')} />
                         </div>

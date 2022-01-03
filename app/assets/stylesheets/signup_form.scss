@@ -28,7 +28,7 @@
     margin-top: 4%;
 }
 
-#input-field {
+.input-field {
     border-radius: 8px; 
     border: rgb(150, 149, 149) solid 1px;
     color: rgb(141, 138, 138);
@@ -41,13 +41,13 @@
     justify-content: space-evenly;
     flex-direction: column;
 }
-#input-field label {
+.input-field label {
     margin: 7px 0 auto 7px;
     // margin-top: 10px; 
     // display: none;
 }
 
-#input-field input {
+.input-field input {
     margin: 0 0 5px 5px;
     border: none;
     color: black;

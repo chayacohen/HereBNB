@@ -61,7 +61,7 @@
     height: 90%;
 }
 
-#email-input-container {
+.email-input-container {
     border-radius: 8px; 
     border: rgb(150, 149, 149) solid 1px;
     color: rgb(141, 138, 138);
@@ -73,6 +73,11 @@
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
+}
+
+#clicked {
+    border: black solid 2px;
+
 }
 
 #email label {
@@ -123,6 +128,10 @@
     cursor: pointer;
 }
 
+.demo-user-button:hover {
+    border-color: black;
+}
+
 #email-form p {
     margin-bottom: 20px;
     font-family: 'Roboto', sans-serif;
@@ -133,4 +142,8 @@
 
 #errors {
     color: white;
+}
+
+.error {
+  color: black;  
 }
