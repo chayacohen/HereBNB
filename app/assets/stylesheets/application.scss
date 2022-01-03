@@ -13,8 +13,12 @@
  *= require_tree .
  *= require_self
  */
-@import './reset.scss'; 
+ @import './reset.scss'; 
  @import './api/header.scss';
  @import './api/profile_menu.scss';
  @import './api/search.scss';
  @import './api/users.scss';
+ @import './email_form.scss';
+ @import './modal.scss';
+ @import './signup_form.scss';
+ 
