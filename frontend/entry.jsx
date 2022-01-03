@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         store = configureStore();
     }
     // ReactDOM.render(<Root store={store}/>, root); 
-    ReactDOM.render(<h1>React is working</h1>, root); 
+    ReactDOM.render(<Root store={store}/>, root); 
 
     //For Testing Only!!! 
 
