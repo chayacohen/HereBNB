@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => ({
     errors: state.errors.session,
+    email: state.ui.currentEmail.email
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

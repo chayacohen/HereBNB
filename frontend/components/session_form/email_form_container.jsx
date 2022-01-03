@@ -8,7 +8,8 @@ import { login } from "../../actions/session_actions";
 const mapStateToProps = (state, ownProps) => {
     return ({
         errors: state.errors.session, 
-        email: state.ui.currentEmail.email
+        email: state.ui.currentEmail.email, 
+        user: state.ui.currentEmail.user
     })
 }
 

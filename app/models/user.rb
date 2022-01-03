@@ -19,9 +19,9 @@ class User < ApplicationRecord
     def self.find_by_email(email)
         user = User.find_by(email: email) 
         if user.nil? 
-            return {email: false}
+            return {email: email, user: false}
         else 
-            return {email: email} 
+            return {email: email, user: true} 
         end   
     end 
 

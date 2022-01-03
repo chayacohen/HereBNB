@@ -3,7 +3,7 @@ import * as SessionUtil from '../util/session_util';
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
-
+export const RESET_ERRORS = "RESET_ERRORS"
 
 const receiveCurrentUser = (currentUser) => ({
     type: RECEIVE_CURRENT_USER, 
@@ -17,7 +17,11 @@ const logoutCurrentUser = () => ({
 const receiveSessionErrors = (errors) => ({
     type: RECEIVE_ERRORS, 
     errors 
-})
+}); 
+
+export const resetSessionErrors = () => ({
+    type: RESET_ERRORS
+});
 
 
 export const login = (user) => dispatch =>  (

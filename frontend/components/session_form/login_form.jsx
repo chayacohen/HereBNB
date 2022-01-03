@@ -7,10 +7,14 @@ class LoginForm extends React.Component {
         super(props)
         this.state = {
             email: this.props.email,
-            password: ""
+            password: "", 
+            clicked: false
         }
+        this.clicked = false; 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
+        this.handleFocus = this.handleFocus.bind(this);
+        this.handleBlur = this.handleBlur.bind(this); 
     }
 
     handleSubmit(e) {
@@ -18,13 +22,20 @@ class LoginForm extends React.Component {
         if(!this.props.errors) {
             this.props.closeModal();
         }
-        const user = Object.assign({}, this.state);
+        const user = { email: this.state.email, password: this.state.password};
         this.props.login(user)
-            .then(() => this.props.history.push('/'))
     }
 
     handleInput(field) {
         return e => this.setState({ [field]: e.currentTarget.value });
+    }
+
+    handleFocus() {
+        this.setState({ ['clicked']: true })
+    }
+
+    handleBlur() {
+        this.setState({ ['clicked']: false })
     }
 
     render() {
@@ -42,8 +53,8 @@ class LoginForm extends React.Component {
                     <form onSubmit={this.handleSubmit} id="signup-form">
                         <h3>Log in</h3>
                         <div id="input-field">
-                            <label>Password  </label>
-                            <input type="password" value={this.state.password} onChange={this.handleInput('password')} />
+                            { this.state.clicked ? <label>Password </label> : null }
+                            <input type="password" placeholder="Password" onFocus={this.handleFocus} onBlur={this.handleBlur} value={this.state.password} onChange={this.handleInput('password')} />
                         </div>
                         <button type="submit">Log In </button>
                     </form>

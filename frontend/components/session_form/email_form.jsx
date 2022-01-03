@@ -5,10 +5,12 @@ class EmailForm extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {email: ''} 
+        this.state = {email: '', clicked: false} 
         this.handleInput = this.handleInput.bind(this); 
         this.handleSubmit = this.handleSubmit.bind(this); 
-        this.handleDemoClick = this.handleDemoClick.bind(this)
+        this.handleDemoClick = this.handleDemoClick.bind(this); 
+        this.handleFocus = this.handleFocus.bind(this); 
+        this.handleBlur = this.handleBlur.bind(this); 
     }
 
     handleInput(field) {
@@ -22,12 +24,20 @@ class EmailForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.findUser(this.state.email).then(() => {
-            if (this.props.email) {
+            if (this.props.user) {
                 this.props.openModal('login')
             } else {
                 this.props.openModal('signup')
             }
         })    
+    }
+
+    handleFocus() {
+        this.setState({['clicked']: true})
+    }
+
+    handleBlur() {
+        this.setState({['clicked']: false})
     }
 
     handleDemoClick() {
@@ -44,8 +54,8 @@ class EmailForm extends React.Component {
                     <h2>Welcome to Herebnb</h2>
                     <div id="email">
                         <div id="email-input-container">
-                            <label>Email</label>
-                            <input type="email" value={this.state.email} onChange={this.handleInput('email')}/>
+                            { this.state.clicked ? <label>Email</label> : null }
+                            <input type="email" placeholder="Email" value={this.state.email} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleInput('email')}/>
                         </div>
                         <button type="submit">Continue</button>
                     </div>
