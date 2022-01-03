@@ -7,6 +7,7 @@ import HeaderContainer from './Header/header_container'
 import Search from './search/search';
 import ModalContainer from './modal/modal_container'
 import ProfileMenuContainer from './Header/profile_menu_container';
+import Splash from './splash/splash';
 const App = () => (
     <div>
         <ModalContainer/>
@@ -14,6 +15,7 @@ const App = () => (
             <HeaderContainer />
         </header>
         <Search/>
+        <Splash/>
         {/* <Route exact path="/" component={SearchContainer} /> */}
     </div>
 )

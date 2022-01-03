@@ -10,7 +10,8 @@ import React from "react";
     }
 
     handleLogoutClick() {
-        this.props.logout()
+        this.props.closeDropdown();
+        this.props.logout();
     }
 
     handleModalClick() {

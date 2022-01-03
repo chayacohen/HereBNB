@@ -26,7 +26,7 @@ const Search = () => (
             </div>
             <div id="search-button-container" >
                 <button type="submit" id="search-icon">
-                    {/* <img src={SearchIcon}/> */}
+                    <img src={window.search_icon}/>
                     {/* <p>Search</p> */}
                 </button>
             </div>
