@@ -21,12 +21,8 @@ module.exports = {
                         presets: ['@babel/env', '@babel/react']
                     }
                 },
-            }, 
-            {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                loader: 'file-loader'
-            }
+            },
         ]
     },
-    devtool: 'eval-source-map'
+    devtool: 'source-map'
 };
