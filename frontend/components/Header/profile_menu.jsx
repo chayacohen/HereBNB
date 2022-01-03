@@ -20,7 +20,6 @@ import React from "react";
 
     render()
     {
-        debugger
         if (this.props.currentUser) {
             return (
                 <div id="profile-menu-background" onClick={this.props.closeDropdown}>
