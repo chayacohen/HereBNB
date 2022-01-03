@@ -2,6 +2,8 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { openModal } from "../../actions/modal_actions";
 import ProfileMenu from "./profile_menu";
+import { logout } from '../../actions/session_actions';
+
 
 
 
@@ -10,8 +12,9 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    logout: () => dispatch(logout()),
+    openModal: (modal) => dispatch(openModal(modal)), 
+    logout: () => dispatch(logout())
 })
 
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfileMenu)); 
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileMenu); 

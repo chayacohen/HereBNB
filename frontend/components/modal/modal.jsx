@@ -1,7 +1,7 @@
 import LoginFormContainer from "../session_form/login_form_container";
 import SignupFormContainer from "../session_form/signup_form_container";
 import React from "react";
-import ProfileMenuContainer from "../Header/profile_menu_container";
+import EmailFormContainer from "../session_form/email_form_container";
 
 function Modal({modal, closeModal}) {
 
@@ -15,6 +15,9 @@ function Modal({modal, closeModal}) {
             break; 
         case 'signup': 
             component = <SignupFormContainer/>; 
+            break; 
+        case 'email': 
+            component = <EmailFormContainer/>; 
             break; 
         default: 
             return null; 

@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
     # before_action :ensure_logged_out, only: [:create]
 
     def index 
-        @users = User.all 
+        @user = User.find_by_email(params[:email]) 
     end 
 
     def create 

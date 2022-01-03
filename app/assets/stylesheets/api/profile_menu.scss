@@ -12,14 +12,41 @@
     padding-bottom: 20px;
     padding-left: 10px;
     margin: 30px;
+    font-family: 'Roboto', sans-serif;
+
 }
 
-#profile-menu  button{
+#profile-menu button{
     background: none;
     border: none;
-    color: black;
+    width: 100%;
+    text-align: left;
 }
 
 #profile-menu-container {
-    display: block;
+    position: absolute;
+    right: 30px;
+    top: 60px;
+    z-index: 20;
+}
+
+#profile-menu-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: none;
+  z-index: 10;
+  display: block; 
+}
+
+#login {
+    color: rgb(51, 51, 51);
+    font-weight: 600;
+}
+
+.other_button {
+    color: rgb(51, 51, 51);
+    font-weight: 200;
 }

@@ -6,11 +6,10 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import HeaderContainer from './Header/header_container'
 import Search from './search/search';
 import ModalContainer from './modal/modal_container'
-import ProfileMenu from './Header/profile_menu';
+import ProfileMenuContainer from './Header/profile_menu_container';
 const App = () => (
     <div>
         <ModalContainer/>
-        <ProfileMenu/>
         <header>
             <HeaderContainer />
         </header>

@@ -1,20 +1,58 @@
 import React from "react";
 
 
- function ProfileMenu(props) {
+ class ProfileMenu extends React.Component {
 
-    return (
-        <div id="profile-menu-container">
-            <div id="profile-menu">
-                <button value="Log In">Log In</button>
-                <button value="Sign Up">Sign Up</button>
-                <button value="Host your home">Host your home</button>
-                <button value="Resume">Resume</button>
-            </div>
-        </div>
+    constructor(props) {
+        super(props); 
+        this.handleLogoutClick = this.handleLogoutClick.bind(this);
+        this.handleModalClick = this.handleModalClick.bind(this); 
+    }
 
-    )
- }
+    handleLogoutClick() {
+        this.props.logout()
+    }
+
+    handleModalClick() {
+        this.props.closeDropdown()
+        this.props.openModal('email')
+    }
+
+    render()
+    {
+        debugger
+        if (this.props.currentUser) {
+            return (
+                <div id="profile-menu-background" onClick={this.props.closeDropdown}>
+                    <div id="profile-menu-container" onClick={e => e.stopPropagation()}>
+                        <div id="profile-menu">
+                            <button value="Trips"></button>
+                            <button value="Wishlist"></button>
+                            <button value="Manage Listings"></button>
+                            <button value="Account"></button>
+                            <button value="Logout" onClick={this.handleLogoutClick()}></button>
+                        </div>
+                    </div> 
+                </div>
+            )
+        }
+        else {
+            return (
+                <div id="profile-menu-background" onClick={this.props.closeDropdown}>
+                    <div id="profile-menu-container" onClick={e => e.stopPropagation()}>
+                        <div id="profile-menu">
+                            <button id="login" value="Log In" onClick={this.handleModalClick}>Log In</button>
+                            <button className="other_button" value="Sign Up" onClick={this.handleModalClick}>Sign Up</button>
+                            <button className="other_button" value="Host your home">Host your home</button>
+                            <button className="other_button" value="Resume">Resume</button>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+
+    };
+}
 
 
 export default ProfileMenu; 
