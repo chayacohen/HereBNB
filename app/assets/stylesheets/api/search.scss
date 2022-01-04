@@ -3,16 +3,21 @@
     justify-content: space-between;
     background-color: white;
     border-radius: 32px;
-    height: 66px; 
-    width: 800px;
+    // height: 66px; 
+    // width: 800px;
     padding-right: 10px;
     padding-left: 30px;
-    // margin-top: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: rgb(214, 211, 211) solid 1px;
+    position: fixed;
+    top: 4%;
+    left: 30%; 
 }
 
 .search-container {
-    display: flex;
-    justify-content: center;  
+    // display: flex;
+    // justify-content: center;  
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 }
 
@@ -31,6 +36,7 @@
     padding-top: 10px;
     margin-left: 2px;
     font-family: inherit;
+    color: black;
 }
 .search-container input {
     border: none;
@@ -39,6 +45,7 @@
     color: #717171; 
     margin-bottom: 5px;
     font-family: inherit;
+    outline: none;
 }
 
 #search-icon {

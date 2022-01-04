@@ -62,13 +62,13 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 
 .inspo-container {
     width: 100%; 
-    height: 900px; 
+    height: 100%; 
     background-color: white;
 }
 
 .inspo {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     flex-direction: column;
     width: 100%;
@@ -79,7 +79,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 
 .inspo h2 {
     margin-left: 80px;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 50px;
     font-size: 42px;
     font-weight: 500;
@@ -92,10 +92,11 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     flex-direction: row;
     // margin: 10px 5px 10px 5px; 
     width: 90%;
+    height: 90%;
     gap: 25px;
     margin-left: 80px;
     margin-top: 20px;
-    margin-bottom: 300px;
+    margin-bottom: 200px;
 }
 
 .inspo-city {
@@ -103,13 +104,13 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     flex-direction: column;
     align-items: flex-start;
     width: 100%; 
-    height: 120%;
+    // height: 50%;
     // background-color: red;
     border-radius: 15px;
 }
 
 .inspo-city img {
-    height: 55%; 
+    // height: 25%; 
     width: 100%;
     border-radius: 15px 15px 0 0; 
 }
@@ -118,6 +119,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     color: white; 
     margin-top: 30px;
     margin-left: 15px;
+    margin-bottom: 100px;
     font-family: $font;
     font-size: 33px;
     font-weight: 500;

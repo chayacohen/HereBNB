@@ -1,13 +1,14 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import Search from "../search/search";
 import ProfileMenuContainer from "./profile_menu_container";
 
 class Header extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {show: false}
+        this.state = {show: false, color: "black"}
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
         this.handleLogoClick = this.handleLogoClick.bind(this);
         this.handleProfileClick = this.handleProfileClick.bind(this); 
@@ -31,13 +32,23 @@ class Header extends React.Component {
         this.setState({show: false})
     }
 
+    componentDidMount() {
+        document.addEventListener('scroll', () => {
+            if(window.scrollY > 1) {
+                this.setState({color: 'white'})
+            } else {
+                this.setState({color: 'black'})
+            }
+        })
+    }
+
  
     render() {
+        // debugger
             return (
                 <div>
-                    <nav className="nav-bar">
-                        <p id="logo" onClick={this.handleLogoClick}>herebnb</p>
-                        {/* <p>Places to stay</p> */}
+                    <nav id="nav-bar" className={this.state.color}>
+                        <p className="logo" id={this.state.color} onClick={this.handleLogoClick}>herebnb</p>
                         <div id="right-nav">
                             <section id="profile-button" onClick={this.handleProfileClick}>
                                 <div className="dropdown-lines">
@@ -49,6 +60,9 @@ class Header extends React.Component {
                             </section>
                             {/* <Link to="/signup">Signup</Link> */}
                             {/* <Link to="/login">Login</Link> */}
+                        </div>
+                        <div>
+                            { this.props.match.path === '/' ? <Search/> : null}
                         </div>
                     </nav>
                     { this.state.show ? <ProfileMenuContainer closeDropdown={this.closeDropdown}/> : null}

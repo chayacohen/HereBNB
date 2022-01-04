@@ -9,6 +9,7 @@ import ModalContainer from './modal/modal_container'
 import ProfileMenuContainer from './Header/profile_menu_container';
 import Splash from './splash/splash';
 import Inspiration from './splash/inspiration';
+import Footer from './footer/footer';
 
 const App = () => (
     <div>
@@ -16,11 +17,14 @@ const App = () => (
         <header>
             <HeaderContainer />
         </header>
-        <Search/>
+        {/* <Search/> */}
         <Splash/>
         <Inspiration/>
         {/* <Route exact path="/listings" component={Listings}/> */}
         {/* <Route exact path="/" component={SearchContainer} /> */}
+        <footer>
+            <Footer/>
+        </footer>
     </div>
 )
 
