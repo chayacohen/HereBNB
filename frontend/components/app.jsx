@@ -10,6 +10,7 @@ import ProfileMenuContainer from './Header/profile_menu_container';
 import Splash from './splash/splash';
 import Inspiration from './splash/inspiration';
 import Footer from './footer/footer';
+import { Switch } from 'react-router-dom';
 
 const App = () => (
     <div>
@@ -20,6 +21,10 @@ const App = () => (
         {/* <Search/> */}
         <Splash/>
         <Inspiration/>
+        {/* <Switch>
+            <Route/>
+
+        </Switch> */}
         {/* <Route exact path="/listings" component={Listings}/> */}
         {/* <Route exact path="/" component={SearchContainer} /> */}
         <footer>
