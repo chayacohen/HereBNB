@@ -36,6 +36,7 @@ class Header extends React.Component {
                 <div>
                     <nav className="nav-bar">
                         <p id="logo" onClick={this.handleLogoClick}>herebnb</p>
+                        {/* <p>Places to stay</p> */}
                         <div id="right-nav">
                             <section id="profile-button" onClick={this.handleProfileClick}>
                                 <div className="dropdown-lines">
