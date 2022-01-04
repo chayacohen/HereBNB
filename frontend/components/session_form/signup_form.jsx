@@ -26,7 +26,6 @@ class SignupForm extends React.Component {
             last_name: this.state.last_name
         }; 
         this.props.signup(user)
-        debugger
         if (this.props.errors.length === 0) {
             this.props.closeModal();
         }

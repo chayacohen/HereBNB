@@ -44,7 +44,6 @@ class Header extends React.Component {
 
  
     render() {
-        // debugger
             return (
                 <div>
                     <nav id="nav-bar" className={this.state.color}>
