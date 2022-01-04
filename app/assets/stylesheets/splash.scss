@@ -2,7 +2,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 
 #splash-image {
     display: flex;
-    height: 750px;
+    height: 100%;
     width: 90%; 
     align-items: center;
 }
@@ -27,7 +27,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     font-size: 3vw;
     font-weight: 500;
     left: 30%; 
-    top: 68%; 
+    top: 62%; 
 }
 
 .flexible-button {
@@ -38,7 +38,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     background-color: white;
     position: absolute;
     left: 45%; 
-    top: 78%;
+    top: 70%;
     cursor: pointer;
 }
 
