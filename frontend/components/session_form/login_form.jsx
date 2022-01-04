@@ -8,7 +8,7 @@ class LoginForm extends React.Component {
         this.state = {
             email: this.props.email,
             password: "", 
-            clicked: false
+            clicked: false, 
         }
         this.clicked = false; 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +27,13 @@ class LoginForm extends React.Component {
     }
 
     handleInput(field) {
-        return e => this.setState({ [field]: e.currentTarget.value });
+        return e => {
+            if(this.props.errors.length > 0 ) {
+                this.props.resetSessionErrors();
+            }
+            this.setState({ [field]: e.currentTarget.value })
+
+        };
     }
 
     handleFocus() {
@@ -40,30 +46,27 @@ class LoginForm extends React.Component {
 
     render() {
         let errors = '';
-        if (this.props.errors) {
+        if (this.props.errors.length > 0) {
             errors = this.props.errors
         }
         else {
             errors = [];
         }
+        debugger
 
         return (
             <div>
-                <div id="signup-form" onClick={ e => e.stopPropagation()}>
-                    <form onSubmit={this.handleSubmit} id="signup-form">
+                <div className="session-form" id="login-form" onClick={ e => e.stopPropagation()}>
+                    <form onSubmit={this.handleSubmit} className="session-form">
                         <h3>Log in</h3>
-                        <div className="input-field" id={this.state.clicked ? 'clicked' : null}>
+                        <div className={errors.length !== 0 ? 'input-field errored' : 'input-field'} id={this.state.clicked && errors.length === 0 ? 'clicked' : null}>
                             { this.state.clicked ? <label>Password </label> : null }
                             <input type="password" placeholder="Password" onFocus={this.handleFocus} onBlur={this.handleBlur} value={this.state.password} onChange={this.handleInput('password')} />
                         </div>
+                        <p className="error">{ errors.length > 0 ? errors[0] : null}</p>
                         <button type="submit">Log In </button>
                     </form>
                 </div>
-                <ul id="errors">
-                    {errors.map((error, idx) => (
-                        <li key={idx}>{error}</li>
-                    ))}
-                </ul>
             </div>
         )
     }

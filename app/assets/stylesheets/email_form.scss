@@ -54,7 +54,7 @@
 #email {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    // align-items: center;
     flex-direction: column;
     margin-bottom: 20px;
     width: 100%;
@@ -73,11 +73,15 @@
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
+    margin-left: 5%;
 }
 
 #clicked {
     border: black solid 2px;
+}
 
+.errored {
+    border: red solid 2px;
 }
 
 #email label {
@@ -111,6 +115,7 @@
     font-weight: 400;
     font-size: 17px;
     cursor: pointer;
+    margin-left: 5%;
 }
 
 
@@ -132,7 +137,7 @@
     border-color: black;
 }
 
-#email-form p {
+#or {
     margin-bottom: 20px;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
@@ -145,5 +150,9 @@
 }
 
 .error {
-  color: black;  
+  color: red;  
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  align-items: flex-start;
+  margin-left: 5%;
 }

@@ -53,8 +53,8 @@ class SignupForm extends React.Component {
 
         return (
             <div>
-                <div id="signup-form" onClick={ e => e.stopPropagation()}>
-                    <form onSubmit={this.handleSubmit} id="signup-form">
+                <div className="session-form" onClick={ e => e.stopPropagation()}>
+                    <form onSubmit={this.handleSubmit} className="session-form">
                         <h3>Finish signing up</h3>
                         <div className="input-field" id={this.state.firstInput ? 'clicked' : null}>
                             { this.state.firstInput ? <label>First Name</label> : null}
