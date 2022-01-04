@@ -11,7 +11,7 @@ class Header extends React.Component {
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
         this.handleLogoClick = this.handleLogoClick.bind(this);
         this.handleProfileClick = this.handleProfileClick.bind(this); 
-        this.closeDropdown = this.closeDropdown.bind(this)
+        this.closeDropdown = this.closeDropdown.bind(this);
     }
 
 
@@ -30,6 +30,7 @@ class Header extends React.Component {
     closeDropdown() {
         this.setState({show: false})
     }
+
  
     render() {
             return (
