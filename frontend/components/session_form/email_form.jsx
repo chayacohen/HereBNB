@@ -15,7 +15,6 @@ class EmailForm extends React.Component {
     }
 
     handleInput(field) {
-
         return e => {
             this.setState({[field]: e.currentTarget.value }); 
             if (this.validEmail(e.currentTarget.value)) {
@@ -77,7 +76,7 @@ class EmailForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <h2>Welcome to Herebnb</h2>
                     <div id="email">
-                        <div className={this.state.errors !== '' ? 'email-input-container errored' : 'email-input-container'} id={this.state.clicked && !this.state.errors ? 'clicked' : null}>
+                        <div className={this.state.errors ? 'email-input-container errored' : 'email-input-container'} id={this.state.clicked && !this.state.errors ? 'clicked' : null}>
                             { this.state.clicked ? <label>Email</label> : null }
                             <input type="text" placeholder="Email" value={this.state.email} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleInput('email')}/>
                         </div>

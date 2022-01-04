@@ -55,7 +55,6 @@
 
 #login-form .input-field {
     margin-bottom: 5%;
-
 }
 .input-field label {
     margin: 7px 0 auto 7px;
@@ -121,4 +120,8 @@
   align-items: flex-start;
   margin-left: 5%;
   margin-bottom: 80px;
+}
+
+.errored {
+    border: red solid 2px;
 }

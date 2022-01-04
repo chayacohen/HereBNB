@@ -38,6 +38,9 @@ class LoginForm extends React.Component {
 
     handleFocus() {
         this.setState({ ['clicked']: true })
+        if (this.props.errors.length > 0) {
+            this.props.resetSessionErrors(); 
+        }
     }
 
     handleBlur() {
@@ -45,13 +48,8 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        let errors = '';
-        if (this.props.errors.length > 0) {
-            errors = this.props.errors
-        }
-        else {
-            errors = [];
-        }
+       const errors = this.props.errors;
+
         return (
             <div>
                 <div className="session-form" id="login-form" onClick={ e => e.stopPropagation()}>

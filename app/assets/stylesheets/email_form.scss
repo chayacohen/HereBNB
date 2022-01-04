@@ -80,10 +80,6 @@
     border: black solid 2px;
 }
 
-.errored {
-    border: red solid 2px;
-}
-
 #email label {
     margin: 7px 0 auto 7px;
     // margin-top: 10px; 
@@ -155,4 +151,7 @@
   font-size: 14px;
   align-items: flex-start;
   margin-left: 5%;
+}
+.errored {
+    border: red solid 2px;
 }

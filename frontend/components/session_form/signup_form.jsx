@@ -23,16 +23,18 @@ class SignupForm extends React.Component {
             email: this.props.email,
             password: this.state.password,
             first_name: this.state.first_name,
-            last_name: this.state.last_name}
-            this.props.signup(user)
-        if (!this.props.errors) {
+            last_name: this.state.last_name
+        }; 
+        this.props.signup(user)
+        debugger
+        if (this.props.errors.length === 0) {
             this.props.closeModal();
         }
     }
 
     handleInput(field) {
         return e => {
-            if (this.props.errors) {
+            if (this.props.errors.length > 0) {
                 this.props.resetSessionErrors(); 
             }
             this.setState( { [field]: e.currentTarget.value });
@@ -76,11 +78,11 @@ class SignupForm extends React.Component {
                             { this.state.firstInput ? <label>First Name</label> : null}
                             <input type="text" value={this.state.first_name} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleInput('first_name')} placeholder="First Name" alt="firstInput" />
                         </div>
-                        <div className={passwordErrors.length === 0 ? "input-field" : "input-field errored"} id={this.state.secondInput ? 'clicked' : null}>
+                        <div className="input-field" id={this.state.secondInput ? 'clicked' : null}>
                             { this.state.secondInput ? <label>Last Name</label> : null}
                             <input type="text" value={this.state.last_name} placeholder="Last Name" onChange={this.handleInput('last_name')} alt="secondInput" onFocus={this.handleFocus} onBlur={this.handleBlur}/>
                         </div>
-                        <div className="input-field" id={this.state.thirdInput ? 'clicked' : null}>
+                        <div className={passwordErrors.length === 0 ? "input-field" : "input-field errored"} id={this.state.thirdInput ? 'clicked' : null}>
                             { this.state.thirdInput ? <label>Password </label> : null}
                             <input type="password" value={this.state.password} onChange={this.handleInput('password')} placeholder="Password" alt="thirdInput" onFocus={this.handleFocus} onBlur={this.handleBlur}/>
                         </div>

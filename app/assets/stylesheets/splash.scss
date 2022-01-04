@@ -3,11 +3,53 @@
     height: 750px;
     width: 90%; 
     align-items: center;
+    border-color: red;
 }
 
-#splash-container {
+#splash-image-container {
     margin: 25px;
     display: flex;
     justify-content: center;
     resize: 50%;
+}
+
+#splash-container {
+    position: relative;
+    text-align: center;
+}
+
+#splash-text {
+    position: absolute;
+    color: white;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    font-size: 320%;
+    max-width: 80%;
+    font-weight: 500;
+    left: 30%; 
+    top: 68%; 
+}
+
+.flexible-button {
+    border-radius: 30px;
+    border: none;
+    width: 9.2%;
+    height: 58px;
+    background-color: white;
+    position: absolute;
+    left: 45%; 
+    top: 78%;
+}
+
+#text {
+    font-size: 140%;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    position: absolute;
+    left: 19%; 
+    top: 31%;
+    font-weight: 700;
+    background: linear-gradient(
+        90deg, rgb(111, 1, 156) 0%, rgb(198, 1, 126) 135.12%); 
+    background-clip: text;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
 }
