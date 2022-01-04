@@ -52,18 +52,16 @@ class LoginForm extends React.Component {
         else {
             errors = [];
         }
-        debugger
-
         return (
             <div>
                 <div className="session-form" id="login-form" onClick={ e => e.stopPropagation()}>
                     <form onSubmit={this.handleSubmit} className="session-form">
                         <h3>Log in</h3>
-                        <div className={errors.length !== 0 ? 'input-field errored' : 'input-field'} id={this.state.clicked && errors.length === 0 ? 'clicked' : null}>
+                        <div className={errors.length !== 0 ? "input-field errored" : "input-field"} id={this.state.clicked && errors.length === 0 ? 'clicked' : null}>
                             { this.state.clicked ? <label>Password </label> : null }
                             <input type="password" placeholder="Password" onFocus={this.handleFocus} onBlur={this.handleBlur} value={this.state.password} onChange={this.handleInput('password')} />
                         </div>
-                        <p className="error">{ errors.length > 0 ? errors[0] : null}</p>
+                        <p id="error">{ errors.length > 0 ? errors[0] : null}</p>
                         <button type="submit">Log In </button>
                     </form>
                 </div>

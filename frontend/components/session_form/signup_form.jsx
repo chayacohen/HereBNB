@@ -31,7 +31,12 @@ class SignupForm extends React.Component {
     }
 
     handleInput(field) {
-        return e => this.setState( { [field]: e.currentTarget.value });
+        return e => {
+            if (this.props.errors) {
+                this.props.resetSessionErrors(); 
+            }
+            this.setState( { [field]: e.currentTarget.value });
+        }
     }
 
     handleFocus(e) {
@@ -51,6 +56,17 @@ class SignupForm extends React.Component {
             errors = [];
         }
 
+        const passwordErrors = [];
+        const otherErrors = [];
+        errors.forEach(error => {
+            if (error.includes('password') || error.includes('Password')) {
+                passwordErrors.push(error)
+            }
+            else {
+                otherErrors.push(error)
+            }
+        });
+
         return (
             <div>
                 <div className="session-form" onClick={ e => e.stopPropagation()}>
@@ -60,7 +76,7 @@ class SignupForm extends React.Component {
                             { this.state.firstInput ? <label>First Name</label> : null}
                             <input type="text" value={this.state.first_name} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleInput('first_name')} placeholder="First Name" alt="firstInput" />
                         </div>
-                        <div className="input-field" id={this.state.secondInput ? 'clicked' : null}>
+                        <div className={passwordErrors.length === 0 ? "input-field" : "input-field errored"} id={this.state.secondInput ? 'clicked' : null}>
                             { this.state.secondInput ? <label>Last Name</label> : null}
                             <input type="text" value={this.state.last_name} placeholder="Last Name" onChange={this.handleInput('last_name')} alt="secondInput" onFocus={this.handleFocus} onBlur={this.handleBlur}/>
                         </div>
@@ -68,14 +84,14 @@ class SignupForm extends React.Component {
                             { this.state.thirdInput ? <label>Password </label> : null}
                             <input type="password" value={this.state.password} onChange={this.handleInput('password')} placeholder="Password" alt="thirdInput" onFocus={this.handleFocus} onBlur={this.handleBlur}/>
                         </div>
+                        <ul className="error">
+                            {errors.map((error, idx) => (
+                                <li key={idx}>{error}</li>
+                            ))}
+                        </ul>
                         <button type="submit">Agree and continue </button>
                     </form>
                 </div>
-                    <ul id="errors">
-                        {errors.map((error, idx) => (
-                            <li key={idx}>{error}</li>
-                            ))}
-                    </ul>
             </div>
         )
     }
