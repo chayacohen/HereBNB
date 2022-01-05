@@ -19,11 +19,11 @@ class LoginForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault(); 
-        if(!this.props.errors) {
-            this.props.closeModal();
-        }
         const user = { email: this.state.email, password: this.state.password};
         this.props.login(user)
+        if (!this.props.errors.length === 0) {
+            this.props.closeModal();
+        }
     }
 
     handleInput(field) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 class Account extends React.Component {
 
@@ -27,7 +28,7 @@ class Account extends React.Component {
             <div className="account">
                 <div className="account-sidebar">
                     <img src="https://a0.muscache.com/defaults/user_pic-50x50.png?v=3" />
-                    <p onClick={this.updatePhotoClick}>Update photo</p>
+                    <p><Link to="/users/edit-photo" className="link">Update Photo</Link></p>
                 </div>
                 <div className="profile">
                     <div className="profile-section-one">

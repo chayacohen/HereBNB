@@ -6,6 +6,7 @@ import Splash from './splash/splash';
 import Footer from './footer/footer';
 import { Switch, Route } from 'react-router-dom';
 import AccountContainer from './account/account_container';
+import UpdatePicFormContainer from './account/update_pic_container';
 
 const App = () => (
     <div>
@@ -15,8 +16,9 @@ const App = () => (
         </header>
         {/* <Search/> */}
         <Switch>
-            <Route exact path = "/" component={Splash}></Route>
+            <Route exact path = "/" component={Splash}/>
             <Route exact path="/users/show/:id" component={AccountContainer}/>
+            <Route exact path="/users/edit-photo" component={UpdatePicFormContainer}/>
         </Switch>
         {/* <Route exact path="/listings" component={Listings}/> */}
         {/* <Route exact path="/" component={SearchContainer} /> */}

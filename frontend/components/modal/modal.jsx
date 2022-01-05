@@ -30,10 +30,7 @@ class Modal extends React.Component {
                 break; 
             case 'email': 
                 component = <EmailFormContainer/>; 
-                break; 
-            case 'uploadPicture': 
-                component = <UpdatePicForm/>
-                break; 
+                break;  
             default: 
                 return null; 
         };

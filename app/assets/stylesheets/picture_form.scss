@@ -1,0 +1,77 @@
+$font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+
+.pic-form {
+    margin-top: 10%;
+    margin-left: 15%;
+    margin-right: 30%;
+    margin-bottom: 30%;
+    font-family: $font;
+}
+.pic-form h1 {
+    font-weight: 500;
+    font-size: 36px; 
+    margin-bottom: 5%;
+    color: #484848;
+}
+
+.upload-container h3 {
+    font-weight: 300;
+    background-color: #EDEFED;
+    padding: 2%;
+    text-indent: 1%;
+}
+
+.upload-container {
+    height: 50%;
+    width: 85%;
+    border: lightgray solid 1px
+}
+
+.profile-content {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 3%;
+}
+
+.profile-content p {
+    margin-top: 4%;
+    margin-right: 3%; 
+    margin-bottom: 3%;
+    line-height: 20px;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.image-container {
+    background-color: lightgray;
+    margin: 3%;
+}
+.image-container img {
+    border-radius: 50%;
+    height: 225px;
+    width: 225px;
+
+}
+
+.upload-button {
+    width: 95%;  
+    height: 18%;
+    font-weight: 600; 
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: white;
+    border: rgb(187, 185, 185) solid 1px;
+    margin-right: 3%;
+}
+
+.directory {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.5%;
+    margin-bottom: 1.5%;
+    font-size: 14px;
+}
+
+.directory p:first-child:hover{
+    text-decoration: underline;
+}
