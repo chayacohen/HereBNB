@@ -10,7 +10,7 @@ import ProfileMenuContainer from './Header/profile_menu_container';
 import Splash from './splash/splash';
 import Footer from './footer/footer';
 import { Switch } from 'react-router-dom';
-import Account from '../account/account'
+import AccountContainer from './account/account_container';
 
 const App = () => (
     <div>
@@ -21,7 +21,7 @@ const App = () => (
         {/* <Search/> */}
         <Switch>
             <Route exact path = "/" component={Splash}></Route>
-            <Route exact path="/users/show/:id" component={Account}/>
+            <Route exact path="/users/show/:id" component={AccountContainer}/>
         </Switch>
         {/* <Route exact path="/listings" component={Listings}/> */}
         {/* <Route exact path="/" component={SearchContainer} /> */}

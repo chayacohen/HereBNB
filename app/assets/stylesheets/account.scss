@@ -1,0 +1,79 @@
+$font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+
+.account {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 200px;
+    width: 50%;
+    gap: 10%;
+    // border: black solid 1px; 
+    font-family: $font; 
+    // margin-left: 100px;
+}
+
+.account-sidebar {
+    border: lightgray solid 1px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column; 
+    border-radius: 5%;
+    height: 300px; 
+    width: 250px; 
+    gap: 20px;
+}
+
+.account-sidebar img{
+    border-radius: 50%;
+    height: 130px;
+    width: 130px;
+    margin-top: 40px; 
+}
+
+.account-sidebar p{
+    font-weight: 400;
+    text-decoration: underline;
+}
+.profile {
+    // border: black solid 1px; 
+}
+.profile-section-one {
+    display: flex; 
+    // justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-section-one p:first-child{
+    font-size: 30px;
+    font-weight: 500;
+}
+.profile-section-one p:nth-child(2){
+    font-size: 14px;
+    font-weight: 300;
+    color: rgb(112, 111, 111);
+}
+.profile-section-one p:nth-child(3){
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: underline;
+    margin-bottom: 40px;
+}
+
+.profile-section-one p:nth-child(4){
+    margin-bottom: 50px;
+    border-bottom: lightgray;
+    font-weight: 400;
+    font-size: 22px;
+}
+
+.profile-section-one p:nth-child(5){
+    margin-bottom: 500%;
+    border-bottom: lightgray;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: underline;
+}

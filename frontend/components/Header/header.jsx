@@ -34,13 +34,23 @@ class Header extends React.Component {
     }
 
     componentDidMount() {
+        if (this.props.location.pathname !== '/' ) {
+            this.setState({color: 'white'})
+        }
+        else {
+            this.setState({color: 'black'})
+        }
         document.addEventListener('scroll', () => {
-            if (window.scrollY > 1 || this.props.location.pathname !== '/') {
+            if (window.scrollY > 1 && this.props.location.pathname === '/') {
                 this.setState({color: 'white'})
+            } else if (window.scrollY < 1 && this.props.location.pathname === '/') {
+                this.setState({ color: 'black' }) 
+            } else if (window.scrollY > -1 && this.props.location.pathname !== '/') {
+                this.setState({ color: 'white' })
             } else {
                 this.setState({color: 'black'})
             }
-        })
+            })
     }
 
     changeColor() {
@@ -65,7 +75,7 @@ class Header extends React.Component {
                             {/* <Link to="/login">Login</Link> */}
                         </div>
                         <div>
-                            { this.props.match.path === '/' ? <Search/> : null}
+                            { this.props.location.pathname !== '/' ? null : <Search/>}
                         </div>
                     </nav>
                     { this.state.show ? <ProfileMenuContainer closeDropdown={this.closeDropdown} changeColor={this.changeColor}/> : null}

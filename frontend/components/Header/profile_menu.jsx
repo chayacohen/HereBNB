@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
         super(props); 
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
         this.handleModalClick = this.handleModalClick.bind(this); 
+        this.handleAccountClick = this.handleAccountClick.bind(this);
     }
 
     handleLogoutClick() {
@@ -20,8 +21,13 @@ import { Link } from "react-router-dom";
         this.props.openModal('email')
     }
 
-    render()
-    {
+    handleAccountClick() {
+        this.props.changeColor(); 
+        this.props.closeDropdown();
+    }
+
+    render() {
+        const changeColor = this.props.changeColor
         if (this.props.currentUser) {
             return (
                 <div id="profile-menu-background" onClick={this.props.closeDropdown}>
@@ -30,7 +36,7 @@ import { Link } from "react-router-dom";
                             <button>Trips</button>
                             <button>Wishlist</button>
                             <button>Manage Listings</button>
-                            <button><Link to={`/users/show/${this.props.currentUser.id}`} className="link" onClick={this.props.changeColor}>Account</Link></button>
+                            <button><Link to={{ pathname: `/users/show/${this.props.currentUser.id}`, data: {changeColor}}} className="link" onClick={this.handleAccountClick}>Account</Link></button>
                             <button onClick={this.handleLogoutClick}>Logout</button>
                         </div>
                     </div> 
