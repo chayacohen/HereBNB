@@ -6,10 +6,15 @@ class Account extends React.Component {
         super(props); 
         this.state = {clicked: false}; 
         this.changeClickedState = this.changeClickedState.bind(this);
+        this.updatePhotoClick = this.updatePhotoClick.bind(this); 
     }
 
     changeClickedState() {
         this.setState({clicked: true})
+    }
+
+    updatePhotoClick() {
+        this.props.openModal('uploadPicture')
     }
 
     componentDidMount() {
@@ -22,7 +27,7 @@ class Account extends React.Component {
             <div className="account">
                 <div className="account-sidebar">
                     <img src="https://a0.muscache.com/defaults/user_pic-50x50.png?v=3" />
-                    <p>Update photo</p>
+                    <p onClick={this.updatePhotoClick}>Update photo</p>
                 </div>
                 <div className="profile">
                     <div className="profile-section-one">

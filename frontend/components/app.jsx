@@ -4,7 +4,7 @@ import HeaderContainer from './header/header_container'
 import ModalContainer from './modal/modal_container'
 import Splash from './splash/splash';
 import Footer from './footer/footer';
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import AccountContainer from './account/account_container';
 
 const App = () => (

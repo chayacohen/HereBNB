@@ -2,6 +2,7 @@ import LoginFormContainer from "../session_form/login_form_container";
 import SignupFormContainer from "../session_form/signup_form_container";
 import React from "react";
 import EmailFormContainer from "../session_form/email_form_container";
+import UpdatePicForm from '../account/update_pic_form';
 
 class Modal extends React.Component {
 
@@ -29,6 +30,9 @@ class Modal extends React.Component {
                 break; 
             case 'email': 
                 component = <EmailFormContainer/>; 
+                break; 
+            case 'uploadPicture': 
+                component = <UpdatePicForm/>
                 break; 
             default: 
                 return null; 

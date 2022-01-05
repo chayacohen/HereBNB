@@ -6,7 +6,7 @@ import { closeModal, openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => ({
     errors: state.errors.session,
-    email: state.ui.currentEmail.user
+    email: state.ui.currentEmail.email
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
