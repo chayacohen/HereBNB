@@ -8,9 +8,9 @@ import Search from './search/search';
 import ModalContainer from './modal/modal_container'
 import ProfileMenuContainer from './Header/profile_menu_container';
 import Splash from './splash/splash';
-import Inspiration from './splash/inspiration';
 import Footer from './footer/footer';
 import { Switch } from 'react-router-dom';
+import Account from '../account/account'
 
 const App = () => (
     <div>
@@ -19,12 +19,10 @@ const App = () => (
             <HeaderContainer />
         </header>
         {/* <Search/> */}
-        <Splash/>
-        <Inspiration/>
-        {/* <Switch>
-            <Route/>
-
-        </Switch> */}
+        <Switch>
+            <Route exact path = "/" component={Splash}></Route>
+            <Route exact path="/users/show/:id" component={Account}/>
+        </Switch>
         {/* <Route exact path="/listings" component={Listings}/> */}
         {/* <Route exact path="/" component={SearchContainer} /> */}
         <footer>

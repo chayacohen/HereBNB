@@ -13,6 +13,7 @@ class Header extends React.Component {
         this.handleLogoClick = this.handleLogoClick.bind(this);
         this.handleProfileClick = this.handleProfileClick.bind(this); 
         this.closeDropdown = this.closeDropdown.bind(this);
+        this.changeColor = this.changeColor.bind(this); 
     }
 
 
@@ -34,7 +35,7 @@ class Header extends React.Component {
 
     componentDidMount() {
         document.addEventListener('scroll', () => {
-            if(window.scrollY > 1) {
+            if (window.scrollY > 1 || this.props.location.pathname !== '/') {
                 this.setState({color: 'white'})
             } else {
                 this.setState({color: 'black'})
@@ -42,6 +43,9 @@ class Header extends React.Component {
         })
     }
 
+    changeColor() {
+        this.setState({color: 'white'})
+    }
  
     render() {
             return (
@@ -64,7 +68,7 @@ class Header extends React.Component {
                             { this.props.match.path === '/' ? <Search/> : null}
                         </div>
                     </nav>
-                    { this.state.show ? <ProfileMenuContainer closeDropdown={this.closeDropdown}/> : null}
+                    { this.state.show ? <ProfileMenuContainer closeDropdown={this.closeDropdown} changeColor={this.changeColor}/> : null}
                 </div>
             )
     }

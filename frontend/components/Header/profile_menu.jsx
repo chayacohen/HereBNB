@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
  class ProfileMenu extends React.Component {
@@ -29,7 +30,7 @@ import React from "react";
                             <button>Trips</button>
                             <button>Wishlist</button>
                             <button>Manage Listings</button>
-                            <button>Account</button>
+                            <button><Link to={`/users/show/${this.props.currentUser.id}`} className="link" onClick={this.props.changeColor}>Account</Link></button>
                             <button onClick={this.handleLogoutClick}>Logout</button>
                         </div>
                     </div> 
