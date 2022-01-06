@@ -22,7 +22,9 @@ class Header extends React.Component {
     }
 
     handleLogoClick() {
-        this.props.history.push("/")
+        this.props.history.push("/"); 
+        this.setState({color: 'black'})
+        
     }
 
     handleProfileClick() {
@@ -58,10 +60,20 @@ class Header extends React.Component {
     }
  
     render() {
+        let image = ''; 
+        if(this.props.currentUser) {
+            image = this.props.currentUser.photoUrl
+        }
+        else {
+            image = "https://a0.muscache.com/defaults/user_pic-50x50.png?v=3"
+        }
             return (
                 <div>
-                    <nav id="nav-bar" className={this.state.color}>
+                    <nav id="nav-bar"  style={{backgroundColor: this.state.color}} className={this.state.color}>
                         <p className="logo" id={this.state.color} onClick={this.handleLogoClick}>herebnb</p>
+                        <div>
+                            { this.props.location.pathname !== '/' ? null : <Search/>}
+                        </div>
                         <div id="right-nav">
                             <section id="profile-button" onClick={this.handleProfileClick}>
                                 <div className="dropdown-lines">
@@ -69,13 +81,8 @@ class Header extends React.Component {
                                     <p></p>
                                     <p></p>
                                 </div>
-                                <img src="https://a0.muscache.com/defaults/user_pic-50x50.png?v=3" id="profile-img"/>
+                                <img src={image} id="profile-img"/>
                             </section>
-                            {/* <Link to="/signup">Signup</Link> */}
-                            {/* <Link to="/login">Login</Link> */}
-                        </div>
-                        <div>
-                            { this.props.location.pathname !== '/' ? null : <Search/>}
                         </div>
                     </nav>
                     { this.state.show ? <ProfileMenuContainer closeDropdown={this.closeDropdown} changeColor={this.changeColor}/> : null}

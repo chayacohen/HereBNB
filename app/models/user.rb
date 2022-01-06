@@ -2,6 +2,8 @@ class User < ApplicationRecord
 
     attr_reader :password 
 
+    has_one_attached :photo
+
     validates :email, presence: true, uniqueness: true
     validates :password_digest, presence: true
     validates :session_token, presence: true, uniqueness: true 
@@ -9,6 +11,7 @@ class User < ApplicationRecord
     validates :password, length: {minimum: 6}, allow_nil: true 
 
     after_initialize :ensure_session_token 
+    # after_initialize :ensure_profile_photo
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email) 
@@ -24,6 +27,12 @@ class User < ApplicationRecord
             return {email: email, user: true} 
         end   
     end 
+
+    # def ensure_profile_photo
+    #     unless self.photo.attached? 
+    #         self.photo = "https://a0.muscache.com/defaults/user_pic-50x50.png?v=3"
+    #     end 
+    # end 
 
     def is_password?(password)
         BCrypt::Password.new(self.password_digest).is_password?(password)

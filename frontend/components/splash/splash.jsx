@@ -6,6 +6,13 @@ import { Redirect } from "react-router-dom";
 
 class Splash extends React.Component {
 
+    // componentDidMount() {
+    //     const header = document.getElementById('nav-bar')
+    //     if (window.scrollY < 1) {
+    //         header.style.color = "black";
+    //     }
+    // }
+
 
     render () {
         return (

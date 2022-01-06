@@ -3,7 +3,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 .account {
     display: flex;
     justify-content: flex-start;
-    margin-top: 100px;
+    margin-top: 200px;
     margin-bottom: 100px;
     margin-left: 200px;
     width: 50%;
@@ -61,17 +61,87 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     margin-bottom: 40px;
 }
 
-.profile-section-one p:nth-child(4){
+.total-reviews{
     margin-bottom: 50px;
     border-bottom: lightgray;
     font-weight: 400;
     font-size: 22px;
+    margin-top: 5%;
 }
 
-.profile-section-one p:nth-child(5){
+.reviews-by-you{
     margin-bottom: 500%;
     border-bottom: lightgray;
     font-weight: 500;
     font-size: 14px;
     text-decoration: underline;
+}
+
+.profile-form {
+    height: 45vh;
+    width: 50vw;
+    // border: red solid 1px;
+    font-family: $font;
+}
+
+.inputs {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.inputs div {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+.inputs input {
+    height: 4vh;
+    outline: none;
+    border-radius: 8px;
+    border: rgb(172, 170, 170) solid 1px;
+}
+
+.inputs textarea {
+    height: 9vh;
+    outline: none;
+    border-radius: 8px;
+    border: rgb(172, 170, 170) solid 1px;   
+}
+
+.inputs label {
+    margin-bottom: 1%;
+    font-weight: 300;
+    color:rgb(34, 34, 34)
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-buttons button:first-child {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 5%;
+
+}
+
+
+.form-buttons button:last-child {
+    background-color: black;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    font-size: 17px;
+    color: white;
+    padding: 2% 3% 2% 3%;
+    border-radius: 8px;
+
 }

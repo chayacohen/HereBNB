@@ -7,6 +7,7 @@ import Footer from './footer/footer';
 import { Switch, Route } from 'react-router-dom';
 import AccountContainer from './account/account_container';
 import UpdatePicFormContainer from './account/update_pic_container';
+import ScrollToTop from './header/scrollToTop';
 
 const App = () => (
     <div>
@@ -15,11 +16,13 @@ const App = () => (
             <HeaderContainer />
         </header>
         {/* <Search/> */}
-        <Switch>
-            <Route exact path = "/" component={Splash}/>
-            <Route exact path="/users/show/:id" component={AccountContainer}/>
-            <Route exact path="/users/edit-photo" component={UpdatePicFormContainer}/>
-        </Switch>
+        <ScrollToTop>
+            <Switch>
+                <Route exact path = "/" component={Splash}/>
+                <ProtectedRoute exact path="/users/show/:id" component={AccountContainer}/>
+                <ProtectedRoute exact path="/users/edit-photo" component={UpdatePicFormContainer}/>
+            </Switch>
+        </ScrollToTop>
         {/* <Route exact path="/listings" component={Listings}/> */}
         {/* <Route exact path="/" component={SearchContainer} /> */}
         <footer>
