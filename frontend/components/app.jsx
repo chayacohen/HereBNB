@@ -1,13 +1,13 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import HeaderContainer from './header/header_container'
+import HeaderContainer from './Header/header_container'
 import ModalContainer from './modal/modal_container'
 import Splash from './splash/splash';
 import Footer from './footer/footer';
 import { Switch, Route } from 'react-router-dom';
 import AccountContainer from './account/account_container';
 import UpdatePicFormContainer from './account/update_pic_container';
-import ScrollToTop from './header/scroll_to_top';
+import ScrollToTop from './Header/scroll_to_top';
 
 const App = () => (
     <div>
