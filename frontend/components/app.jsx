@@ -7,7 +7,7 @@ import Footer from './footer/footer';
 import { Switch, Route } from 'react-router-dom';
 import AccountContainer from './account/account_container';
 import UpdatePicFormContainer from './account/update_pic_container';
-import ScrollToTop from './header/scrollToTop';
+import ScrollToTop from './header/scroll_to_top';
 
 const App = () => (
     <div>
