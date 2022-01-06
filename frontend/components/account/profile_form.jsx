@@ -21,8 +21,9 @@ class ProfileForm extends React.Component {
         this.handleFocus = this.handleFocus.bind(this); 
         this.handleBlur = this.handleBlur.bind(this); 
         this.handleCancelClick = this.handleCancelClick.bind(this); 
-        this.handleSaveClick = this.handleSaveClick.bind(this); 
+        this.handleSubmit = this.handleSubmit.bind(this); 
     }
+
 
     handleInput(field) {
         return e => 
@@ -33,40 +34,53 @@ class ProfileForm extends React.Component {
         this.props.changeClickedState()
     }
 
-    handleSaveClick() {
-        this.props.updateUser({id: this.props.currentUser, about: this.state.about, location: this.state.location, work: this.state.work})
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.currentUser.about = this.state.about; 
+        this.props.currentUser.location = this.state.location; 
+        this.props.currentUser.work = this.state.work; 
+        
+        this.props.updateUser(this.props.currentUser)
+        this.props.changeClickedState()
     }
 
+
     handleFocus(e) {
-        this.setState({[e.currentTarget.alt]: true})
+        this.setState({[e.currentTarget.name]: true})
     }
 
     handleBlur(e) {
-        this.setState({[e.currentTarget.alt]: false})
+        this.setState({[e.currentTarget.name]: false})
     }
 
     render() {
         return (
-            <div className="profile-form">
-                <div className="inputs">
-                    <div className="about">
-                        <label>About</label>
-                        <textarea value={this.state.about} onChange={this.handleInput('about')} onFocus={this.handleFocus} onBlur={this.handleBlur} alt="focusAbout"></textarea>
+                <form className="profile-form" onSubmit={this.handleSubmit}>
+                    <div className="inputs">
+                        <div className="about">
+                            <label>About</label>
+                            <textarea id={this.state.focusAbout ? "focused" : null} value={this.state.about} onChange={this.handleInput('about')} onFocus={this.handleFocus} onBlur={this.handleBlur} 
+                            // name="focusAbout"
+                            ></textarea>
+                        </div>
+                        <div className="location">
+                            <label>Location</label>
+                        <input id={this.state.focusLocation ? "focused" : null} value={this.state.location} onChange={this.handleInput('location')} onFocus={this.handleFocus} onBlur={this.handleBlur} 
+                        // name="focusLocation"
+                        />
+                        </div>
+                        <div className="work">
+                            <label>Work</label>
+                        <input id={this.state.focusWork ? "focused" : null} value={this.state.work} onChange={this.handleInput('work')} onFocus={this.handleFocus} onBlur={this.handleBlur} 
+                        // name="focusWork"
+                        />
+                        </div>
                     </div>
-                    <div className="location">
-                        <label>Location</label>
-                        <input value={this.state.location} onChange={this.handleInput('location')} onFocus={this.handleFocus} onBlur={this.handleBlur} alt="focusLocation"/>
+                    <div className="form-buttons">
+                        <button onClick={(this.handleCancelClick)}>Cancel</button>
+                        <button type="submit">Save</button>
                     </div>
-                    <div className="work">
-                        <label>Work</label>
-                        <input value={this.state.work} onChange={this.handleInput('work')} onFocus={this.handleFocus} onBlur={this.handleBlur} alt="focusWork"/>
-                    </div>
-                </div>
-                <div className="form-buttons">
-                    <button onClick={(this.handleCancelClick)}>Cancel</button>
-                    <button onClick={(this.handleSaveClick)}>Save</button>
-                </div>
-            </div>
+                </form>
         )
     }
 }

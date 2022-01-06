@@ -90,7 +90,7 @@ class SignupForm extends React.Component {
                                 <li key={idx}>{error}</li>
                             ))}
                         </ul>
-                        <button type="submit">Agree and continue </button>
+                        <button type="submit">Continue </button>
                     </form>
                 </div>
             </div>

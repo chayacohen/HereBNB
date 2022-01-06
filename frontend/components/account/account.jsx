@@ -6,9 +6,10 @@ class Account extends React.Component {
 
     constructor(props) {
         super(props); 
-        this.state = {clicked: true}; 
+        this.state = {clicked: false}; 
         this.changeClickedState = this.changeClickedState.bind(this);
         this.updatePhotoClick = this.updatePhotoClick.bind(this); 
+        this.handleEditClick = this.handleEditClick.bind(this)
     }
 
     changeClickedState() {
@@ -17,6 +18,10 @@ class Account extends React.Component {
         } else {
             this.setState({ clicked: false })
         }
+    }
+
+    handleEditClick() {
+        this.setState({clicked: true})
     }
 
     updatePhotoClick() {
@@ -34,7 +39,7 @@ class Account extends React.Component {
                     <div className="profile-section-one">
                         <p>{`Hi, I'm ${this.props.currentUser.first_name}`}</p>
                         <p>Joined in 2022</p>
-                        <p onClick={this.changeClickedState}>Edit profile</p>
+                        <p onClick={this.handleEditClick}>Edit profile</p>
                         {this.state.clicked ? <ProfileFormContainer changeClickedState={this.changeClickedState}/> : null}
                         <p className="total-reviews">{'\u2605'} 0 reviews</p>
                         <p className="reviews-by-you">Reviews by you</p>

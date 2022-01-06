@@ -3,10 +3,10 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 .account {
     display: flex;
     justify-content: flex-start;
-    margin-top: 200px;
-    margin-bottom: 100px;
+    margin-top: 10%;
+    // margin-bottom: 100px;
     margin-left: 200px;
-    width: 50%;
+    overflow: auto;
     gap: 10%;
     // border: black solid 1px; 
     font-family: $font; 
@@ -19,6 +19,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     justify-content: flex-start;
     align-items: center;
     flex-direction: column; 
+    top: 15%;
     border-radius: 5%;
     height: 300px; 
     width: 250px; 
@@ -70,7 +71,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 }
 
 .reviews-by-you{
-    margin-bottom: 500%;
+    // margin-bottom: 500%;
     border-bottom: lightgray;
     font-weight: 500;
     font-size: 14px;
@@ -79,7 +80,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 
 .profile-form {
     height: 45vh;
-    width: 50vw;
+    width: 40vw;
     // border: red solid 1px;
     font-family: $font;
 }
@@ -102,9 +103,17 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     outline: none;
     border-radius: 8px;
     border: rgb(172, 170, 170) solid 1px;
+    font-family: $font;
+    font-size: 15px;
+    text-indent: 1%;
+
 }
 
 .inputs textarea {
+    font-family: $font;
+    font-size: 15px;
+    text-indent: 1%;
+    margin-top: 3%;
     height: 9vh;
     outline: none;
     border-radius: 8px;
@@ -124,24 +133,32 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 
 .form-buttons button:first-child {
     background-color: transparent;
+    background-size: contain;
     outline: none;
     border: none;
     text-decoration: underline;
     font-weight: 500;
     font-size: 15px;
     margin-bottom: 5%;
-
+    width: 60px;
+    height: 40px;
+    text-align: center;
 }
-
 
 .form-buttons button:last-child {
     background-color: black;
+    width: 80px;
+    height: 50px;
+    background-size: contain;
     outline: none;
     border: none;
     font-weight: 500;
     font-size: 17px;
     color: white;
-    padding: 2% 3% 2% 3%;
     border-radius: 8px;
+}
 
+.form-buttons button:first-child:hover {
+    background-color: rgb(231, 229, 229);
+    border-radius: 8px;
 }

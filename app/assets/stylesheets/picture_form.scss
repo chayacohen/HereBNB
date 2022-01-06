@@ -75,3 +75,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 .directory p:first-child:hover{
     text-decoration: underline;
 }
+
+#focused {
+    border: black solid 2px;
+}

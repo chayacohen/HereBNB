@@ -5,8 +5,7 @@ class UpdatePicForm extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {uploadedPic: null, updated: false}
-        this.pic = ''; 
+        this.state = {uploadedPic: null, updated: false} 
         this.handlePicChange = this.handlePicChange.bind(this);
     }
 
@@ -14,21 +13,18 @@ class UpdatePicForm extends React.Component {
         this.setState({ uploadedPic: e.target.files[0]})
     }
 
-    componentDidUpdate() {
-        // e.preventDefault(); 
-        const formData = new FormData(); 
-        formData.append("user[photo]", this.state.uploadedPic); 
-        $.ajax({
-            url: `/api/users/${this.props.currentUser.id}`, 
-            method: "PATCH", 
-            data: formData, 
-            contentType: false, 
-            processData: false
-        });
-        debugger
-        if (!this.state.updated) {
-            debugger
-            this.setState({updated: true})
+
+    componentDidUpdate(prevProps, prevState) { 
+        if (this.state.uploadedPic !== prevState.uploadedPic)  {
+            const formData = new FormData(); 
+            formData.append("user[photo]", this.state.uploadedPic); 
+            $.ajax({
+                url: `/api/users/${this.props.currentUser.id}`, 
+                method: "PATCH", 
+                data: formData, 
+                contentType: false, 
+                processData: false
+            }).then(response => this.props.updateUser(response))
         }
     }
 
