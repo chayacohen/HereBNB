@@ -13,6 +13,7 @@ class Header extends React.Component {
         this.handleLogoClick = this.handleLogoClick.bind(this);
         this.handleProfileClick = this.handleProfileClick.bind(this); 
         this.closeDropdown = this.closeDropdown.bind(this);
+        this.changeColor = this.changeColor.bind(this); 
     }
 
 
@@ -21,7 +22,9 @@ class Header extends React.Component {
     }
 
     handleLogoClick() {
-        this.props.history.push("/")
+        this.props.history.push("/"); 
+        this.setState({color: 'black'})
+        
     }
 
     handleProfileClick() {
@@ -33,21 +36,44 @@ class Header extends React.Component {
     }
 
     componentDidMount() {
+        if (this.props.location.pathname !== '/' ) {
+            this.setState({color: 'white'})
+        }
+        else {
+            this.setState({color: 'black'})
+        }
         document.addEventListener('scroll', () => {
-            if(window.scrollY > 1) {
+            if (window.scrollY > 1 && this.props.location.pathname === '/') {
                 this.setState({color: 'white'})
+            } else if (window.scrollY < 1 && this.props.location.pathname === '/') {
+                this.setState({ color: 'black' }) 
+            } else if (window.scrollY > -1 && this.props.location.pathname !== '/') {
+                this.setState({ color: 'white' })
             } else {
                 this.setState({color: 'black'})
             }
-        })
+            })
     }
 
+    changeColor() {
+        this.setState({color: 'white'})
+    }
  
     render() {
+        let image = ''; 
+        if(this.props.currentUser) {
+            image = this.props.currentUser.photoUrl
+        }
+        else {
+            image = "https://a0.muscache.com/defaults/user_pic-50x50.png?v=3"
+        }
             return (
                 <div>
-                    <nav id="nav-bar" className={this.state.color}>
+                    <nav id="nav-bar"  style={{backgroundColor: this.state.color}} className={this.state.color}>
                         <p className="logo" id={this.state.color} onClick={this.handleLogoClick}>herebnb</p>
+                        <div>
+                            { this.props.location.pathname !== '/' ? null : <Search/>}
+                        </div>
                         <div id="right-nav">
                             <section id="profile-button" onClick={this.handleProfileClick}>
                                 <div className="dropdown-lines">
@@ -55,16 +81,11 @@ class Header extends React.Component {
                                     <p></p>
                                     <p></p>
                                 </div>
-                                <img src="https://a0.muscache.com/defaults/user_pic-50x50.png?v=3" id="profile-img"/>
+                                <img src={image} id="profile-img"/>
                             </section>
-                            {/* <Link to="/signup">Signup</Link> */}
-                            {/* <Link to="/login">Login</Link> */}
-                        </div>
-                        <div>
-                            { this.props.match.path === '/' ? <Search/> : null}
                         </div>
                     </nav>
-                    { this.state.show ? <ProfileMenuContainer closeDropdown={this.closeDropdown}/> : null}
+                    { this.state.show ? <ProfileMenuContainer closeDropdown={this.closeDropdown} changeColor={this.changeColor}/> : null}
                 </div>
             )
     }

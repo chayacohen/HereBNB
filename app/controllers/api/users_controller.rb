@@ -4,7 +4,12 @@ class Api::UsersController < ApplicationController
     # before_action :ensure_logged_out, only: [:create]
 
     def index 
-        @user = User.find_by_email(params[:email]) 
+        @users = User.all
+    end 
+
+    def email 
+        @user = User.find_by_email(params[:email])
+        render :email
     end 
 
     def create 
@@ -19,7 +24,7 @@ class Api::UsersController < ApplicationController
 
     def update 
         @user = selected_user 
-        if @user && @user.update_attributes(user_params)
+        if @user && @user.update(user_params)
             render :show 
         elsif !@user 
             render json: ['Cannot locate user'], status: 404
@@ -50,7 +55,7 @@ class Api::UsersController < ApplicationController
     end 
 
     def user_params 
-        params.require(:user).permit(:email, :password, :first_name, :last_name, :about, :location, :work)
+        params.require(:user).permit(:email, :password, :first_name, :last_name, :about, :location, :work, :photo)
     end 
 
 

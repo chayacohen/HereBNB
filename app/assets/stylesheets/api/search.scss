@@ -1,19 +1,22 @@
 .search {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background-color: white;
     border-radius: 32px;
     // height: 66px; 
     // width: 800px;
+    height: 40px; 
+    width: 670px; 
     padding-right: 10px;
     padding-left: 30px;
     padding-top: 10px;
     padding-bottom: 10px;
-    border: rgb(214, 211, 211) solid 1px;
-    position: fixed;
-    top: 2%;
-    left: 28%; 
-    margin-bottom: 2%;
+    border: rgb(214, 211, 211) solid 1px; 
+    margin-top: 2.75%; 
+    // margin-left: 10px;
+    margin-right: 8px;
+    // margin-right: 5%;
+    max-height: 100%;
 }
 
 .search-container {
@@ -33,7 +36,7 @@
 
 .search-container label {
     font-weight: 600;
-    font-size: 12px;
+    font-size: 70%;
     padding-top: 10px;
     margin-left: 2px;
     font-family: inherit;
@@ -41,7 +44,7 @@
 }
 .search-container input {
     border: none;
-    font-size: 14px; 
+    font-size: 90%; 
     font-weight: 300;
     color: #717171; 
     margin-bottom: 5px;
@@ -53,8 +56,8 @@
     // background-image: radial-gradient(circle at center center, rgb(255, 56, 92) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%);
     background-color: #ff385c;
     border-radius: 50px;
-    height: 48px;
-    width: 48px;
+    height: 45px;
+    width: 45px;
     border: none;
     text-align: center;
     color: white;
@@ -65,20 +68,23 @@
     justify-content: space-evenly;
     align-items: center;
     cursor: pointer;
+    // margin-right: 50px;
 }
 #search-icon:hover{
     background: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
 }
 
 #search-icon img{
-   height: 18px; 
+   height: 50%; 
 }
 
 #search-button-container {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-right: 0px;
+    height: 100%;
+    width: 100%;
+    margin-right: 5px;
 }
 
 

@@ -5,6 +5,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     height: 100%;
     width: 90%; 
     align-items: center;
+    top: 20%;
 }
 
 #splash-image-container {
@@ -18,6 +19,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     position: relative;
     text-align: center;
     max-width: 100%;
+    background-color: black;
 }
 
 #splash-text {
