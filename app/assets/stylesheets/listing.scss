@@ -46,14 +46,17 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 .listing-item {
     margin: 7% 14% 0 14%;
     font-family: $font;
+    color: #222222;
 }
 .listing-item p {
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
+    margin-left: 0.5%;
 }
 
 .listing-title {
     font-size: 26px;
     font-weight: 500;
+    margin-bottom: 20px;
 }
 
 .listing-details {
@@ -63,6 +66,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     font-size: 13px;
     font-weight: 500;
     color: #222222;
+    margin-bottom: 20px;
 }
 
 .listing-details p:nth-child(1) {
@@ -81,6 +85,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 .image-show-listing {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 4.2%;
     // border: black solid 2px;
 }
 
@@ -118,4 +123,112 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 
 .rest-of-images div:nth-child(4) {
     border-radius: 0 0 8px 0;
+}
+
+.hosted-by {
+    font-size: 22px;
+    font-weight: 400;
+    color: #222222;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.house-details {
+    font-size: 16px;
+    font-weight: 300;
+    // border: black solid 1px;
+    width: 100%;
+}
+
+.host-photo {
+    height: 50px;
+    width: 50px; 
+    border-radius: 50%;
+    margin-top: 1%;
+    // margin-left: 20%;
+}
+
+.about-host-first {
+    display: flex;
+    justify-content: space-between;
+    // border: black solid 1px;
+    margin-right: 7%;
+}
+
+.about-host {
+    height: 100%;
+    width: 66%;
+}
+
+.details-section {
+    display: flex;
+    justify-content: space-between;
+    border: black solid 1px;
+}
+
+.booking {
+    display: block;
+    height: 500px;
+    width: 30%;
+    border: black solid 1px;
+    border-radius: 8px;
+    // margin-left: 5%;
+}
+
+.home-icon {
+    margin-left: 2px;
+}
+
+.square-icon, .door-icon, .home-icon {
+    font-size: 25px;
+}
+
+.home {
+    margin-top: 8%;
+}
+
+.home, .clean, .check-in {
+    display: flex;
+    justify-content: flex-start;
+    vertical-align: center;
+}
+
+.home p, .clean p, .check-in p{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.home p {
+    text-indent: 5px;
+}
+
+.clean p {
+    text-indent: 8px;
+}
+
+.check-in p{
+    text-indent: 2px;
+}
+
+.at-description {
+    text-indent: 3.8%;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #717171;
+    font-weight: 300;
+}
+
+#check-in, #clean, #home {
+    text-indent: 4%;
+}
+
+#clean {
+    text-indent: 4%;
+}
+.square-icon {
+    margin-left: 5px;
 }
