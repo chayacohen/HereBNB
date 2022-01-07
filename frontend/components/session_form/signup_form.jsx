@@ -26,9 +26,6 @@ class SignupForm extends React.Component {
             last_name: this.state.last_name
         }; 
         this.props.signup(user)
-        if (this.props.errors.length === 0) {
-            this.props.closeModal();
-        }
     }
 
     handleInput(field) {
@@ -38,6 +35,13 @@ class SignupForm extends React.Component {
             }
             this.setState( { [field]: e.currentTarget.value });
         }
+    }
+
+    componentDidUpdate() {
+        if (this.props.currentUser) {
+                this.props.closeModal();
+         }
+        
     }
 
     handleFocus(e) {

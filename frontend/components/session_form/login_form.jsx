@@ -21,9 +21,11 @@ class LoginForm extends React.Component {
         e.preventDefault(); 
         const user = { email: this.state.email, password: this.state.password};
         this.props.login(user)
-        if (this.props.errors.length === 0) {
-            this.props.closeModal();
-        }
+        
+        // debugger
+        // if (this.props.errors.length === 0) {
+        //     this.props.closeModal();
+        // }
     }
 
     handleInput(field) {
@@ -45,6 +47,12 @@ class LoginForm extends React.Component {
 
     handleBlur() {
         this.setState({ ['clicked']: false })
+    }
+
+    componentDidUpdate() {
+        if (this.props.currentUser) {
+            this.props.closeModal();
+        }
     }
 
     render() {
