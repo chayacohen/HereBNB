@@ -1,0 +1,121 @@
+$font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+
+.all-listings {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 2%;
+    margin: 0 5% 0 5%;
+    // gap: 1%;
+    // border:black solid 1px;
+}
+
+.listing-container {
+    margin-top: 200px;
+    // border: blue solid 1px;
+}
+
+.listing-image {
+    // border: red solid 1px;
+    background-color: red;
+    height: 270px;
+    width: 275px;
+    border-radius: 8px;
+    margin: 8px 0 10px 0;
+    cursor: pointer;
+}
+
+.about-listing {
+    margin-bottom: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+    display: flex;
+    justify-content: space-between;
+    font-family: $font;
+}
+
+.about-listing p:first-child{
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.listing-price {
+    font-weight: 300;
+}
+
+.listing-item {
+    margin: 7% 14% 0 14%;
+    font-family: $font;
+}
+.listing-item p {
+    margin-bottom: 20px;
+}
+
+.listing-title {
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.listing-details {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.3%;
+    font-size: 13px;
+    font-weight: 500;
+    color: #222222;
+}
+
+.listing-details p:nth-child(1) {
+    color: #ff385c;
+}
+
+.listing-details p:nth-child(3) {
+    text-decoration: underline;
+}
+
+.listing-details p:nth-child(5) {
+    text-decoration: underline;
+    color: #717171;
+}
+
+.image-show-listing {
+    display: flex;
+    justify-content: space-between;
+    // border: black solid 2px;
+}
+
+.main-image { 
+    height: 49.8vh;
+    // height: auto;
+    width: 40vw;
+    background-color: blue;
+    border-radius: 8px 0 0 8px;
+    margin-right: 1%;
+}
+
+.rest-of-images {
+    height: 50vh;
+    // height: auto;
+    width: 50vw;
+    display: grid;
+    grid-column: 2;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 1%;
+    column-gap: 1%;
+    flex-wrap: wrap;
+}
+
+.rest-of-images div {
+    background-color: red;
+    height: 24.6vh;
+    width: 19.3vw;
+}
+
+.rest-of-images div:nth-child(2) {
+    border-radius: 0 8px 0 0;
+}
+
+.rest-of-images div:nth-child(4) {
+    border-radius: 0 0 8px 0;
+}

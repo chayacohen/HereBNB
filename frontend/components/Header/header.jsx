@@ -47,7 +47,7 @@ class Header extends React.Component {
                 this.setState({color: 'white'})
             } else if (window.scrollY < 1 && this.props.location.pathname === '/') {
                 this.setState({ color: 'black' }) 
-            } else if (window.scrollY > -1 && this.props.location.pathname !== '/') {
+            } else if (window.scrollY >= 0 && this.props.location.pathname !== '/') {
                 this.setState({ color: 'white' })
             } else {
                 this.setState({color: 'black'})

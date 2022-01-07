@@ -21,10 +21,10 @@ const removeListing = (listingId) => ({
 })
 
 export const requestAllListings = () => dispatch => {
-    debugger
     ListingApiUtil.fetchAllListings()
     .then((listings) => dispatch(receiveAllListings(listings)))
 }
+
 export const requestListing = (listingId) => dispatch => (
     ListingApiUtil.fetchListing(listingId)
     .then(listing => dispatch(receiveListing(listing)))

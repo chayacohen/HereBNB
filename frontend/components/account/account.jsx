@@ -8,7 +8,6 @@ class Account extends React.Component {
         super(props); 
         this.state = {clicked: false}; 
         this.changeClickedState = this.changeClickedState.bind(this);
-        this.updatePhotoClick = this.updatePhotoClick.bind(this); 
         this.handleEditClick = this.handleEditClick.bind(this)
     }
 
@@ -24,10 +23,6 @@ class Account extends React.Component {
         this.setState({clicked: true})
     }
 
-    updatePhotoClick() {
-        this.props.openModal('uploadPicture')
-    }
-
     componentDidMount() {
         this.props.requestUser(this.props.match.params.id)
     }
@@ -36,8 +31,6 @@ class Account extends React.Component {
         if (!this.props.user) {
             return null 
         }
-
-        debugger 
         return (
             <div className="account">
                 <div className="account-sidebar">

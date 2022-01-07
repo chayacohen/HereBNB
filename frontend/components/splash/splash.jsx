@@ -7,12 +7,11 @@ import { Link } from "react-router-dom";
 
 class Splash extends React.Component {
 
-    // componentDidMount() {
-    //     const header = document.getElementById('nav-bar')
-    //     if (window.scrollY < 1) {
-    //         header.style.color = "black";
-    //     }
-    // }
+    componentDidMount() {
+        const header = document.getElementById("nav-bar")
+        header.style.backgroundColor = "black";
+        header.style.color = "white";
+    }
 
 
     render () {
