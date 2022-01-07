@@ -1,6 +1,7 @@
 import React from "react";
 import Inspiration from './inspiration'
 import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
@@ -22,10 +23,8 @@ class Splash extends React.Component {
                         <img src={window.airbnb_splash} id="splash-image" />
                     </div>
                     <p id="splash-text">Not sure where to go? Perfect.</p>
-                    <button className="flexible-button"
-                    // onClick={<Redirect to="/listings"/>}
-                    >
-                        <p id='text'>I'm flexible</p>
+                    <button className="flexible-button">
+                        <Link to="/listings" id="text">I'm flexible</Link>
                     </button>
                 </div>
                 <Inspiration/>

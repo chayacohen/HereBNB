@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
-    # before_action :ensure_logged_in, only: [:update, :show, :destroy, :index]
-    # before_action :ensure_logged_out, only: [:create]
+    before_action :ensure_logged_in, only: [:update]
+    before_action :ensure_logged_out, only: [:create]
 
     def index 
         @users = User.all
@@ -37,15 +37,15 @@ class Api::UsersController < ApplicationController
         @user = selected_user
     end 
 
-    def destroy 
-        @user = selected_user
-        if @user 
-            @user.destroy 
-            render :show 
-        else 
-            render json: ["Cannot locate user"], status: 404
-        end 
-    end 
+    # def destroy 
+    #     @user = selected_user
+    #     if @user 
+    #         @user.destroy 
+    #         render :show 
+    #     else 
+    #         render json: ["Cannot locate user"], status: 404
+    #     end 
+    # end 
 
 
     private 

@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   root to: 'static_pages#root'
   namespace :api, defaults: {format: :json} do 
-    resources :users 
+    resources :users, only: [:index, :create, :update, :show]
     get '/email', :to => 'users#email'
+    resources :listings, only: [:index, :create, :update, :show]
     resource :session, only: [:create, :destroy]
   end 
 end

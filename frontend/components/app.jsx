@@ -8,6 +8,7 @@ import { Switch, Route } from 'react-router-dom';
 import AccountContainer from './account/account_container';
 import UpdatePicFormContainer from './account/update_pic_container';
 import ScrollToTop from './Header/scroll_to_top';
+import ListingIndexContainer from './listing/listing_index_container';
 
 const App = () => (
     <div>
@@ -18,9 +19,10 @@ const App = () => (
         {/* <Search/> */}
         <ScrollToTop>
             <Switch>
-                <Route exact path = "/" component={Splash}/>
-                <ProtectedRoute exact path="/users/show/:id" component={AccountContainer}/>
+                <Route exact path="/listings" component={ListingIndexContainer}></Route>
+                <Route exact path="/users/show/:id" component={AccountContainer}/>
                 <ProtectedRoute exact path="/users/edit-photo" component={UpdatePicFormContainer}/>
+                <Route exact path = "/" component={Splash}/>
             </Switch>
         </ScrollToTop>
         {/* <Route exact path="/listings" component={Listings}/> */}

@@ -2,8 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom"; 
 import Root from "./components/root";
 import configureStore from "./store/store";
-import {openModal} from './actions/modal_actions'
-import { findUser } from './actions/user_actions'
+import {requestAllListings} from './actions/listing_actions';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -28,6 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.getState = store.getState;
     window.dispatch = store.dispatch;
-    window.openModal = openModal;
-    window.findUser = findUser; 
+    window.requestAllListings = requestAllListings; 
+    
 })

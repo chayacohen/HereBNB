@@ -1,6 +1,5 @@
-import * as UserAPIUtil from '../util/user_util'; 
 import { receiveCurrentUser } from './session_actions';
-
+import * as UserApiUtil from '../util/user_util'
 
 export const RECEIVE_USER = "RECEIVE_USER"; 
 export const UPDATE_USER = "UPDATE_USER"
@@ -10,17 +9,30 @@ const receiveUser = (user) => ({
     user
 })
 
-const updateAUser = (user) => ({
-    type: UPDATE_USER, 
-    user
-})
+// const updateAUser = (user) => ({
+//     type: UPDATE_USER, 
+//     user
+// })
 
 export const findUser = (email) => dispatch => (
-    UserAPIUtil.findUser(email)
+    UserApiUtil.findUser(email)
     .then(user => dispatch(receiveUser(user)))
 )
 
+export const requestUser = (userId) => dispatch => {
+    return (
+        UserApiUtil.fetchUser(userId)
+        .then(user => {
+            return (
+                dispatch(receiveUser(user))
+            )
+        })
+    )
+
+}
+
+
 export const updateUser = (user) => dispatch => (
-    UserAPIUtil.updateUser(user)
+    UserApiUtil.updateUser(user)
     .then(user => dispatch(receiveCurrentUser(user)))
 )
