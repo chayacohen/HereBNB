@@ -4,6 +4,8 @@ import * as UserApiUtil from '../util/user_util'
 export const UPDATE_USER = "UPDATE_USER"
 export const RECEIVE_USER = "RECEIVE_USER"; 
 export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS"; 
+export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
+export const RESET_USER_ERRORS = "RESET_USER_ERRORS";
 
 // const updateAUser = (user) => ({
 //     type: UPDATE_USER, 
@@ -18,10 +20,20 @@ const receiveAllUsers = (users) => ({
     users
 })
 
+const receiveUserErrors = (errors) => ({
+    type: RECEIVE_USER_ERRORS,
+    errors
+});
+
+export const resetUserErrors = () => ({
+    type: RESET_USER_ERRORS
+});
+
+
 
 export const findUser = (email) => dispatch => (
     UserApiUtil.findUser(email)
-    .then(user => dispatch(receiveUser(user)))
+    .then(user => dispatch(receiveUser(user)), (errors => dispatch(receiveUserErrors(errors.responseJSON))))
 )
 
 export const requestUser = (userId) => dispatch => {
@@ -29,7 +41,7 @@ export const requestUser = (userId) => dispatch => {
         UserApiUtil.fetchUser(userId)
         .then(user => {
             return (
-                dispatch(receiveUser(user))
+                dispatch(receiveUser(user)), (errors => dispatch(receiveUserErrors(errors.responseJSON)))
             )
         })
     )
@@ -39,7 +51,7 @@ export const requestUser = (userId) => dispatch => {
 export const requestAllUsers = () => dispatch => {
     return (
         UserApiUtil.fetchAllUsers()
-        .then(users => dispatch(receiveAllUsers(users))
+            .then(users => dispatch(receiveAllUsers(users)), (errors => dispatch(receiveUserErrors(errors.responseJSON)))
         )
     )
 }
@@ -47,5 +59,5 @@ export const requestAllUsers = () => dispatch => {
 
 export const updateUser = (user) => dispatch => (
     UserApiUtil.updateUser(user)
-    .then(user => dispatch(receiveCurrentUser(user)))
+        .then(user => dispatch(receiveCurrentUser(user)), (errors => dispatch(receiveUserErrors(errors.responseJSON))))
 )

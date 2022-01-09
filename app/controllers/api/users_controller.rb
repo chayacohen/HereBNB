@@ -35,6 +35,12 @@ class Api::UsersController < ApplicationController
     
     def show 
         @user = selected_user
+        if @user 
+            render :show
+        else 
+            debugger
+            render json: ['Cannot locate user'], status: 404
+        end 
     end 
 
     # def destroy 
@@ -51,7 +57,7 @@ class Api::UsersController < ApplicationController
     private 
 
     def selected_user 
-        User.find(params[:id])
+       User.find(params[:id])
     end 
 
     def user_params 

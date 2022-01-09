@@ -6,7 +6,7 @@ class Account extends React.Component {
 
     constructor(props) {
         super(props); 
-        this.state = {clicked: false}; 
+        this.state = {clicked: false, errors: ''}; 
         this.changeClickedState = this.changeClickedState.bind(this);
         this.handleEditClick = this.handleEditClick.bind(this)
     }
@@ -24,7 +24,21 @@ class Account extends React.Component {
     }
 
     componentDidMount() {
-        this.props.requestUser(this.props.match.params.id)
+        const user = this.props.requestUser(this.props.match.params.id)
+        // if (!user) {
+        //     this.setState({errors: 'Could not locate user!'})
+        // }
+        // debugger
+    }
+
+    componentDidUpdate() {
+        // this.setState({errors: ""})
+        if (!this.props.user) {
+            this.props.requestUser(this.props.match.params.id)
+        }
+        // if (!this.props.user) {
+        //     this.setState({errors: 'Could not locate user!'})
+        // }
     }
     
     render () {
@@ -40,7 +54,9 @@ class Account extends React.Component {
                 </div>
                 <div className="profile">
                     <div className="profile-section-one">
-                        <p>{`Hi, I'm ${this.props.user.first_name}`}</p>
+                        {this.props.user.first_name ? 
+                        <p>{`Hi, I'm ${this.props.user.first_name}`}</p> : 
+                        <p>Hi!</p>}
                         <p>Joined in 2022</p>
                         {this.props.currentUser === this.props.user ? 
                         <p onClick={this.handleEditClick}>Edit profile</p> : null }
