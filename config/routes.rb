@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do 
     resources :users, only: [:index, :create, :update, :show]
     get '/email', :to => 'users#email'
+    get '/users/:id/listings', :to => 'listings#user_listings'
     resources :listings, only: [:index, :create, :update, :show]
     resource :session, only: [:create, :destroy]
   end 

@@ -40,12 +40,17 @@ class Api::ListingsController < ApplicationController
         end 
     end 
 
+    def user_listings
+        @listings = Listing.find_by_user(params[:id])
+        render :index
+    end 
+
     private 
     def selected_listing
         Listing.with_attached_photos.find(params[:id])
     end 
 
     def listing_params 
-        params.require(:listing).permit(:title, :about, :host_id, :city, :state, :zip_code, :pets_allowed, :num_beds, photos: [])
+        params.require(:listing).permit(:title, :about, :host_id, :city, :state, :zip_code, :pets_allowed, :num_beds, :id, photos: [])
     end 
 end 

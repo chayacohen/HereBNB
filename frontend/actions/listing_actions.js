@@ -3,6 +3,7 @@ import * as ListingApiUtil from '../util/listing_util';
 export const RECEIVE_ALL_LISTINGS = "RECEIVE_ALL_LISTINGS"; 
 export const RECEIVE_LISTING = "RECEIVE_LISTING"; 
 export const REMOVE_LISTING = "REMOVE_LISTING"; 
+// export const RECEIVE_USER_LISTINGS = "RECEIVE_USER_LISTINGS"
 
 
 const receiveAllListings = (listings) => ({
@@ -19,6 +20,11 @@ const removeListing = (listingId) => ({
     type: REMOVE_LISTING, 
     listingId
 })
+
+// const receiveUserListings = (listings) => ({
+//     method: RECEIVE_USER_LISTINGS, 
+//     listings
+// })
 
 export const requestAllListings = () => dispatch => {
     ListingApiUtil.fetchAllListings()
@@ -40,4 +46,9 @@ export const createListing = (listing) => dispatch => (
 export const deleteLising = (listingId) => dispatch => (
     ListingApiUtil.fetchAllListings(listingId)
     .then(() => dispatch(removeListing(listingId)))
+)
+
+export const requestAllUserListings = (userId) => dispatch => (
+    ListingApiUtil.fetchUserListings(userId)
+    .then((listings) => dispatch(receiveAllListings(listings)))
 )

@@ -30,3 +30,10 @@ export const deleteListing = (listingId) => (
         url: `/api/listings/${listingId}`
     })
 )
+
+export const fetchUserListings = (userId) => (
+    $.ajax({
+        method: "GET", 
+        url: `/api/users/${userId}/listings`
+    })
+)

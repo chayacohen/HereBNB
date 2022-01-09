@@ -1,0 +1,109 @@
+$font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+
+
+#create-listing-logo {
+    color: white;
+    position: fixed;
+    top: 2%;
+    left: 2%;
+    margin: 0 0 0 0;
+}
+.create-listing {
+    // margin-top: 150px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-family: $font;
+}
+
+.question, .question-options {
+    width: 100%; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.the-question {
+    font-size: 48px;
+    font-weight: 600;
+    text-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question {
+    background: #BD1E59;
+    color: white;
+    flex-wrap: wrap;
+    // text-indent: 5%;
+    // line-height: 5%;
+}
+
+.question-options {
+    // border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.options {
+    // border: 1px solid black;
+    width: 60%;
+    height: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-bottom: 10%;
+}
+
+.options div {
+    height: 15%;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgb(233, 231, 231);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-indent: 20%;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.options div:hover {
+    border: 2px solid black;
+}
+
+.options img {
+    height: 80%;
+    width: 12%;
+    border-radius: 8px;
+    margin: 3%;
+    // padding: 5%; 
+} 
+
+.listing-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 86%;
+}
+
+#back-button {
+    text-decoration: underline;
+    padding: 1%;
+    border-radius: 8px;
+}
+
+#back-button:hover {
+    background-color: rgb(235, 231, 231);
+}
+
+#next-button {
+    color: white;
+    background-color: black;
+    padding: 2% 3% 2% 3%;
+    border-radius: 8px;
+    font-weight: 500;
+}

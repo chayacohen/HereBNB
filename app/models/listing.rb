@@ -16,5 +16,9 @@ class Listing < ApplicationRecord
 
     has_many_attached :photos
 
+
+    def self.find_by_user(userId) 
+        Listing.where(host_id: userId)
+    end 
     
 end 

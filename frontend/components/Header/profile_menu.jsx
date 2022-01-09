@@ -35,7 +35,7 @@ import { Link } from "react-router-dom";
                         <div id="profile-menu">
                             <button>Trips</button>
                             <button>Wishlist</button>
-                            <button>Manage Listings</button>
+                            <Link to={`/users/${this.props.currentUser.id}/listings`} className="link" onClick={this.handleAccountClick}><button>Manage Listings</button></Link>
                             <button><Link to={{ pathname: `/users/show/${this.props.currentUser.id}`, data: {changeColor}}} className="link" onClick={this.handleAccountClick}>Account</Link></button>
                             <button onClick={this.handleLogoutClick}>Logout</button>
                         </div>
@@ -50,7 +50,7 @@ import { Link } from "react-router-dom";
                         <div id="profile-menu">
                             <button id="login" value="Log In" onClick={this.handleModalClick}>Log In</button>
                             <button className="other_button" value="Sign Up" onClick={this.handleModalClick}>Sign Up</button>
-                            <button className="other_button" value="Host your home">Host your home</button>
+                            <button className="other_button" value="Host your home" onClick={this.handleModalClick}>Host your home</button>
                             <button className="other_button" value="Resume">Resume</button>
                         </div>
                     </div>

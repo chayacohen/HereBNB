@@ -23,8 +23,7 @@ class Header extends React.Component {
 
     handleLogoClick() {
         this.props.history.push("/"); 
-        this.setState({color: 'black'})
-        
+        this.setState({color: 'black'}) 
     }
 
     handleProfileClick() {
@@ -66,6 +65,10 @@ class Header extends React.Component {
         }
         else {
             image = "https://a0.muscache.com/defaults/user_pic-50x50.png?v=3"
+        }
+
+        if (this.props.location.pathname === '/listings/create-listing') {
+            return null 
         }
             return (
                 <div>

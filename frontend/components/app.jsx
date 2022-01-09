@@ -10,6 +10,8 @@ import UpdatePicFormContainer from './account/update_pic_container';
 import ScrollToTop from './Header/scroll_to_top';
 import ListingIndexContainer from './listing/listing_index_container';
 import ListingItemContainer from './listing/listing_item_container';
+import CreateListing from './listing/create_listing';
+import UserListingIndexContainer from './listing/user_listing_index_container';
 
 const App = () => (
     <div>
@@ -20,10 +22,12 @@ const App = () => (
         {/* <Search/> */}
         <ScrollToTop>
             <Switch>
-                <Route exact path="/listings/:id" component={ListingItemContainer}></Route>
-                <Route exact path="/listings" component={ListingIndexContainer}></Route>
                 <Route exact path="/users/show/:id" component={AccountContainer}/>
                 <ProtectedRoute exact path="/users/edit-photo" component={UpdatePicFormContainer}/>
+                <Route exact path="/users/:id/listings" component={UserListingIndexContainer}></Route>
+                <ProtectedRoute exact path="/listings/create-listing" component={CreateListing}/>
+                <Route exact path="/listings/:id" component={ListingItemContainer}></Route>
+                <Route exact path="/listings" component={ListingIndexContainer}></Route>
                 <Route exact path = "/" component={Splash}/>
             </Switch>
         </ScrollToTop>
