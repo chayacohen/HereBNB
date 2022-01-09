@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_06_223028) do
+ActiveRecord::Schema.define(version: 2022_01_09_001712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2022_01_06_223028) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "num_beds", null: false
     t.boolean "pets_allowed", default: false, null: false
+    t.integer "price", null: false
     t.index ["city"], name: "index_listings_on_city"
     t.index ["host_id"], name: "index_listings_on_host_id"
     t.index ["state"], name: "index_listings_on_state"

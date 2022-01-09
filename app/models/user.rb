@@ -3,6 +3,12 @@ class User < ApplicationRecord
     attr_reader :password 
 
     has_one_attached :photo
+    
+    has_many :listings, 
+    foreign_key: :host_id, 
+    primary_key: :id, 
+    class_name: :User, 
+    dependent: :destroy
 
     validates :email, presence: true, uniqueness: true
     validates :password_digest, presence: true

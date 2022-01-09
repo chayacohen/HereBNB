@@ -8,7 +8,7 @@ const ListingIndexItem = ({listing, fetchListing}) => (
             </div>
             <div className="about-listing">
                 <p>{`${listing.city}, ${listing.state}`}</p>
-                <p className="listing-price">$185 / night</p>
+                <p className="listing-price">{`$${listing.price} / night`}</p>
             </div>
         </div>
     </Link>

@@ -38,7 +38,6 @@ class Api::UsersController < ApplicationController
         if @user 
             render :show
         else 
-            debugger
             render json: ['Cannot locate user'], status: 404
         end 
     end 
@@ -57,7 +56,7 @@ class Api::UsersController < ApplicationController
     private 
 
     def selected_user 
-       User.find(params[:id])
+       User.with_attached_photo.find(params[:id])
     end 
 
     def user_params 

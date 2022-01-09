@@ -51,7 +51,7 @@ export const requestUser = (userId) => dispatch => {
 export const requestAllUsers = () => dispatch => {
     return (
         UserApiUtil.fetchAllUsers()
-            .then(users => dispatch(receiveAllUsers(users)), (errors => dispatch(receiveUserErrors(errors.responseJSON)))
+            .then(users => dispatch(receiveAllUsers(users))
         )
     )
 }

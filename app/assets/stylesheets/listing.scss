@@ -1,5 +1,4 @@
 $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-
 .all-listings {
     display: flex;
     justify-content: flex-start;
@@ -128,7 +127,6 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 .hosted-by {
     font-size: 22px;
     font-weight: 400;
-    color: #222222;
     font-weight: 500;
     margin-bottom: 12px;
 }
@@ -138,6 +136,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     font-weight: 300;
     // border: black solid 1px;
     width: 100%;
+    // margin-bottom: 10%;
 }
 
 .host-photo {
@@ -163,16 +162,28 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 .details-section {
     display: flex;
     justify-content: space-between;
-    border: black solid 1px;
+    // border: black solid 1px;
 }
 
-.booking {
+.booking-container {
     display: block;
     height: 500px;
     width: 30%;
     border: black solid 1px;
     border-radius: 8px;
+    font-family: $font;
+    // box-shadow: 0 6px 16px rgb(0 0 0 0.12) ;
     // margin-left: 5%;
+}
+
+.booking {
+    // position: absolute;
+    margin: 5%;
+    width: 95%;
+    height: 95%;
+    // width: 100%;
+    // top: 50%;
+
 }
 
 .home-icon {
@@ -183,9 +194,9 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     font-size: 25px;
 }
 
-.home {
-    margin-top: 8%;
-}
+// .home {
+//     // margin-top: 8%;
+// }
 
 .home, .clean, .check-in {
     display: flex;
@@ -229,6 +240,131 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 #clean {
     text-indent: 4%;
 }
+
 .square-icon {
     margin-left: 5px;
+}
+
+.about-listing {
+    // margin-top: 5%;
+    // margin-bottom: 5%;
+    font-family: $font;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+
+.border-line {
+    height: 1px;
+    color: #d1cccc;
+    background-color: #d1cccc;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.sleep h1{
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.star {
+    color: #ff385c;
+    margin-right: 2px;
+    font-size: 16px;
+}
+
+.reviews-listing h1 {
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: $font;
+    font-weight: 500;
+}
+
+.listing-map h1{
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.booking-box-header{
+    display: flex;
+    justify-content: space-evenly;
+    // width: 200%;
+    gap: 15%;
+    margin-bottom: 20px;
+}
+
+// .booking-box-header p:first-child {
+//         // margin-right: 15%;
+
+// }
+
+.booking-box-header div:first-child {
+    display: flex;
+    justify-content: flex-start;
+    // white-space: nowrap;
+    align-items: center;
+    gap: 5%;
+
+}
+
+.lastp{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    // white-space: nowrap;
+    // margin-right: 50%;
+    font-weight: 500;
+}
+
+#star {
+    color: #ff385c;
+    font-size: 14px;
+}
+
+.listing-price-text {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.per-night {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.check-in-booking, .check-out-booking {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    // border: 1px solid red;
+}
+
+.check-in-booking {
+    border-right: solid black 1px;
+}
+
+.check-in-booking input, .check-out-booking input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #717171;
+}
+.check-in-booking label, .check-out-booking label {
+    font-size: 10px;
+    font-weight: 600;
+    color: black;
+}
+
+.date-inputs div:first-child{
+    display: flex;
+    justify-content: space-between;
+    // margin-left: 10%;
+}
+
+.date-inputs {
+    border: solid black 1px;
+    border-radius: 8px;
+    width: 90%;
 }

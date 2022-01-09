@@ -8,6 +8,7 @@ class ListingIndex extends React.Component {
          const header = document.getElementById("nav-bar")
          header.style.backgroundColor = "white"; 
          header.style.color = "red";
+        //  this.props.requestAllUsers();
     }
 
     render () {

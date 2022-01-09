@@ -18,10 +18,10 @@ User.create([
 ])
 
 Listing.create([
-    {title: 'Beautiful ocean townhouse', about: 'This beautiful townhouse is located right acrros the street from the beach', host_id: 1, city: 'Fort Lauderdale', state: "Florida", zip_code: 10101, pets_allowed: true, num_beds: 5},
-    {title: 'Cozy home in the moutains', about: 'This cozy home in the moutains has a large backyard with a fireplace, hot tub, and an indoor game room', host_id: 1, city: 'Salt Lake City', state: "Utah", zip_code: 12345, pets_allowed: true, num_beds: 8},
-    {title: 'Orlando Resort Home', about: 'Newly built home! Fits up to 15 people. Its a 15 minute drive from all the parks. Perfect vacation home!', host_id: 1, city: 'Orlando', state: "Florida", zip_code: 20405, pets_allowed: true, num_beds: 10},
-    {title: 'Home on the lake', about: 'This home is right on the lake!', host_id: 1, city: 'Irvine', state: "California", zip_code: 39582, pets_allowed: false, num_beds: 8},
-    {title: 'Ski resort home', about: 'This home is ski on, ski off! 3 floors, hot tub, large kitchen, and a phenomonal way to spend your ski vacation.', host_id: 1, city: 'Vail', state: "Colorado", zip_code: 59305, pets_allowed: true, num_beds: 6},
-    {title: '1 bedroom apartment', about: 'One bedroom apartment overlooking Central Park. Right in the heart of NYC, minutes from Times Square', host_id: 1, city: 'New York', state: "New York", zip_code: 11001, pets_allowed: true, num_beds: 2}
+    {title: 'Beautiful ocean townhouse', about: 'This beautiful townhouse is located right acrros the street from the beach', host_id: 1, city: 'Fort Lauderdale', state: "Florida", zip_code: 10101, pets_allowed: true, num_beds: 5, price: 185},
+    {title: 'Cozy home in the moutains', about: 'This cozy home in the moutains has a large backyard with a fireplace, hot tub, and an indoor game room', host_id: 1, city: 'Salt Lake City', state: "Utah", zip_code: 12345, pets_allowed: true, num_beds: 8, price: 200},
+    {title: 'Orlando Resort Home', about: 'Newly built home! Fits up to 15 people. Its a 15 minute drive from all the parks. Perfect vacation home!', host_id: 1, city: 'Orlando', state: "Florida", zip_code: 20405, pets_allowed: true, num_beds: 10, price: 350},
+    {title: 'Home on the lake', about: 'This home is right on the lake!', host_id: 1, city: 'Irvine', state: "California", zip_code: 39582, pets_allowed: false, num_beds: 8, price: 300},
+    {title: 'Ski resort home', about: 'This home is ski on, ski off! 3 floors, hot tub, large kitchen, and a phenomonal way to spend your ski vacation.', host_id: 1, city: 'Vail', state: "Colorado", zip_code: 59305, pets_allowed: true, num_beds: 6, price: 450},
+    {title: '1 bedroom apartment', about: 'One bedroom apartment overlooking Central Park. Right in the heart of NYC, minutes from Times Square', host_id: 1, city: 'New York', state: "New York", zip_code: 11001, pets_allowed: true, num_beds: 2, price: 250}
 ])
