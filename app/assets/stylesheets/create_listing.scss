@@ -3,12 +3,12 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 
 #create-listing-logo {
     color: white;
-    position: fixed;
+    position: absolute;
     top: 2%;
     left: 2%;
     margin: 0 0 0 0;
 }
-.create-listing {
+.create-listing, .apartment-listing, .privacy-type-listing {
     // margin-top: 150px;
     display: flex;
     justify-content: space-between;
@@ -55,7 +55,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    margin-bottom: 10%;
+    // margin-bottom: 3%;
 }
 
 .options div {

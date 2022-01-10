@@ -6,7 +6,7 @@ class CreateListing extends React.Component {
 
     constructor(props) {
         super(props); 
-        this.state = {place_type: '', next: ''}
+        this.state = {place_type: ''}
         this.handleLogoClick = this.handleLogoClick.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleNextClick = this.handleNextClick.bind(this); 

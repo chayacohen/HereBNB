@@ -16,7 +16,6 @@ class Header extends React.Component {
         this.changeColor = this.changeColor.bind(this); 
     }
 
-
     handleLogoutClick() {
         this.props.logout()
     }
@@ -58,7 +57,16 @@ class Header extends React.Component {
         this.setState({color: 'white'})
     }
  
+    componentDidUpdate(prevProps) {
+        if ((this.props.location.pathname !== prevProps.location.pathname) && this.props.location.pathname !== "/") {
+            this.setState({color: 'white'})
+        }
+    }
+
     render() {
+
+        const splitPathname = this.props.location.pathname.split('/'); 
+        const noShow = ['/listings/create-listing', '/listings/create-listing/:type']
         let image = ''; 
         if(this.props.currentUser) {
             image = this.props.currentUser.photoUrl
@@ -67,9 +75,10 @@ class Header extends React.Component {
             image = "https://a0.muscache.com/defaults/user_pic-50x50.png?v=3"
         }
 
-        if (this.props.location.pathname === '/listings/create-listing') {
+        if (splitPathname[2] === 'create-listing') {
             return null 
         }
+
             return (
                 <div>
                     <nav id="nav-bar"  style={{backgroundColor: this.state.color}} className={this.state.color}>

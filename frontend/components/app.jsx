@@ -12,7 +12,8 @@ import ListingIndexContainer from './listing/listing_index_container';
 import ListingItemContainer from './listing/listing_item_container';
 import CreateListingContainer from './listing/create_listing_container';
 import UserListingIndexContainer from './listing/user_listing_index_container';
-
+import SpecificTypeContainer from './listing/specific_type_container';
+import PrivacyTypeContainer from './listing/privacy_type_container';
 const App = () => (
     <div>
         <ModalContainer/>
@@ -25,6 +26,8 @@ const App = () => (
                 <Route exact path="/users/show/:id" component={AccountContainer}/>
                 <ProtectedRoute exact path="/users/edit-photo" component={UpdatePicFormContainer}/>
                 <Route exact path="/users/:id/listings" component={UserListingIndexContainer}></Route>
+                <ProtectedRoute exact path="/listings/create-listing/privacy-type" component={PrivacyTypeContainer}/>
+                <ProtectedRoute exact path="/listings/create-listing/:type" component={SpecificTypeContainer}/>
                 <ProtectedRoute exact path="/listings/create-listing" component={CreateListingContainer}/>
                 <Route exact path="/listings/:id" component={ListingItemContainer}></Route>
                 <Route exact path="/listings" component={ListingIndexContainer}></Route>
