@@ -14,6 +14,9 @@ import CreateListingContainer from './listing/create_listing_container';
 import UserListingIndexContainer from './listing/user_listing_index_container';
 import SpecificTypeContainer from './listing/specific_type_container';
 import PrivacyTypeContainer from './listing/privacy_type_container';
+import LocationTypeContainer from './listing/location_type_container';
+import FloorPlanContainer from './listing/floor_plan_container';
+import CreateListingPhotos from './listing/add_listing_photos';
 const App = () => (
     <div>
         <ModalContainer/>
@@ -26,6 +29,9 @@ const App = () => (
                 <Route exact path="/users/show/:id" component={AccountContainer}/>
                 <ProtectedRoute exact path="/users/edit-photo" component={UpdatePicFormContainer}/>
                 <Route exact path="/users/:id/listings" component={UserListingIndexContainer}></Route>
+                <ProtectedRoute exact path="/listings/create-listing/floor-plan" component={FloorPlanContainer}/>
+                <ProtectedRoute exact path="/listings/create-listing/photos" component={CreateListingPhotos}/>
+                <ProtectedRoute exact path="/listings/create-listing/location" component={LocationTypeContainer}/>
                 <ProtectedRoute exact path="/listings/create-listing/privacy-type" component={PrivacyTypeContainer}/>
                 <ProtectedRoute exact path="/listings/create-listing/:type" component={SpecificTypeContainer}/>
                 <ProtectedRoute exact path="/listings/create-listing" component={CreateListingContainer}/>

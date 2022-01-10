@@ -1,6 +1,6 @@
-import { RECEIVE_PLACE_TYPE, RECEIVE_SPECIFIC_TYPE, RECEIVE_PRIVACY_TYPE } from "../actions/create_listing_actions";
+import { RECEIVE_PLACE_TYPE, RECEIVE_SPECIFIC_TYPE, RECEIVE_PRIVACY_TYPE, RECEIVE_LOCATION, RECEIVE_FLOOR_PLAN} from "../actions/create_listing_actions";
 
-const defaultState = {place: '', specific: '', privacy: '', streeet: '', city: '', state: '', country: '', zip_code: ''}
+const defaultState = {}
 
 const CreateListingReducer = (state = defaultState, action) => {
     Object.freeze(state); 
@@ -13,8 +13,11 @@ const CreateListingReducer = (state = defaultState, action) => {
         case RECEIVE_PRIVACY_TYPE: 
             return Object.assign({}, state, { privacy: action.privacyType })
         case RECEIVE_LOCATION: 
-            const address = action.location.split(',')
-            return Object.assign({}, state, { street: address[0], city: address[1], state: address[2], country: address[3], zip_code: address[4] })
+            const address = action.location
+            return Object.assign({}, state, { street: address.address, city: address.city, state: address.state, country: address.country, zip_code: address.zipCode, lat: address.lat, lng: address.lng})
+        case RECEIVE_FLOOR_PLAN: 
+            const floorPlan = action.floorPlan
+            return Object.assign({}, state, {guests: floorPlan.guests, num_beds: action.floorPlan.beds, bath: action.floorPlan.bathrooms})
         default: 
             return state; 
     }
