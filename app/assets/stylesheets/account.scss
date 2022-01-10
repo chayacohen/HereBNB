@@ -38,6 +38,10 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     text-decoration: underline;
 }
 
+.profile {
+    width: 40vw;
+}
+
 .profile-section-one {
     display: flex; 
     // justify-content: center;
@@ -67,7 +71,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     border-bottom: lightgray;
     font-weight: 400;
     font-size: 22px;
-    margin-top: 5%;
+    // margin-top: 5%;
 }
 
 .reviews-by-you{
@@ -161,4 +165,25 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 .form-buttons button:first-child:hover {
     background-color: rgb(231, 229, 229);
     border-radius: 8px;
+}
+
+#about-profile h1 {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+#about-profile p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #222222;
+    margin-bottom: 20px;
+    width: 40vw;
+}
+
+.border-line {
+    width: 40vw;
+}
+
+#view-listings {
+    text-decoration: underline;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'; 
 import ProfileFormContainer from './profile_form_container';
+import Profile from './profile';
 
 class Account extends React.Component {
 
@@ -60,7 +61,9 @@ class Account extends React.Component {
                         <p>Joined in 2022</p>
                         {this.props.currentUser === this.props.user ? 
                         <p onClick={this.handleEditClick}>Edit profile</p> : null }
-                        {this.state.clicked ? <ProfileFormContainer changeClickedState={this.changeClickedState}/> : null}
+                        {this.state.clicked ? <ProfileFormContainer changeClickedState={this.changeClickedState}/> : <Profile currentUser={this.props.currentUser} user={this.props.user}/>}
+                        <Link to={`/users/${this.props.user.id}/listings`} className="link" id="view-listings">View all listings</Link>
+                        <div className="border-line"></div>
                         <p className="total-reviews">{'\u2605'} 0 reviews</p>
                         {this.props.currentUser === this.props.user ? 
                         <p className="reviews-by-you">Reviews by you</p> : null }

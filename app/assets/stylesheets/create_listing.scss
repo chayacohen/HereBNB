@@ -66,13 +66,15 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     display: flex;
     align-items: center;
     justify-content: space-between;
-    text-indent: 20%;
+    text-indent: 10%;
     font-size: 18px;
     font-weight: 500;
+    box-sizing: border-box;
 }
 
 .options div:hover {
     border: 2px solid black;
+    cursor: pointer;
 }
 
 .options img {
@@ -106,4 +108,15 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     padding: 2% 3% 2% 3%;
     border-radius: 8px;
     font-weight: 500;
+}
+
+.options p {
+    width: 100%; 
+    // padding-right: 20%;
+    // box-sizing: border-box;
+}
+
+#place_type_clicked {
+    border: black 2px solid;
+    background-color: rgb(247, 243, 243);
 }
