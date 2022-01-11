@@ -34,7 +34,6 @@ class Api::ListingsController < ApplicationController
         @listing = selected_listing
         if @listing 
             @listing.destroy 
-            render :index 
         else 
             render json: ["Cannot locate user"], status: 404
         end 

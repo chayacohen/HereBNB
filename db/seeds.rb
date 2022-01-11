@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'open-uri'
+
 User.destroy_all 
 Listing.destroy_all 
 
@@ -26,5 +28,5 @@ Listing.create([
 
     {title: '2 bedroom apartment', about: 'Two bedroom apartment overlooking Central Park. Right in the heart of NYC, minutes from Times Square', host_id: 1, city: 'New York', state: "NY", zip_code: 10019, country: 'US', beds: 2, guests: 4, bath: 1, price: 250, street: '1000 10th Ave' , place: "apartment" , specific: 'Condominium(condo)' , privacy: 'an entire place' , lat:40.769180, lng: -73.984892},
 
-    {title: '2 bedroom apartment', about: 'Two bedroom apartment overlooking Central Park. Right in the heart of NYC, minutes from Times Square', host_id: 3, city: 'New York', state: "NY", zip_code: 10019, country: 'US', beds: 2, guests: 4, bath: 1, price: 250, street: '1000 10th Ave' , place: "apartment" , specific: 'Condominium(condo)' , privacy: 'an entire place' , lat:40.769180, lng: -73.984892}
+    {title: '1 bedroom apartment', about: 'One bedroom apartment on the west side river.', host_id: 3, city: 'New York', state: "NY", zip_code: 10001, country: 'US', beds: 2, guests: 4, bath: 1, price: 250, street: '619 W 25th St' , place: "apartment" , specific: 'Condominium(condo)' , privacy: 'an entire place' , lat:40.750040, lng: -74.006234}
 ])
