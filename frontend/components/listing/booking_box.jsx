@@ -35,7 +35,7 @@ class BookingBox extends React.Component {
         const listing = this.props.listing;
         return (
          <div className="booking-container">
-            <div className="booking">
+            {/* <div className="booking">
                 <div className="booking-box-header">
                     <div>
                         <p className="listing-price-text">{`$${listing.price}`}</p>
@@ -65,7 +65,8 @@ class BookingBox extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
+            <p>BOOKING COMING SOON!</p>
         </div>
         )
     }

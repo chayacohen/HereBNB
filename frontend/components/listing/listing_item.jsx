@@ -19,6 +19,7 @@ class ListingItem extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
+        debugger
         if (prevProps.match.params.id !== this.props.match.params.id) {
             this.props.requestListing(this.props.match.params.id);
         } 
@@ -42,7 +43,7 @@ class ListingItem extends React.Component {
                     <p> 5.0 {'\u00b7'}</p>
                     <p>0 reviews</p>
                     <p>{'\u00b7'}</p>
-                    <p>{`${listing.city},${listing.state},United States`}</p>
+                    <p>{`${listing.city},${listing.state},${listing.country}`}</p>
                 </div>
                 <div className="image-show-listing">
                     <div className="main-image"></div>
@@ -58,7 +59,7 @@ class ListingItem extends React.Component {
                         <div className="about-host-first">
                             <div className="about-host-words">
                                 <p className="hosted-by">{`Entire home hosted by ${host.first_name}`}</p>
-                                <p className="house-details">{`${Math.floor(listing.num_beds * 1.5)} guests ${'\u00b7'} ${Math.floor(listing.num_beds / 2)} bedrooms ${'\u00b7'} ${listing.num_beds} beds ${'\u00b7'} ${Math.floor(listing.num_beds / 2)} baths`} </p>
+                                <p className="house-details">{`${listing.guests} guests ${'\u00b7'} ${listing.beds} bedrooms ${'\u00b7'} ${listing.beds * 2} beds ${'\u00b7'} ${listing.bath} baths`} </p>
                             </div>
                             <Link to={`/users/show/${listing.host_id}`} className="link"><img src={host.photoUrl} className="host-photo"/></Link>
                         </div>

@@ -1,8 +1,7 @@
 class Listing < ApplicationRecord 
 
 
-    validates :title, :about, :host_id, :city, :state, :zip_code, presence: true
-    validates_inclusion_of :pets_allowed, in: [true, false] 
+    validates :title, :about, :host_id, :city, :state, :zip_code, :price, :street, :country, :lat, :lng, :guests, :beds, :bath, :place, :specific, :privacy, presence: true
     
     belongs_to :host, 
         foreign_key: :host_id, 

@@ -61,8 +61,8 @@ class FloorPlan extends React.Component {
         this.props.receiveFloorPlan(this.state)
     }
 
-    componentDidMount() {
-    };
+    // componentDidMount() {
+    // };
 
     render() {
 

@@ -7,8 +7,16 @@ class CreateListingPhotos extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { location: '' }
+        this.state = { photos: [] }
         this.handleLogoClick = this.handleLogoClick.bind(this);
+        this.handlePicChange = this.handlePicChange.bind(this); 
+        this.handleNextClick = this.handleNextClick.bind(this);
+    }
+
+    handlePicChange(e) {
+        const photos = this.state.photos
+        const newPhotos = photos.concat(Object.values(e.target.files))
+        this.setState({photos: newPhotos})
     }
 
 
@@ -16,12 +24,26 @@ class CreateListingPhotos extends React.Component {
         this.props.history.push("/");
     }
 
-    componentDidMount() {
-    };
+    // componentDidUpdate(prevState) {
+    //     if (this.state.photos !== prevState.photos) {
+    //         const formData = new FormData();
+    //         formData.append("user[photo]", this.state.uploadedPic);
+    //         $.ajax({
+    //             url: `/api/users/${this.props.currentUser.id}`,
+    //             method: "PATCH",
+    //             data: formData,
+    //             contentType: false,
+    //             processData: false
+    //         }).then(response => this.props.updateUser(response))
+    //     }
+    // }
 
+
+    handleNextClick() {
+        this.props.receiveListingPhotos(this.state.photos)
+    }
 
     render() {
-
         return (
             <div>
                 <div className="location-type-listing">
@@ -38,14 +60,15 @@ class CreateListingPhotos extends React.Component {
                                     <p className="at-least">Add at least 5 photos</p>
                                 </div>
                                 <div>
-                                    Upload from your device
+                                    <input style={{ display: 'none' }} type="file" multiple='multiple' onChange={this.handlePicChange} ref={pictureInput => this.pictureInput = pictureInput} />
+                                    <button onClick={() => this.pictureInput.click()} className="upload-listing-photos">Upload from your device</button>
                                 </div>
                             </div>
                         </div>
                         <div className="listing-buttons">
                             <Link className="link" id="back-button" to={`/listings/create-listing/floor-plan`}>Back</Link>
-                            {this.state.location !== '' ?
-                                <Link className="link" id="location-next-button" to={`/listings/create-listing/complete-form`}>Next</Link> : null}
+                            {this.state.photos.length >= 5 ?
+                                <Link className="link" id="location-next-button" onClick={this.handleNextClick} to={`/listings/create-listing/complete-listing`}>Next</Link> : null}
                         </div>
                     </div>
                 </div>

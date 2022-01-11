@@ -44,7 +44,7 @@ class UpdatePicForm extends React.Component {
                             <img src={this.props.currentUser.photoUrl} />
                         </div>
                         <div className="content">
-                            <p>A profile photo that shows your face can help other hosts and guests get to know you. Airbnb requires all hosts to have a profile photo. We don't require guests to have a profile photo, but hosts can. If you're a guest, even if a host requires you to have a photo, they won't be able to see it until your booking is confirmed.</p>
+                            <p>A profile photo that shows your face can help other hosts and guests get to know you. At herebnb we encourage you to upload a photo for a smoother interaction and experience! </p>
                             <input style={{ display: 'none' }} type="file" onChange={this.handlePicChange} ref={pictureInput => this.pictureInput = pictureInput} />
                             <button onClick={() => this.pictureInput.click()} className="upload-button">Upload a file from your computer</button>
                         </div>

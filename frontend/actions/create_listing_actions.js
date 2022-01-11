@@ -3,6 +3,7 @@ export const RECEIVE_SPECIFIC_TYPE = "RECEIVE_SPECIFIC_TYPE";
 export const RECEIVE_PRIVACY_TYPE = "RECEIVE_PRIVACY_TYPE"; 
 export const RECEIVE_LOCATION = "RECEIVE_LOCATION"; 
 export const RECEIVE_FLOOR_PLAN = "RECEIVE_FLOOR_PLAN"; 
+export const RECEIVE_LISTING_PHOTOS = "RECEIVE_LISTING_PHOTOS"; 
 
 
 export const receivePlaceType = (placeType) => ({
@@ -35,3 +36,10 @@ export const receiveFloorPlan = (floorPlan) => {
     type: RECEIVE_FLOOR_PLAN, 
     floorPlan
 }}
+
+export const receiveListingPhotos = (photos) => {
+    return {
+        type: RECEIVE_LISTING_PHOTOS, 
+        photos
+    }
+}

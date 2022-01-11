@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_09_001712) do
+ActiveRecord::Schema.define(version: 2022_01_11_023249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,16 +45,24 @@ ActiveRecord::Schema.define(version: 2022_01_09_001712) do
 
   create_table "listings", force: :cascade do |t|
     t.string "title", null: false
-    t.text "about", null: false
-    t.integer "host_id", null: false
+    t.string "about", null: false
+    t.integer "price", null: false
+    t.string "street", null: false
     t.string "city", null: false
     t.string "state", null: false
+    t.string "country", null: false
     t.integer "zip_code", null: false
+    t.float "lat", null: false
+    t.float "lng", null: false
+    t.integer "guests", null: false
+    t.integer "beds", null: false
+    t.integer "bath", null: false
+    t.string "place", null: false
+    t.string "specific", null: false
+    t.string "privacy", null: false
+    t.integer "host_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "num_beds", null: false
-    t.boolean "pets_allowed", default: false, null: false
-    t.integer "price", null: false
     t.index ["city"], name: "index_listings_on_city"
     t.index ["host_id"], name: "index_listings_on_host_id"
     t.index ["state"], name: "index_listings_on_state"

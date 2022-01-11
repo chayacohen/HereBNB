@@ -13,7 +13,6 @@ class UserListingIndex extends React.Component {
         if (prevProps.match.params.id !== this.props.match.params.id) {
             this.props.requestListing(this.props.match.params.id);
         } 
-        debugger 
         // if (prevProps.currentUser !== this.props.currentUser) {
         //     this.props.requestUser(this.props.match.params.id);
         // }
