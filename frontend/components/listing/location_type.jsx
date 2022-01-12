@@ -5,9 +5,10 @@ class LocationType extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { location: '' }
+        this.state = { location: '', center: { lat: 41.850033, lng: -87.6500523 }, zoom: 5 }
         this.handleLogoClick = this.handleLogoClick.bind(this);
         this.onPlaceChanged = this.onPlaceChanged.bind(this); 
+        // this.moveToLocation = this.moveToLocation.bind(this); 
     }
 
 
@@ -23,8 +24,8 @@ class LocationType extends React.Component {
         const autocomplete = this.autocomplete; 
         autocomplete.addListener('place_changed', this.onPlaceChanged)
         const mapOptions = {
-            center: { lat: 41.850033, lng: -87.6500523 }, 
-            zoom: 5
+            center: this.state.center, 
+            zoom: this.state.zoom
         };
         this.map = new google.maps.Map(this.mapNode, mapOptions)
     };
@@ -37,10 +38,14 @@ class LocationType extends React.Component {
         else {  
             const lat = place.geometry.location.lat(); 
             const lng = place.geometry.location.lng(); 
+            this.setState({center: {lat:lat, lng: lng}, zoom: 15});
+            this.map.setCenter(this.state.center); 
+            this.map.setZoom(this.state.zoom)
+            // debugger 
+            new google.maps.Marker({position: this.state.center, map: this.map})
             const address = { address: `${place.address_components[0].short_name} ${place.address_components[1].short_name}`, city: place.address_components[3].long_name, state: place.address_components[5].short_name, country: place.address_components[6].short_name, zipCode: place.address_components[7].short_name, lat: lat, lng: lng}
             this.setState({location: address}) 
             this.props.receiveLocation(this.state.location)
-            // this.props.history.push('/listings/create-listing/floor-plan')
         }
     }
 
