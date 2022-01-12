@@ -26,7 +26,6 @@ class CompleteListingForm extends React.Component {
 
     handleNextClick() {
         const listingForm = this.props.listingForm
-        debugger 
         if ( Object.values(listingForm).length !== 14) {
             return this.props.history.push('/listings/create-listing')
         }

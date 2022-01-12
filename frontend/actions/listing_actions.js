@@ -56,7 +56,6 @@ export const createListing = (listing) => dispatch => {
     return (
     ListingApiUtil.createListing(listing)
     .then(({ listing, host }) => { 
-        // debugger 
         return (
         dispatch(receiveListing(listing, host)))
     })
