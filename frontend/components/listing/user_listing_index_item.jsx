@@ -30,12 +30,13 @@ class UserListingIndexItem extends React.Component {
                         <p>{this.props.listing.title}</p>
                     </div>
                     <div className="listing-function-icons">
-                        {this.props.user.id === this.props.currentUser.id ? <p onClick={this.handleEditClick} className="edit"><FontAwesomeIcon icon={faPencilAlt}/></p> : null}
+                        {this.props.currentUser  && this.props.user.id === this.props.currentUser.id ? <p onClick={this.handleEditClick} className="edit"><FontAwesomeIcon icon={faPencilAlt}/></p> : null}
                         <br/>
-                        {this.props.user.id === this.props.currentUser.id ? <p onClick={this.handleDeleteClick} className="delete"><FontAwesomeIcon icon={faTrashAlt}/></p> : null}
+                        {this.props.currentUser && this.props.user.id === this.props.currentUser.id ? <p onClick={this.handleDeleteClick} className="delete"><FontAwesomeIcon icon={faTrashAlt}/></p> : null}
                     </div>
                 </div>
-            </div>)
+            </div>
+        )
         }
 }
 

@@ -45,7 +45,7 @@ class UserListingIndex extends React.Component {
                 <div className="container-listings">
                     <div>
                         <div id="sidebar">
-                            <img src={this.props.currentUser.photoUrl} />
+                            <img src={this.props.user.photoUrl} />
                             <p> {username !== '' ? <Link className="link username" to={`/users/show/${this.props.user.id}`}>{username}</Link> : null }</p>
                             <p className="user-location">{this.props.user.location ? this.props.user.location : null}</p>
                             <div className="border-line" id="sidebar-border"></div>

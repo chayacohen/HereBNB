@@ -70,7 +70,7 @@ class Header extends React.Component {
     render() {
 
         const splitPathname = this.props.location.pathname.split('/'); 
-        const noShow = ['/listings/create-listing', '/listings/create-listing/:type']
+        // const noShow = ['/listings/create-listing', '/listings/create-listing/:type']
         let image = ''; 
         if(this.props.currentUser) {
             image = this.props.currentUser.photoUrl

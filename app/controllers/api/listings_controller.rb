@@ -21,10 +21,10 @@ class Api::ListingsController < ApplicationController
 
     def update 
         @listing = selected_listing
-        if @listing && @listing.update(listing_params)
+        if @listing.update(listing_params)
             render :show
-        elsif !@user 
-            render json: ['Cannot locate listing']
+        # elsif !@listing 
+        #     render json: ['Cannot locate listing']
         else 
             render json: @listing.errors.full_messages
         end 

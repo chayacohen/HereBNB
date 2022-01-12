@@ -1,20 +1,20 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { requestListing } from "../../actions/listing_actions";
-import { requestAllUsers } from "../../actions/user_actions";
 import ListingItem from "./listing_item";
 
 const mapStateToProps = (state, ownProps) => {
-    const listing = state.entities.listings[ownProps.match.params.id];
+    const listing = state.entities.listings[ownProps.match.params.id] 
+    || {};
+    debugger 
     return ({
         listing: listing, 
-        users: state.entities.users
+        host: state.entities.users[listing.host_id]
     })
 }
 
 const mapDispatchToProps = (dispatch) => ({
     requestListing: (listingId) => dispatch(requestListing(listingId)), 
-    requestAllUsers: () => dispatch(requestAllUsers())
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ListingItem))

@@ -17,8 +17,7 @@ class EditListingForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault(); 
         delete this.state.clicked
-        this.props.updateListing(this.state)
-        this.props.history.push(`/users/${this.props.currentUser.id}/listings`)
+        this.props.updateListing(this.state).then(() => this.props.history.push(`/users/${this.props.currentUser.id}/listings`) )
     }
 
     componentDidMount() {

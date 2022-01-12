@@ -11,9 +11,10 @@ const receiveAllListings = (listings) => ({
     listings
 })
 
-const receiveListing = (listing) => ({
+const receiveListing = (listing, host) => ({
     type: RECEIVE_LISTING, 
-    listing
+    listing, 
+    user: host 
 })
 
 const removeListing = (listingId) => ({
@@ -31,17 +32,24 @@ export const requestAllListings = () => dispatch => {
     .then((listings) => dispatch(receiveAllListings(listings)))
 }
 
-export const requestListing = (listingId) => dispatch => (
-    ListingApiUtil.fetchListing(listingId)
-    .then(listing => dispatch(receiveListing(listing)))
-)
+export const requestListing = (listingId) => dispatch => {
+    return (
+        ListingApiUtil.fetchListing(listingId)
+        .then(({listing, host}) => { 
+            debugger 
+            return (
+                dispatch(receiveListing(listing, host)))
+            })
+    )
+}
+
 export const updateListing = (listing) => dispatch => (
     ListingApiUtil.updateListing(listing)
-    .then(listing => dispatch(receiveListing(listing)))
+    .then(({listing, host}) => dispatch(receiveListing(listing, host)))
 )
 export const createListing = (listing) => dispatch => (
     ListingApiUtil.createListing(listing)
-    .then(listing => dispatch(receiveListing(listing)))
+    .then(({ listing, host }) => dispatch(receiveListing(listing, host)))
 )
 export const deleteListing = (listingId) => dispatch => (
     ListingApiUtil.deleteListing(listingId)

@@ -14,30 +14,32 @@ class ListingItem extends React.Component {
     
     componentDidMount() {
         this.props.requestListing(this.props.match.params.id);
-        this.props.requestAllUsers() 
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.id !== this.props.match.params.id) {
             this.props.requestListing(this.props.match.params.id);
         } 
-        if (prevProps.listing !== this.props.listing) {
-            this.props.requestListing(this.props.match.params.id);
-            this.props.requestAllUsers()
-        }
     }
     
     render() {
         // goal is to replace placeholder divs to map the images of the listing
         //on click of city,state,country, takes you to map page
-        if (!this.props.listing) { 
+        if (!this.props.listing || !this.props.host) { 
             return null; 
         }
 
         const listing = this.props.listing 
-        debugger 
-        const host = this.props.users[listing.host_id]
-        // const host = this.props.users[this.props.listing.host_id]
+        const host = this.props.host 
+
+        let home = ['Entire home', `You'll have the home for yourself`, "Entire home"]
+        if (listing.privacy === 'a private room') {
+            home = ['A private room', `You'll have a private room in the home`, 'Private room']
+        };
+        if (listing.privacy === 'a shared room') {
+            home = ['A shared room', `You'll be sharing a room`, 'Shared room']
+        };
+
         return (
             <div className="listing-item">
                 <p className="listing-title">{listing.title}</p>
@@ -61,7 +63,7 @@ class ListingItem extends React.Component {
                     <div className="about-host">
                         <div className="about-host-first">
                             <div className="about-host-words">
-                                <p className="hosted-by">{`Entire home hosted by ${host.first_name}`}</p>
+                                <p className="hosted-by">{`${home[2]} hosted by ${host.first_name}`}</p>
                                 <p className="house-details">{`${listing.guests} guests ${'\u00b7'} ${listing.beds} bedrooms ${'\u00b7'} ${listing.beds * 2} beds ${'\u00b7'} ${listing.bath} baths`} </p>
                             </div>
                             <Link to={`/users/show/${listing.host_id}`} className="link"><img src={host.photoUrl} className="host-photo"/></Link>
@@ -69,9 +71,9 @@ class ListingItem extends React.Component {
                         <p className="border-line"></p>
                         <div className="home">
                             <FontAwesomeIcon icon={faHome} className="home-icon"/> 
-                            <p>Entire home</p>
+                            <p>{home[0]}</p>
                         </div>
-                        <p className="at-description" id="clean">You'll have the home for yourself.</p>
+                        <p className="at-description" id="clean">{`${home[1]}.`}</p>
                         <div className="clean">
                             <FontAwesomeIcon icon={faSquare} className="square-icon" /> 
                             <p>Enhanced clean</p>
