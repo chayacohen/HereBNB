@@ -1,3 +1,5 @@
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -5,7 +7,7 @@ class CompleteListingForm extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { about: '', title: '', price: ''}
+        this.state = { about: '', title: '', price: '', question: 'Complete your listing'}
         this.handleLogoClick = this.handleLogoClick.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleNextClick = this.handleNextClick.bind(this); 
@@ -55,9 +57,8 @@ class CompleteListingForm extends React.Component {
                 }
                 this.props.addListingPhotos(response.listing.id, formData).then(() => { 
                     this.props.history.push(`/users/${this.props.currentUser.id}/listings`)
-                    this.props.closeModal()
                 })
-                this.props.openModal('loading')
+                this.setState({question: 'Submitting your listing'})
                 this.props.clearForm()
             })
             
@@ -73,7 +74,10 @@ class CompleteListingForm extends React.Component {
                 <div className="location-type-listing">
                     <div className="question" id="location-question">
                         <p className="logo" id="create-listing-logo" onClick={this.handleLogoClick}>herebnb</p>
-                        <p className="the-question">Complete your listing</p>
+                        <div className="the-create-question">
+                            <p>{this.state.question}</p>
+                            {this.state.question === 'Submitting your listing' ? <FontAwesomeIcon icon={faCircleNotch} className="fa-spin"/> : null }
+                            </div>
                     </div>
                     <div className="location-input">
                         <div className="location-end-form">

@@ -26,11 +26,26 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 .the-question {
     font-size: 48px;
     font-weight: 600;
-    text-align: start;
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.the-create-question {
+    font-size: 48px;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center
+}
+
+.the-create-question p:first-child {
+    margin-bottom: 5%;
+}
+
 
 .question {
     background: #BD1E59;
