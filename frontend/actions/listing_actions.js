@@ -36,7 +36,6 @@ export const requestListing = (listingId) => dispatch => {
     return (
         ListingApiUtil.fetchListing(listingId)
         .then(({listing, host}) => { 
-            debugger 
             return (
                 dispatch(receiveListing(listing, host)))
             })
@@ -47,10 +46,21 @@ export const updateListing = (listing) => dispatch => (
     ListingApiUtil.updateListing(listing)
     .then(({listing, host}) => dispatch(receiveListing(listing, host)))
 )
-export const createListing = (listing) => dispatch => (
-    ListingApiUtil.createListing(listing)
-    .then(({ listing, host }) => dispatch(receiveListing(listing, host)))
+
+export const addListingPhotos = (listingId, formData) => dispatch => (
+    ListingApiUtil.addListingPhotos(listingId, formData)
+    .then(({listing, host}) => dispatch(receiveListing(listing, host)))
 )
+
+export const createListing = (listing) => dispatch => {
+    return (
+    ListingApiUtil.createListing(listing)
+    .then(({ listing, host }) => { 
+        // debugger 
+        return (
+        dispatch(receiveListing(listing, host)))
+    })
+)}
 export const deleteListing = (listingId) => dispatch => (
     ListingApiUtil.deleteListing(listingId)
     .then(() => dispatch(removeListing(listingId)))

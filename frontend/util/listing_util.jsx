@@ -37,3 +37,13 @@ export const fetchUserListings = (userId) => (
         url: `/api/users/${userId}/listings`
     })
 )
+
+export const addListingPhotos = (listingId, formData) => (
+    $.ajax({
+        url: `/api/listings/${listingId}`,
+        method: "PATCH",
+        data: formData,
+        contentType: false,
+        processData: false
+    })
+)

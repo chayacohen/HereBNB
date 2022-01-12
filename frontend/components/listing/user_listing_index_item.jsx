@@ -20,9 +20,10 @@ class UserListingIndexItem extends React.Component {
     }
 
     render() {
+        const listing = this.props.listing; 
         return (
             <div className="user-listing-index-item">
-                <Link className="link" to={`/listings/${this.props.listing.id}`}><img /></Link>
+                <Link className="link" to={`/listings/${this.props.listing.id}`}><img src={listing.photoUrls ? listing.photoUrls[0] : ''}/></Link>
                 <div className="listing-index-item-info">
                     <div className="old-first">
                         <p>{`$${this.props.listing.price}`}</p>

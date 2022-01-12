@@ -51,12 +51,12 @@ class ListingItem extends React.Component {
                     <p>{`${listing.city},${listing.state},${listing.country}`}</p>
                 </div>
                 <div className="image-show-listing">
-                    <div className="main-image"></div>
+                    <img className="main-image" src={listing.photoUrls[0]}/>
                     <div className="rest-of-images">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <img src={listing.photoUrls[1]}/>
+                        <img src={listing.photoUrls[2]}/>
+                        <img src={listing.photoUrls[3]}/>
+                        <img src={listing.photoUrls[4]}/>
                     </div>
                 </div>
                 <section className="details-section">

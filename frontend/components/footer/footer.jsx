@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 class Footer extends React.Component {
 
     render () {
-        debugger 
         const splitPathname = this.props.location.pathname.split('/');
         if (splitPathname[2] === 'create-listing') {
             return null

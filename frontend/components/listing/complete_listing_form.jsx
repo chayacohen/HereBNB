@@ -24,6 +24,10 @@ class CompleteListingForm extends React.Component {
 
     handleNextClick() {
         const listingForm = this.props.listingForm
+        debugger 
+        if ( Object.values(listingForm).length !== 14) {
+            return this.props.history.push('/listings/create-listing')
+        }
         const listing = {
             title: this.state.title, 
             about: this.state.about, 
@@ -44,20 +48,20 @@ class CompleteListingForm extends React.Component {
             host_id: this.props.currentUser.id
         }
         this.props.createListing(listing)
-        this.props.requestAllListings(); 
-        const listingId = this.props.listings[this.props.listings.length - 1].id
-        const formData = new FormData();
-        for(let i = 0; i < listingForm.photos.length; i++) {
-            formData.append("listing[photos][]", listingForm.photos[i]);
-        }
-        $.ajax({
-            url: `/api/listings/${listingId}`,
-            method: "PATCH",
-            data: formData,
-            contentType: false,
-            processData: false
-        }).then(response => this.props.updateListing(response))
-        this.props.clearForm(); 
+            .then((response) => {
+                const formData = new FormData();
+                for (let i = 0; i < listingForm.photos.length; i++) {
+                    formData.append("listing[photos][]", listingForm.photos[i]);
+                }
+                this.props.addListingPhotos(response.listing.id, formData).then(() => { 
+                    this.props.history.push(`/users/${this.props.currentUser.id}/listings`)
+                    this.props.closeModal()
+                })
+                this.props.openModal('loading')
+                this.props.clearForm()
+            })
+            
+        
     }
 
     // componentDidMount() {
@@ -89,7 +93,7 @@ class CompleteListingForm extends React.Component {
                         <div className="listing-buttons">
                             <Link className="link" id="back-button" to={this.props.place ? `/listings/create-listing/photos` : '/listings/create-listing'}>Back</Link>
                             {this.state.about !== '' && this.state.title !== '' && this.state.price !== '' ?
-                            <Link className="link" id="location-next-button" onClick={this.handleNextClick} to={`/users/${this.props.currentUser.id}/listings`}>Next</Link> : null}
+                            <button className="link" id="location-next-button" onClick={this.handleNextClick} type="submit">Submit</button> : null }
                         </div>
                     </div>
                 </div>
