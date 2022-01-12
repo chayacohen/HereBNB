@@ -12,17 +12,19 @@ class ListingItem extends React.Component {
         super(props); 
     }
     
-
     componentDidMount() {
         this.props.requestListing(this.props.match.params.id);
         this.props.requestAllUsers() 
     }
 
     componentDidUpdate(prevProps) {
-        debugger
         if (prevProps.match.params.id !== this.props.match.params.id) {
             this.props.requestListing(this.props.match.params.id);
         } 
+        if (prevProps.listing !== this.props.listing) {
+            this.props.requestListing(this.props.match.params.id);
+            this.props.requestAllUsers()
+        }
     }
     
     render() {
@@ -33,6 +35,7 @@ class ListingItem extends React.Component {
         }
 
         const listing = this.props.listing 
+        debugger 
         const host = this.props.users[listing.host_id]
         // const host = this.props.users[this.props.listing.host_id]
         return (

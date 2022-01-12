@@ -26,10 +26,6 @@ class Account extends React.Component {
 
     componentDidMount() {
         const user = this.props.requestUser(this.props.match.params.id)
-        // if (!user) {
-        //     this.setState({errors: 'Could not locate user!'})
-        // }
-        // debugger
     }
 
     componentDidUpdate() {

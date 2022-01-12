@@ -4,6 +4,8 @@ export const RECEIVE_PRIVACY_TYPE = "RECEIVE_PRIVACY_TYPE";
 export const RECEIVE_LOCATION = "RECEIVE_LOCATION"; 
 export const RECEIVE_FLOOR_PLAN = "RECEIVE_FLOOR_PLAN"; 
 export const RECEIVE_LISTING_PHOTOS = "RECEIVE_LISTING_PHOTOS"; 
+export const CLEAR_FORM = "CLEAR_FORM"; 
+
 
 
 export const receivePlaceType = (placeType) => ({
@@ -41,5 +43,11 @@ export const receiveListingPhotos = (photos) => {
     return {
         type: RECEIVE_LISTING_PHOTOS, 
         photos
+    }
+}
+
+export const clearForm = () => {
+    return {
+        type: CLEAR_FORM, 
     }
 }

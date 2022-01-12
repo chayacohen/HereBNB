@@ -9,8 +9,8 @@ class UserListingIndex extends React.Component {
         this.props.requestUser(this.props.match.params.id);
     }
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.match.params.id !== this.props.match.params.id) {
+    componentDidUpdate(prevProps) { 
+        if ((prevProps.match.params.id !== this.props.match.params.id)) {
             this.props.requestAllUserListings(this.props.match.params.id);
             this.props.requestUser(this.props.match.params.id)
         } 
@@ -34,9 +34,6 @@ class UserListingIndex extends React.Component {
                 </div>
             )
         }
-
-        debugger
-
         const username = `${this.props.user.first_name ? this.props.user.first_name : ''}  ${this.props.user.last_name ? this.props.user.last_name : ''}` 
 
         const listings = this.props.listings 
@@ -49,7 +46,7 @@ class UserListingIndex extends React.Component {
                     <div>
                         <div id="sidebar">
                             <img src={this.props.currentUser.photoUrl} />
-                            <p className="username"> {username !== '' ? <Link className="link username" to={`/users/show/${this.props.user.id}`}><p className="username">{username}</p></Link> : null }</p>
+                            <p> {username !== '' ? <Link className="link username" to={`/users/show/${this.props.user.id}`}>{username}</Link> : null }</p>
                             <p className="user-location">{this.props.user.location ? this.props.user.location : null}</p>
                             <div className="border-line" id="sidebar-border"></div>
                         </div>
@@ -60,7 +57,7 @@ class UserListingIndex extends React.Component {
                             </div>
                             <div className="border-line" id="amount-listings"></div>
                             <ul className="user_listings_index_list">
-                                {listings.map(listing => <UserListingIndexItem listing={listing} key={listing.id} currentUser={this.props.currentUser} user={this.props.user} deleteListing={this.props.deleteListing}/>)}
+                                {listings.map(listing => <UserListingIndexItem listing={listing} key={listing.id} currentUser={this.props.currentUser} user={this.props.user} deleteListing={this.props.deleteListing} history={this.props.history}/>)}
                             </ul>
                         </div>
                     </div>

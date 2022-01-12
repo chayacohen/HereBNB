@@ -8,10 +8,15 @@ class UserListingIndexItem extends React.Component {
     constructor(props) {
         super(props); 
         this.handleDeleteClick = this.handleDeleteClick.bind(this); 
+        this.handleEditClick = this.handleEditClick.bind(this); 
     }
 
     handleDeleteClick() {
         this.props.deleteListing(this.props.listing.id)
+    }
+
+    handleEditClick() {
+        this.props.history.push(`/listings/${this.props.listing.id}/edit`)
     }
 
     render() {

@@ -6,7 +6,6 @@ import ListingItem from "./listing_item";
 
 const mapStateToProps = (state, ownProps) => {
     const listing = state.entities.listings[ownProps.match.params.id];
-    // debugger
     return ({
         listing: listing, 
         users: state.entities.users

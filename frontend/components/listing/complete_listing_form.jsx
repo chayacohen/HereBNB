@@ -46,7 +46,6 @@ class CompleteListingForm extends React.Component {
         this.props.createListing(listing)
         this.props.requestAllListings(); 
         const listingId = this.props.listings[this.props.listings.length - 1].id
-        debugger
         const formData = new FormData();
         for(let i = 0; i < listingForm.photos.length; i++) {
             formData.append("listing[photos][]", listingForm.photos[i]);
@@ -58,6 +57,7 @@ class CompleteListingForm extends React.Component {
             contentType: false,
             processData: false
         }).then(response => this.props.updateListing(response))
+        this.props.clearForm(); 
     }
 
     // componentDidMount() {
@@ -87,9 +87,9 @@ class CompleteListingForm extends React.Component {
                             </div>
                         </div>
                         <div className="listing-buttons">
-                            <Link className="link" id="back-button" to={`/listings/create-listing/photos`}>Back</Link>
+                            <Link className="link" id="back-button" to={this.props.place ? `/listings/create-listing/photos` : '/listings/create-listing'}>Back</Link>
                             {this.state.about !== '' && this.state.title !== '' && this.state.price !== '' ?
-                            <Link className="link" id="location-next-button" onClick={this.handleNextClick} to={`/listings/?`}>Next</Link> : null}
+                            <Link className="link" id="location-next-button" onClick={this.handleNextClick} to={`/users/${this.props.currentUser.id}/listings`}>Next</Link> : null}
                         </div>
                     </div>
                 </div>

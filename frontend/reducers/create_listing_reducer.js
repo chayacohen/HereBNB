@@ -1,4 +1,4 @@
-import { RECEIVE_PLACE_TYPE, RECEIVE_SPECIFIC_TYPE, RECEIVE_PRIVACY_TYPE, RECEIVE_LOCATION, RECEIVE_FLOOR_PLAN, RECEIVE_LISTING_PHOTOS} from "../actions/create_listing_actions";
+import { RECEIVE_PLACE_TYPE, RECEIVE_SPECIFIC_TYPE, RECEIVE_PRIVACY_TYPE, RECEIVE_LOCATION, RECEIVE_FLOOR_PLAN, RECEIVE_LISTING_PHOTOS, CLEAR_FORM} from "../actions/create_listing_actions";
 
 const defaultState = {}
 
@@ -20,6 +20,8 @@ const CreateListingReducer = (state = defaultState, action) => {
             return Object.assign({}, state, {guests: floorPlan.guests, beds: action.floorPlan.beds, bath: action.floorPlan.bathrooms});
         case RECEIVE_LISTING_PHOTOS: 
             return Object.assign({}, state, {photos: action.photos});
+        case CLEAR_FORM: 
+            return {};
         default: 
             return state; 
     }

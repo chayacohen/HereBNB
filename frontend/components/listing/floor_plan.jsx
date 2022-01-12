@@ -101,7 +101,7 @@ class FloorPlan extends React.Component {
                             </div>
                         </div>
                         <div className="listing-buttons">
-                            <Link className="link" id="back-button" to={`/listings/create-listing/location`}>Back</Link>
+                            <Link className="link" id="back-button" to={this.props.place ? `/listings/create-listing/location` : '/listings/create-listing'}>Back</Link>
                             {this.state.location !== '' ?
                                 <Link className="link" id="location-next-button" onClick={this.handleNextClick} to={`/listings/create-listing/photos`}>Next</Link> : null}
                         </div>

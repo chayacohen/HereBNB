@@ -59,7 +59,11 @@ class Header extends React.Component {
  
     componentDidUpdate(prevProps) {
         if ((this.props.location.pathname !== prevProps.location.pathname) && this.props.location.pathname !== "/") {
-            this.setState({color: 'white'})
+            const header = document.getElementById("nav-bar");
+            if (header) {
+                header.style.backgroundColor = "white"; 
+                header.style.color = "red"; 
+            } 
         }
     }
 

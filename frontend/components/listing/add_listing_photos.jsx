@@ -66,7 +66,7 @@ class CreateListingPhotos extends React.Component {
                             </div>
                         </div>
                         <div className="listing-buttons">
-                            <Link className="link" id="back-button" to={`/listings/create-listing/floor-plan`}>Back</Link>
+                            <Link className="link" id="back-button" to={this.props.place ? `/listings/create-listing/floor-plan` : '/listings/create-listing'}>Back</Link>
                             {this.state.photos.length >= 5 ?
                                 <Link className="link" id="location-next-button" onClick={this.handleNextClick} to={`/listings/create-listing/complete-listing`}>Next</Link> : null}
                         </div>

@@ -45,7 +45,7 @@ class PrivacyType extends React.Component {
                             </div>
                         </div>
                         <div className="listing-buttons">
-                            <Link className="link" id="back-button" to={`/listings/create-listing/${this.props.place.split(' ').join('')}`}>Back</Link>
+                            <Link className="link" id="back-button" to={this.props.place ? `/listings/create-listing/${this.props.place.split(' ').join('')}` : '/listings/create-listing'}>Back</Link>
                             {this.state.option_clicked !== '' ?
                                 <Link className="link" id="next-button" onClick={this.handleNextClick} to={`/listings/create-listing/location`}>Next</Link> : null}
                         </div>

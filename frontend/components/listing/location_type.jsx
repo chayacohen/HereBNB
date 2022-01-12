@@ -56,10 +56,10 @@ class LocationType extends React.Component {
                     <div className="location-input">
                         <div className="map" ref={map => this.mapNode = map}></div>
                         <div className="address-input">
-                          <input id="autocomplete" placeholder='Enter your address' type="text" onChange={this.handleChange}/>  
+                          <input id="autocomplete" placeholder='Enter your address' type="text"/>  
                         </div>
                         <div className="listing-buttons">
-                            <Link className="link" id="back-button" to={`/listings/create-listing/privacy-type`}>Back</Link>
+                            <Link className="link" id="back-button" to={this.props.place ? `/listings/create-listing/privacy-type` : '/listings/create-listing'}>Back</Link>
                             {this.state.location !== '' ?
                                 <Link className="link" id="location-next-button" to={`/listings/create-listing/floor-plan`}>Next</Link> : null}
                         </div>
