@@ -1,0 +1,545 @@
+$font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+.all-listings {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 2%;
+    margin: 0 5% 0 5%;
+    // gap: 1%;
+    // border:black solid 1px;
+}
+
+.listing-container {
+    margin-top: 200px;
+    // border: blue solid 1px;
+}
+
+.listing-image {
+    // border: red solid 1px;
+    height: 270px;
+    width: 275px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 8px 0 10px 0;
+    cursor: pointer;
+}
+
+.about-listing {
+    margin-bottom: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+    display: flex;
+    justify-content: space-between;
+    font-family: $font;
+}
+
+.about-listing p:first-child{
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.listing-price {
+    font-weight: 300;
+}
+
+.listing-item {
+    margin: 110px 14% 0 14%;
+    font-family: $font;
+    color: #222222;
+}
+.listing-item p {
+    // margin-bottom: 20px;
+    margin-left: 0.5%;
+}
+
+.listing-title {
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.listing-details {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.3%;
+    font-size: 13px;
+    font-weight: 500;
+    color: #222222;
+    margin-bottom: 20px;
+}
+
+.listing-details p:nth-child(1) {
+    color: #ff385c;
+}
+
+.listing-details p:nth-child(3) {
+    text-decoration: underline;
+}
+
+.listing-details p:nth-child(5) {
+    text-decoration: underline;
+    color: #717171;
+}
+
+.image-show-listing {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4.2%;
+    // border: black solid 2px;
+}
+
+.main-image { 
+    height: 49.8vh;
+    // height: auto;
+    width: 40vw;
+    object-fit: cover;
+    border-radius: 8px 0 0 8px;
+    margin-right: 1%;
+}
+
+.rest-of-images {
+    height: 50vh;
+    // height: auto;
+    width: 50vw;
+    display: grid;
+    grid-column: 2;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 1%;
+    column-gap: 1%;
+    flex-wrap: wrap;
+}
+
+.rest-of-images img {
+    height: 24.6vh;
+    width: 19.3vw;
+    object-fit: cover;
+
+}
+
+.rest-of-images img:nth-child(2) {
+    border-radius: 0 8px 0 0;
+}
+
+.rest-of-images img:nth-child(4) {
+    border-radius: 0 0 8px 0;
+}
+
+.hosted-by {
+    font-size: 22px;
+    font-weight: 400;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.house-details {
+    font-size: 16px;
+    font-weight: 300;
+    // border: black solid 1px;
+    width: 100%;
+    // margin-bottom: 10%;
+}
+
+.host-photo {
+    height: 50px;
+    width: 50px; 
+    object-fit: cover;
+
+
+
+border-radius: 50%;
+ margin-top: 1%;
+    // margin-left: 20%;
+}
+
+.about-host-first {
+    display: flex;
+    justify-content: space-between;
+    // border: black solid 1px;
+    margin-right: 7%;
+}
+
+.about-host {
+    height: 100%;
+    width: 66%;
+}
+
+.details-section {
+    display: flex;
+    justify-content: space-between;
+    // border: black solid 1px;
+}
+
+.booking-container {
+    display: block;
+    height: 500px;
+    width: 30%;
+    border: black solid 1px;
+    border-radius: 8px;
+    font-family: $font;
+    // box-shadow: 0 6px 16px rgb(0 0 0 0.12) ;
+    // margin-left: 5%;
+}
+
+.booking {
+    // position: absolute;
+    margin: 5%;
+    width: 95%;
+    height: 95%;
+    // width: 100%;
+    // top: 50%;
+
+}
+
+.home-icon {
+    margin-left: 2px;
+}
+
+.square-icon, .door-icon, .home-icon {
+    font-size: 25px;
+}
+
+// .home {
+//     // margin-top: 8%;
+// }
+
+.home, .clean, .check-in {
+    display: flex;
+    justify-content: flex-start;
+    vertical-align: center;
+}
+
+.home p, .clean p, .check-in p{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.home p {
+    text-indent: 5px;
+}
+
+.clean p {
+    text-indent: 8px;
+}
+
+.check-in p{
+    text-indent: 2px;
+}
+
+.at-description {
+    text-indent: 3.8%;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #717171;
+    font-weight: 300;
+}
+
+#check-in, #clean, #home {
+    text-indent: 4%;
+}
+
+#clean {
+    text-indent: 4%;
+}
+
+.square-icon {
+    margin-left: 5px;
+}
+
+.about-listing {
+    // margin-top: 5%;
+    // margin-bottom: 5%;
+    font-family: $font;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+
+.border-line {
+    height: 1px;
+    color: #d1cccc;
+    background-color: #d1cccc;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.sleep h1{
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.star {
+    color: #ff385c;
+    margin-right: 2px;
+    font-size: 16px;
+}
+
+.reviews-listing h1 {
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: $font;
+    font-weight: 500;
+}
+
+.listing-map h1{
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.booking-box-header{
+    display: flex;
+    justify-content: space-evenly;
+    // width: 200%;
+    gap: 15%;
+    margin-bottom: 20px;
+}
+
+// .booking-box-header p:first-child {
+//         // margin-right: 15%;
+
+// }
+
+.booking-box-header div:first-child {
+    display: flex;
+    justify-content: flex-start;
+    // white-space: nowrap;
+    align-items: center;
+    gap: 5%;
+
+}
+
+.lastp{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    // white-space: nowrap;
+    // margin-right: 50%;
+    font-weight: 500;
+}
+
+#star {
+    color: #ff385c;
+    font-size: 14px;
+}
+
+.listing-price-text {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.per-night {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.check-in-booking, .check-out-booking {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    // border: 1px solid red;
+}
+
+.check-in-booking {
+    border-right: solid black 1px;
+}
+
+.check-in-booking input, .check-out-booking input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #717171;
+}
+.check-in-booking label, .check-out-booking label {
+    font-size: 10px;
+    font-weight: 600;
+    color: black;
+}
+
+.date-inputs div:first-child{
+    display: flex;
+    justify-content: space-between;
+    // margin-left: 10%;
+}
+
+.date-inputs {
+    border: solid black 1px;
+    border-radius: 8px;
+    width: 90%;
+}
+
+
+.listing-image-header img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    margin-top: 100px;
+    // background: rgb(115, 173, 115);
+}
+
+.container-listings {
+    width: 66%;
+    height: auto;
+    margin: auto;
+    // border: black solid 1px;
+    margin-top: 3%;
+}
+
+.container-listings > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#sidebar {
+    width: 33%;
+    // border: solid black 1px;
+}
+
+.user-listing-all {
+    width: 78%;
+    text-align: left;
+    margin-left: 15px;
+}
+
+.user-listing-all-header  {
+    color: #484848; 
+    font-size: 18px;
+    font-weight: 400;
+    font-family: $font;
+}
+
+#amount-listings {
+   margin-top: 2%; 
+   margin-bottom: 2%;
+}
+
+#create-new-listing-button {
+    justify-content: center;
+    display: flex;
+    color: rgb(238, 236, 236); 
+    margin-right: 5%;
+    // margin-top: 3%;
+    background-color: #008489;
+    // border-radius: 8px;
+    width: fit-content;
+    font-size: 18px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: $font;
+}
+
+.user_listings_index_list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-right: 20px;
+}
+
+.user-listing-index-item {
+    width: 49%;
+    height: 250px;
+}
+
+.user-listing-index-item img{
+    width: 95%;
+    height: 85%;
+    object-fit: cover;
+}
+
+.user-listing-index-item > div{
+    display: flex;
+    justify-content: space-between;
+    width: 92.5%;
+}
+
+.old-first {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-family: $font;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.old-first p:first-child {
+    font-weight: 600;
+}
+
+.old-first p:last-child {
+    font-weight: 300;
+}
+
+
+.old-first p:nth-child(2) {
+    color: rgb(255, 180, 0);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.all-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#sidebar > img {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 5%;
+}
+
+#sidebar > p {
+    color: #008489;
+    font-family: $font;
+}
+
+.username {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 2%;
+    color: #008489;
+    font-family: $font;
+}
+
+.username:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.user-location {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#sidebar-border {
+    width: 75%;
+    margin-top: 10%;
+    border: 0.5px solid rgb(241, 239, 239);
+}
+
+
+.listing-function-icons {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.delete:hover {
+    cursor: pointer;
+}
+
+.edit {
+    padding-right: 20%;
+}
+
+.edit:hover {
+    cursor: pointer;
+}
+

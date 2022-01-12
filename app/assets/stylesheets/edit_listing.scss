@@ -1,0 +1,127 @@
+$font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+
+
+.access-denied {
+    position: absolute;
+    top: 20%;
+    left: 39%;
+    font-size: 60px;
+}
+
+.edit-form-container {
+    height: 88vh;
+    width: 70%;
+    margin: auto;
+    margin-top: 110px;
+    font-family: $font;
+}
+
+
+.edit-form {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.edit-form > div {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-radius: 8px;
+    border: rgb(231, 229, 229) solid 1px;
+    padding: 10px;
+    box-sizing: border-box;
+    // color: rgb(141, 138, 138);
+}
+
+.edit-form textarea {
+    outline: none;
+    border: none;
+    resize: none;
+    font-family: $font;
+    font-size: 14px;
+    color: #222222;
+}
+.edit-form input {
+    outline: none;
+    border: none;
+    font-size: 14px;
+    font-family: $font;
+    color: #222222;
+}
+
+.edit-form select {
+    outline: none;
+    border: none;
+    font-size: 14px;
+    font-family: $font;
+    color: #222222;
+}
+
+.edit-form select > option{
+    outline: none;
+    border: none;
+    font-size: 14px;
+    font-family: $font;
+    color: #222222;
+}
+
+.edit-form h1 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 1%;
+    box-sizing: border-box;
+}
+
+.edit-form label {
+    margin-bottom: 1%;
+    box-sizing: border-box;
+    color: #717171;
+}
+
+#floor-plan-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#floor-plan-container  label {
+    margin-right: 10px;
+}
+
+#floor-plan-container  input {
+    width: 20%;
+}
+
+#focus {
+    border: 1px black solid;
+}
+
+#floor-plan-focus {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border: 1px black solid;
+}
+
+#floor-plan-focus label {
+    margin-right: 10px;
+}
+
+#floor-plan-focus input {
+    width: 20%;
+}
+
+.update-listing-button {
+    font-family: $font;
+    font-size: 18px;
+    background-color: #ff385c;
+    color: white;
+    border: none;
+    height: 5%;
+    font-weight: 400;
+    border-radius: 8px;
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_05_164953) do
+ActiveRecord::Schema.define(version: 2022_01_11_023249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,32 @@ ActiveRecord::Schema.define(version: 2022_01_05_164953) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "about", null: false
+    t.integer "price", null: false
+    t.string "street", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "country", null: false
+    t.integer "zip_code", null: false
+    t.float "lat", null: false
+    t.float "lng", null: false
+    t.integer "guests", null: false
+    t.integer "beds", null: false
+    t.integer "bath", null: false
+    t.string "place", null: false
+    t.string "specific", null: false
+    t.string "privacy", null: false
+    t.integer "host_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["city"], name: "index_listings_on_city"
+    t.index ["host_id"], name: "index_listings_on_host_id"
+    t.index ["state"], name: "index_listings_on_state"
+    t.index ["zip_code"], name: "index_listings_on_zip_code"
   end
 
   create_table "users", force: :cascade do |t|

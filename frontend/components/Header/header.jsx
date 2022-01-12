@@ -16,15 +16,13 @@ class Header extends React.Component {
         this.changeColor = this.changeColor.bind(this); 
     }
 
-
     handleLogoutClick() {
         this.props.logout()
     }
 
     handleLogoClick() {
         this.props.history.push("/"); 
-        this.setState({color: 'black'})
-        
+        this.setState({color: 'black'}) 
     }
 
     handleProfileClick() {
@@ -47,7 +45,7 @@ class Header extends React.Component {
                 this.setState({color: 'white'})
             } else if (window.scrollY < 1 && this.props.location.pathname === '/') {
                 this.setState({ color: 'black' }) 
-            } else if (window.scrollY > -1 && this.props.location.pathname !== '/') {
+            } else if (window.scrollY >= 0 && this.props.location.pathname !== '/') {
                 this.setState({ color: 'white' })
             } else {
                 this.setState({color: 'black'})
@@ -59,7 +57,20 @@ class Header extends React.Component {
         this.setState({color: 'white'})
     }
  
+    componentDidUpdate(prevProps) {
+        if ((this.props.location.pathname !== prevProps.location.pathname) && this.props.location.pathname !== "/") {
+            const header = document.getElementById("nav-bar");
+            if (header) {
+                header.style.backgroundColor = "white"; 
+                header.style.color = "red"; 
+            } 
+        }
+    }
+
     render() {
+
+        const splitPathname = this.props.location.pathname.split('/'); 
+        // const noShow = ['/listings/create-listing', '/listings/create-listing/:type']
         let image = ''; 
         if(this.props.currentUser) {
             image = this.props.currentUser.photoUrl
@@ -67,6 +78,11 @@ class Header extends React.Component {
         else {
             image = "https://a0.muscache.com/defaults/user_pic-50x50.png?v=3"
         }
+
+        if (splitPathname[2] === 'create-listing') {
+            return null 
+        }
+
             return (
                 <div>
                     <nav id="nav-bar"  style={{backgroundColor: this.state.color}} className={this.state.color}>

@@ -1,0 +1,341 @@
+$font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+
+
+#create-listing-logo {
+    color: white;
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    margin: 0 0 0 0;
+}
+.create-listing, .apartment-listing, .privacy-type-listing, .location-type-listing {
+    // margin-top: 150px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-family: $font;
+}
+
+.question, .question-options {
+    width: 100%; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.the-question {
+    font-size: 48px;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.the-create-question {
+    font-size: 48px;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center
+}
+
+.the-create-question p:first-child {
+    margin-bottom: 5%;
+}
+
+
+.question {
+    background: #BD1E59;
+    color: white;
+    flex-wrap: wrap;
+    // text-indent: 5%;
+    // line-height: 5%;
+}
+
+.question-options {
+    // border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.options {
+    // border: 1px solid black;
+    width: 60%;
+    height: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    // margin-bottom: 3%;
+}
+
+.options div {
+    height: 15%;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgb(233, 231, 231);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-indent: 10%;
+    font-size: 18px;
+    font-weight: 500;
+    box-sizing: border-box;
+}
+
+.options div:hover {
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.options img {
+    height: 80%;
+    width: 12%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 3%;
+    // padding: 5%; 
+} 
+
+.listing-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+}
+
+#back-button {
+    text-decoration: underline;
+    padding: 1%;
+    border-radius: 8px;
+}
+
+#back-button:hover {
+    background-color: rgb(235, 231, 231);
+}
+
+#next-button {
+    color: white;
+    background-color: black;
+    padding: 2% 3% 2% 3%;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+#location-next-button {
+    color: white;
+    background-color: black;
+    padding: 2% 3% 2% 3%;
+    border-radius: 8px;
+    font-weight: 500;
+    margin-left: 20%;
+}
+
+.options p {
+    width: 100%; 
+    // padding-right: 20%;
+    // box-sizing: border-box;
+}
+
+#place_type_clicked {
+    border: black 2px solid;
+    background-color: rgb(247, 243, 243);
+}
+
+.address-input {
+    border-radius: 30px;
+    width: 30%;
+    height: 7%;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 25%;
+    z-index: 10;
+    position: absolute;
+    bottom: 60%;
+    left: 60%;
+    background-color: white;
+}
+
+.address-input input {
+    outline: none;
+    border: none;
+    font-family: $font;
+    font-weight: 600;
+    margin-left: 40px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.location-input {
+    width: 50%;
+    display: block;
+}
+
+.map {
+    width: 100%;
+    height: 90%;
+    position: relative;
+    // z-index: 1;
+}
+
+#location-question {
+    width: 50%;
+}
+
+.floor-plan-options {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    // align-items: flex-start;
+    margin-top: 40%;
+    margin-bottom: 20%;
+}
+
+.floor-plan-options > div {
+    display: flex;
+    justify-content: flex-start;
+    // align-items: flex-start;
+    gap: 20%;
+    margin-bottom: 10%;
+    margin-left: 20%;
+}
+
+.guest-counter > div, .bed-counter > div, .bath-counter > div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 50%;
+}
+
+.guest-counter > p, .bed-counter > p, .bath-counter > p {
+    font-size: 26px;
+    font-family: $font;
+    font-weight: 500;
+    color: #222222
+}
+
+.counter p:first-child, .counter p:last-child {
+    border: black 1px solid;
+    border-radius: 50%;
+    padding: 8px;
+    // font-size: 30px;
+    font-weight: 300;
+}
+
+.bed-counter > p {
+    margin-right: 9.4%;
+}
+
+.guest-counter > p {
+    margin-right: 5.4%;
+}
+
+.the-photo-question img {
+    width: 100%;
+    height: 80.8%;
+}
+
+.attach-photos-container {
+    // border: black 1px solid;
+    width: 100%;
+    height: 70%; 
+}
+
+.attach-photos {
+    border: black 1px dotted;
+    width: 50%;
+    height: 70%; 
+    margin: auto; 
+    margin-top: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    font-family: $font;
+}
+
+.attach-photos> div:first-child {
+    margin-top: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#images {
+    font-size: 50px;
+    margin-bottom: 5%;
+}
+
+.upload-your {
+    font-size: 22px;
+    margin-bottom: 5%;
+}
+
+.at-least {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.upload-listing-photos {
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.location-end-form {
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    margin-top: 23%;
+    margin-bottom: 23%;
+    display: flex;
+    justify-content: space-evenly;
+    // align-items: ;
+    flex-direction: column;
+}
+
+.location-end-form > div {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border: 1px black solid;
+    border-radius: 8px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+
+.location-end-form label {
+    font-family: $font;
+    font-size: 20px; 
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.location-end-form input {
+    outline: none;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    font-family: $font;
+}
+
+.location-end-form textarea {
+    outline: none;
+    border: none;
+    resize: none;
+    font-size: 18px;
+    font-family: $font;
+}

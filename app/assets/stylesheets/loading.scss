@@ -1,0 +1,21 @@
+$font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+
+
+.loading-div {
+    background-color: #ff385c; 
+    color: white;
+    height: 50vh; 
+    width: 50vh;   
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loading-div p {
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-family: $font;
+}
+
