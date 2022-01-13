@@ -41,7 +41,7 @@ class LocationType extends React.Component {
             this.setState({center: {lat:lat, lng: lng}, zoom: 15});
             this.map.setCenter(this.state.center); 
             this.map.setZoom(this.state.zoom)
-            // debugger 
+
             new google.maps.Marker({position: this.state.center, map: this.map})
             const address = { address: `${place.address_components[0].short_name} ${place.address_components[1].short_name}`, city: place.address_components[3].long_name, state: place.address_components[5].short_name, country: place.address_components[6].short_name, zipCode: place.address_components[7].short_name, lat: lat, lng: lng}
             this.setState({location: address}) 

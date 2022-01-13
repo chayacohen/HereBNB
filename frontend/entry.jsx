@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import Root from "./components/root";
 import configureStore from "./store/store";
 import {requestAllUsers} from './actions/user_actions';
-
+import * as APIUtil from './util/listing_util';
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root"); 
@@ -28,5 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.getState = store.getState;
     window.dispatch = store.dispatch;
     window.requestAllUsers = requestAllUsers; 
+    window.fetchAllListings = APIUtil.fetchAllListings
     
 })

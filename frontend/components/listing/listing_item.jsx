@@ -13,7 +13,14 @@ class ListingItem extends React.Component {
     }
     
     componentDidMount() {
-        this.props.requestListing(this.props.match.params.id);
+        this.props.requestListing(this.props.match.params.id).then(({listing}) => {
+            const mapOptions = {
+                center: { lat: listing.lat, lng: listing.lng },
+                zoom: 15
+            };
+            this.map = new google.maps.Map(this.mapNode, mapOptions)
+            new google.maps.Marker({position: mapOptions.center, map: this.map})
+        })
     }
 
     componentDidUpdate(prevProps) {
@@ -103,7 +110,10 @@ class ListingItem extends React.Component {
                         <p className="border-line"></p>
                         <div className="listing-map">
                             <h1>Where you'll be</h1>
-                            Map 
+                            <p>{`${listing.city}, ${listing.state}, ${listing.country}`}</p>
+                            <div className="listing-item-map">
+                                <div id="map" className="map" ref={map => this.mapNode = map}></div>
+                            </div> 
                         </div>
                         <p className="border-line"></p>
                     </div>

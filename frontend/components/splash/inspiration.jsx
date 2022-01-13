@@ -10,19 +10,19 @@ export default function Inspiration() {
                 <div className='inspo-cities'>
                     <div className="inspo-city city-one">
                         <img src={window.placeholder}/>
-                        <p>Scranton</p>
+                        <p>New York</p>
                     </div>
                     <div className="inspo-city city-two">
                         <img src={window.placeholder}/>
-                        <p>Kingston</p>
+                        <p>Orlando</p>
                     </div>
                     <div className="inspo-city city-three">
                         <img src={window.placeholder}/>
-                        <p>Montauk</p>
+                        <p>Miami</p>
                     </div>
                     <div className="inspo-city city-four">
                         <img src={window.placeholder}/>
-                        <p>Hudson</p>
+                        <p>Los Angeles</p>
                     </div>
                 </div>
             </div>

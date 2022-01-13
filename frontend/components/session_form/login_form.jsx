@@ -22,7 +22,6 @@ class LoginForm extends React.Component {
         const user = { email: this.state.email, password: this.state.password};
         this.props.login(user)
         
-        // debugger
         // if (this.props.errors.length === 0) {
         //     this.props.closeModal();
         // }

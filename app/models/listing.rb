@@ -12,12 +12,17 @@ class Listing < ApplicationRecord
     through: :host, 
     source: :photo_attachment
 
-
-
     has_many_attached :photos
 
     def self.find_by_user(userId) 
         Listing.where(host_id: userId)
+    end 
+
+    def self.inBounds(bounds) 
+        self.where("lat < ?", bounds[:north])
+            .where("lat > ?", bounds[:south])
+            .where("lng > ?", bounds[:west])
+            .where("lng < ?", bounds[:east])
     end 
     
 end 

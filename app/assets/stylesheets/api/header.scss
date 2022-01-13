@@ -1,5 +1,6 @@
 .body {
     background-color: white;
+    // position: relative;
 }
 
 .white {
@@ -19,6 +20,7 @@
     padding: 0 20px;
     // color: white;
     // margin: 2% 4%;
+    // position: -webkit-sticky;
     position: fixed;
     top: 0;
     overflow: auto;

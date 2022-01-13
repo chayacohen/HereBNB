@@ -1,9 +1,14 @@
-export const fetchAllListings = () => (
-    $.ajax({
-        method: "GET", 
-        url: `/api/listings`
-    })
-)
+export const fetchAllListings = data => {
+    debugger 
+    return (
+        $.ajax({
+            method: "GET", 
+            url: `/api/listings`, 
+            data
+        })
+    )
+}
+
 export const fetchListing = (listingId) => (
     $.ajax({
         method: "GET", 

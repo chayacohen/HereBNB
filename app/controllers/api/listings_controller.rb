@@ -3,7 +3,7 @@ class Api::ListingsController < ApplicationController
     before_action :ensure_logged_in, only: [:update, :create, :destroy]
 
     def index 
-        @listings = Listing.all
+        @listings = bounds ? Listing.inBounds(bounds) : Listing.all
     end 
 
     def show 
@@ -51,5 +51,9 @@ class Api::ListingsController < ApplicationController
 
     def listing_params 
         params.require(:listing).permit(:title, :about, :host_id, :city, :state, :zip_code, :price, :street, :country, :lat, :lng, :guests, :beds, :bath, :place, :specific, :privacy, :photoUrls, :id, photos: [])
+    end 
+
+    def bounds 
+        params[:bounds]
     end 
 end 

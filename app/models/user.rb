@@ -1,5 +1,5 @@
 class User < ApplicationRecord 
-
+    
     attr_reader :password 
 
     has_one_attached :photo

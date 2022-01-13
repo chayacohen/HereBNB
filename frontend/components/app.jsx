@@ -19,6 +19,7 @@ import FloorPlanContainer from './listing/floor_plan_container';
 import CreateListingPhotosContainer from './listing/add_listing_photos_container';
 import CompleteListingFormContainer from './listing/complete_listing_form_container';
 import EditListingFormContainer from './listing/edit_listing_form_container';
+import MapListingIndexContainer from './map/listing_map_index_container';
 const App = () => (
     <div>
         <ModalContainer/>
@@ -38,6 +39,7 @@ const App = () => (
                 <ProtectedRoute exact path="/listings/create-listing/privacy-type" component={PrivacyTypeContainer}/>
                 <ProtectedRoute exact path="/listings/create-listing/:type" component={SpecificTypeContainer}/>
                 <ProtectedRoute exact path="/listings/create-listing" component={CreateListingContainer}/>
+                <Route exact path="/listings/map" component={MapListingIndexContainer}></Route>
                 <ProtectedRoute exact path='/listings/:id/edit' component={EditListingFormContainer} />
                 <Route exact path="/listings/:id" component={ListingItemContainer}></Route>
                 <Route exact path="/listings" component={ListingIndexContainer}></Route>

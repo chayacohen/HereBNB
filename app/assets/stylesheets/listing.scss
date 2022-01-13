@@ -290,6 +290,7 @@ border-radius: 50%;
 .listing-map h1{
     font-size: 22px;
     font-weight: 500;
+    margin-bottom: 30px;
 }
 
 .booking-box-header{
@@ -543,3 +544,14 @@ border-radius: 50%;
     cursor: pointer;
 }
 
+.listing-item-map {
+    height: 50vh;
+    width: 70vw;
+}
+
+.listing-map > p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #222222;
+    margin-bottom: 30px; 
+}
