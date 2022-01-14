@@ -20,7 +20,6 @@ import CreateListingPhotosContainer from './listing/add_listing_photos_container
 import CompleteListingFormContainer from './listing/complete_listing_form_container';
 import EditListingFormContainer from './listing/edit_listing_form_container';
 import MapListingIndexContainer from './map/listing_map_index_container';
-import MapFilter from './map/map_filter';
 
 
 const App = () => (
