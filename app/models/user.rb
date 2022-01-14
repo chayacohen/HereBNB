@@ -8,7 +8,7 @@ class User < ApplicationRecord
     foreign_key: :host_id, 
     primary_key: :id, 
     class_name: :User, 
-    dependent: :destroy
+    # dependent: :destroy
 
 
     validates :email, presence: true, uniqueness: true
