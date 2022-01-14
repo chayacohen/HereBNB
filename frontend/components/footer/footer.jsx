@@ -17,7 +17,6 @@ class Footer extends React.Component {
                     <h3>Contact Info</h3>
                     <p>Chaya Cohen</p>
                     <p>chayac100@gmail.com</p>
-                    <p>718-483-5682</p>
                     <p>Brooklyn, NY</p>
                 </div>
                 <div id="about">
