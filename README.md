@@ -27,4 +27,6 @@ Herebnb is build with the following technologies:
 
 ## Features 
 
+#### User Authentication
+ Users are able to login or signup via a modal on the right nav bar. The login and signup button takes you to the same modal where the backend verfiies whether the email is associated with a user or not. Depending, the login or signup modals are then displayed. This process renders errors when appropriate and successfully logs in or signs up a user. 
 
