@@ -15,8 +15,11 @@
     <script type="text/javascript">
         window.airbnb_splash = "<%= image_url('splash.jpg') %>";
         window.search_icon = "<%= image_url('search-icon.png') %>";
-        window.placeholder = "<%= image_url('splash.png')%>"; 
         window.nature = "<%= image_url('nature.jpg')%>"
+        window.nyc = "<%= image_url('nyc.jpg')%>"
+        window.la = "<%= image_url('la.jpg')%>"
+        window.orlando = "<%= image_url('orlando.png')%>"
+        window.miami = "<%= image_url('miami.jpg')%>"
         window.googleAPIKey = "<%= Rails.application.credentials.google[:api_key] %>"
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,4 +27,5 @@
   <body class="body">  
     <%= yield %>
   </body>
+
 </html>

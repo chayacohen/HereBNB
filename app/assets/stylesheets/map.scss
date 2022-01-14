@@ -55,6 +55,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     display: flex;
     justify-content: flex-start;
     gap: 20px;
+    color: #717171;
 }
 
 .map-index-info {
@@ -70,12 +71,90 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     color: #717171;
 }
 
-#heart {
-    font-size: 22px;
+.outline-heart {
+    font-size: 30px;
+    // color: #ff385c;
+    color: black;
+    font-weight: 300;
+}
+
+.outline-heart:hover, .red-heart:hover {
+    cursor: pointer;
+}
+
+.red-heart {
+    font-size: 30px;
+    color: #ff385c;
 }
 
 .map-title {
     font-size: 18px;
     font-weight: 300;
+    color: black;
 }
 
+#short-border-line {
+    width: 30px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.map-floor-plan {
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 5px;
+    font-weight: 300;
+
+}
+
+.bottom-map-index {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.map-reviews {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.map-reviews-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1px;
+}
+
+.lower-bottom-map {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 31.5%;
+}
+
+#map-index-star {
+    font-size: 14px;
+}
+
+.map-review-num {
+    font-size: 13px;
+    color: black;
+    font-weight: 600;
+}
+
+.map-reviews-container > p {
+    font-size: 13px;
+}
+
+.map-price-night {
+    display: flex;
+    justify-content: flex-end;
+    gap: 3px;
+    color: black;
+    font-weight: 300;
+}
+
+.map-price-night > p:first-child {
+    font-weight: 600;
+}

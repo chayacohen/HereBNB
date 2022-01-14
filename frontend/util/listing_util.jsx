@@ -1,5 +1,4 @@
 export const fetchAllListings = data => {
-    debugger 
     return (
         $.ajax({
             method: "GET", 

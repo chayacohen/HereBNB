@@ -105,16 +105,17 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 100%; 
-    // height: 50%;
+    width: 21vw; 
+    height: 50vh;
     // background-color: red;
     border-radius: 15px;
 }
 
 .inspo-city img {
-    // height: 25%; 
+    height: 50%; 
     width: 100%;
     border-radius: 15px 15px 0 0; 
+    object-fit: cover;
 }
 
 .inspo-city p {

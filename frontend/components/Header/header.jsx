@@ -88,7 +88,7 @@ class Header extends React.Component {
                     <nav id="nav-bar"  style={{backgroundColor: this.state.color}} className={this.state.color}>
                         <p className="logo" id={this.state.color} onClick={this.handleLogoClick}>herebnb</p>
                         <div>
-                            { this.props.location.pathname !== '/' ? null : <Search/>}
+                            {this.props.location.pathname === '/' || this.props.location.pathname === '/listings/map' ?  <Search/> : null } 
                         </div>
                         <div id="right-nav">
                             <section id="profile-button" onClick={this.handleProfileClick}>
