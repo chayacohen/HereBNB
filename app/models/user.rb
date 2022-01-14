@@ -7,7 +7,7 @@ class User < ApplicationRecord
     has_many :listings, 
     foreign_key: :host_id, 
     primary_key: :id, 
-    class_name: :User, 
+    class_name: :User 
     # dependent: :destroy
 
 
