@@ -1,21 +1,30 @@
 # Herebnb 
-[Live Site](https://herebnb.herokuapp.com/#/) 
+
+Herebnb is a clone of the popular Airbnb.
+
+[Click here for the live site](https://herebnb.herokuapp.com/#/) 
   
 
-* Ruby version
+<img src="https://user-images.githubusercontent.com/90418154/149538716-acb34ad9-8579-4555-88dc-0e84c8504efd.gif" height="30%" width="auto"/>
+<!-- ![splash page ](https://user-images.githubusercontent.com/90418154/149538716-acb34ad9-8579-4555-88dc-0e84c8504efd.gif) -->
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+## Technologies
 
-* Database initialization
+Herebnb is build with the following technologies: 
 
-* How to run the test suite
+  - AWS
+  - CSS
+  - Google Maps API
+  - HTML
+  - Javascript
+  - React 
+  - Redux
+  - Ruby 
+  - Ruby on Rails 
+  - Webpack
 
-* Services (job queues, cache servers, search engines, etc.)
+## Features 
 
-* Deployment instructions
 
-* ...
