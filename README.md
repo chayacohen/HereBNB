@@ -40,5 +40,10 @@ Herebnb is build with the following technologies:
   
   Users can create, update, and destroy their own listings. They can view all listings (whether or not they are logged in). They can also view listings filtered by location. A map is rendered with markers corresponding to the appropriate listings. 
   
+  ### To be continued 
+ - Users will be able to use the search bar to filter by city, number of guests, and availabilities based on dates inputed. 
+ - Users will be able to complete a booking and one single listing will not have overlapping bookings. 
+ - Users will be able to like a listing and it will be added to their wishlist. 
+  
   
 
