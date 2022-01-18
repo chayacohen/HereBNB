@@ -158,3 +158,12 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 .map-price-night > p:first-child {
     font-weight: 600;
 }
+
+.map-container-test {
+    height: 100vh;
+    width: 100vw;
+}
+
+.map {
+    cursor: url(https://d1nhio0ox7pgb.cloudfront.net/_img/i_collection_png/512x512/plain/marker.png), auto;
+}

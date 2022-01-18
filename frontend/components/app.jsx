@@ -20,7 +20,7 @@ import CreateListingPhotosContainer from './listing/add_listing_photos_container
 import CompleteListingFormContainer from './listing/complete_listing_form_container';
 import EditListingFormContainer from './listing/edit_listing_form_container';
 import MapListingIndexContainer from './map/listing_map_index_container';
-
+import Map from "./for_thousand/draw_map"; 
 
 const App = () => (
     <div>
@@ -45,6 +45,7 @@ const App = () => (
                 <Route exact path="/listings/:id" component={ListingItemContainer}></Route>
                 <Route exact path="/listings" component={ListingIndexContainer}></Route>
                 <Route exact path="/map/:id" component={MapListingIndexContainer}></Route>
+                <Route exact path="/map" component={Map}/>
                 <Route exact path = "/" component={Splash}/>
             </Switch>
         </ScrollToTop>

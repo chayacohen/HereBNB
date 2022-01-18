@@ -66,7 +66,7 @@ class MapListingIndex extends React.Component {
 
     componentDidUpdate() {
         if (this.props.listings.length > 0) {
-            debugger 
+            // debugger 
             this.MarkerManager.updateMarkers(this.props.listings)
         }
     }
@@ -78,7 +78,7 @@ class MapListingIndex extends React.Component {
 
 
     render() {
-        debugger 
+        // debugger 
         if (!this.props.listings) {
             return null 
         }
