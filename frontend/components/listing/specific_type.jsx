@@ -26,7 +26,6 @@ class SpecificType extends React.Component {
 
     handleNextClick() {
         this.props.listing.specific = this.state.option_clicked.toLowerCase(); 
-        debugger 
         this.props.updateListing(this.props.listing);
     }
 

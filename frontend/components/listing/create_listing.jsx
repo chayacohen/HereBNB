@@ -22,7 +22,6 @@ class CreateListing extends React.Component {
 
     handleNextClick() {
         this.props.createListing({place: this.state.place_type.toLowerCase(), host_id: this.props.currentUser.id}).then(listing => {
-            debugger 
             this.props.history.push(`/listings/${listing.listing.id}/create-listing/${this.state.place_type.split(' ').join('').toLowerCase()}`)
         })
     }

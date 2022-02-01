@@ -82,6 +82,9 @@ class Header extends React.Component {
         if (splitPathname[2] === 'create-listing') {
             return null 
         }
+        if (splitPathname[3] === 'create-listing') {
+            return null 
+        }
 
             return (
                 <div>
