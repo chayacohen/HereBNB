@@ -12,6 +12,9 @@ class SpecificType extends React.Component {
         this.handleNextClick = this.handleNextClick.bind(this); 
     }
 
+    componentDidMount() {
+        this.props.requestListing(this.props.match.params.id)
+    }
 
     handleLogoClick() {
         this.props.history.push("/");
@@ -22,7 +25,9 @@ class SpecificType extends React.Component {
     }
 
     handleNextClick() {
-        this.props.receiveSpecificType(this.state.option_clicked.toLowerCase());
+        this.props.listing.specific = this.state.option_clicked.toLowerCase(); 
+        debugger 
+        this.props.updateListing(this.props.listing);
     }
 
     render() {
@@ -72,7 +77,7 @@ class SpecificType extends React.Component {
                         <div className="listing-buttons">
                             <Link className="link" id="back-button" to={`/listings/create-listing`}>Back</Link>
                             {this.state.option_clicked !== '' ?
-                                <Link className="link" id="next-button" onClick={this.handleNextClick} to={`/listings/create-listing/privacy-type`}>Next</Link> : null}
+                                <Link className="link" id="next-button" onClick={this.handleNextClick} to={`/listings/${this.props.listing.id}/create-listing/privacy-type`}>Next</Link> : null}
                         </div>
                     </div>
                 </div>

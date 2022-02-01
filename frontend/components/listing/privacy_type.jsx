@@ -11,6 +11,9 @@ class PrivacyType extends React.Component {
         this.handleNextClick = this.handleNextClick.bind(this);
     }
 
+    componentDidMount() {
+        this.props.requestListing(this.props.match.params.id)
+    }
 
     handleLogoClick() {
         this.props.history.push("/");
@@ -21,10 +24,15 @@ class PrivacyType extends React.Component {
     }
 
     handleNextClick() {
-        this.props.receivePrivacyType(this.state.option_clicked.toLowerCase());
+        this.props.listing.privacy = this.state.option_clicked.toLowerCase(); 
+        this.props.updateListing(this.props.listing);
     }
 
     render() { 
+        if (!this.props.listing) {
+            return null 
+        }; 
+        
         return (
             <div>
                 <div className="privacy-type-listing">
@@ -45,9 +53,9 @@ class PrivacyType extends React.Component {
                             </div>
                         </div>
                         <div className="listing-buttons">
-                            <Link className="link" id="back-button" to={this.props.place ? `/listings/create-listing/${this.props.place.split(' ').join('')}` : '/listings/create-listing'}>Back</Link>
+                            <Link className="link" id="back-button" to={`/listings/${this.props.listing.id}/create-listing/${this.props.listing.place.split(' ').join('')}`} >Back</Link>
                             {this.state.option_clicked !== '' ?
-                                <Link className="link" id="next-button" onClick={this.handleNextClick} to={`/listings/create-listing/location`}>Next</Link> : null}
+                                <Link className="link" id="next-button" onClick={this.handleNextClick} to={`/listings/${this.props.listing.id}/create-listing/location`}>Next</Link> : null}
                         </div>
                     </div>
                 </div>

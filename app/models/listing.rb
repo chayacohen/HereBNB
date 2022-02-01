@@ -1,7 +1,7 @@
 class Listing < ApplicationRecord 
 
 
-    validates :title, :about, :host_id, :city, :state, :zip_code, :price, :street, :country, :lat, :lng, :guests, :beds, :bath, :place, :specific, :privacy, presence: true
+    validates :host_id, :place,  presence: true
     
     belongs_to :host, 
         foreign_key: :host_id, 
