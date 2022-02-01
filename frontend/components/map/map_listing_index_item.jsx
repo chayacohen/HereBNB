@@ -31,7 +31,7 @@ class MapListingIndexItem extends React.Component {
                 <div className="border-line" id="listing-index-item-border"></div>
                 <div className="map-listing-index-item" onClick={this.handleListingClick}>
                     <Link to={`/listings/${listing.id}`} className="link">
-                    <img src={listing.photoUrls[0]} className="map-listing-image" />
+                    <img src={listing.photoUrls ? listing.photoUrls[0] : null} className="map-listing-image" />
                     </Link>
                     <div className="map-index-info">
                         <div className="map-index-title">

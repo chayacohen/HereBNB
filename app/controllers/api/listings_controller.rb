@@ -3,7 +3,7 @@ class Api::ListingsController < ApplicationController
     before_action :ensure_logged_in, only: [:update, :create, :destroy]
 
     def index 
-        @listings = bounds ? Listing.inBounds(bounds) : Listing.all
+        @listings = bounds ? Listing.inBounds(bounds).where(complete: true) : Listing.all.where(complete: true)
     end 
 
     def show 
