@@ -13,6 +13,9 @@ class CompleteListingForm extends React.Component {
         this.handleNextClick = this.handleNextClick.bind(this); 
     }
 
+    componentDidMount() {
+        this.props.requestListing(this.props.match.params.id)
+    }
 
     handleLogoClick() {
         this.props.history.push("/");
@@ -25,49 +28,23 @@ class CompleteListingForm extends React.Component {
     }
 
     handleNextClick() {
-        const listingForm = this.props.listingForm
-        if ( Object.values(listingForm).length !== 14) {
-            return this.props.history.push('/listings/create-listing')
-        }
-        const listing = {
-            title: this.state.title, 
-            about: this.state.about, 
-            price: this.state.price, 
-            street: listingForm.street,
-            city: listingForm.city,
-            state: listingForm.state,
-            country: listingForm.country,
-            zip_code: listingForm.zip_code,
-            lat: listingForm.lat,
-            lng: listingForm.lng,
-            guests: listingForm.guests,
-            beds: listingForm.beds,
-            bath: listingForm.bath,
-            place: listingForm.place,
-            specific: listingForm.specific,
-            privacy: listingForm.privacy, 
-            host_id: this.props.currentUser.id
-        }
-        this.props.createListing(listing)
-            .then((response) => {
-                const formData = new FormData();
-                for (let i = 0; i < listingForm.photos.length; i++) {
-                    formData.append("listing[photos][]", listingForm.photos[i]);
-                }
-                this.props.addListingPhotos(response.listing.id, formData).then(() => { 
-                    this.props.history.push(`/users/${this.props.currentUser.id}/listings`)
-                })
-                this.setState({question: 'Submitting your listing'})
-                this.props.clearForm()
-            })
-            
         
+        this.props.listing.title = this.state.title;
+        this.props.listing.about = this.state.about;
+        this.props.listing.price = this.state.price;
+        this.props.listing.complete = true; 
+        this.props.updateListing(this.props.listing).then(() => {
+            this.props.history.push(`/users/${this.props.currentUserId}/listings`) 
+        })
     }
 
-    // componentDidMount() {
-    // };
-
     render() {
+
+        const listing = this.props.listing; 
+        if (!listing) {
+            return null
+        };
+
         return (
             <div>
                 <div className="location-type-listing">
@@ -94,7 +71,7 @@ class CompleteListingForm extends React.Component {
                             </div>
                         </div>
                         <div className="listing-buttons">
-                            <Link className="link" id="back-button" to={this.props.place ? `/listings/create-listing/photos` : '/listings/create-listing'}>Back</Link>
+                            <Link className="link" id="back-button" to={`/listings/${listing.id}/create-listing/photos`}>Back</Link>
                             {this.state.about !== '' && this.state.title !== '' && this.state.price !== '' ?
                             <button className="link" id="location-next-button" onClick={this.handleNextClick} type="submit">Submit</button> : null }
                         </div>
