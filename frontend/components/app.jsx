@@ -34,12 +34,12 @@ const App = () => (
                 <Route exact path="/users/show/:id" component={AccountContainer}/>
                 <ProtectedRoute exact path="/users/edit-photo" component={UpdatePicFormContainer}/>
                 <Route exact path="/users/:id/listings" component={UserListingIndexContainer}></Route>
-                <ProtectedRoute exact path='/listings/create-listing/complete-listing' component={CompleteListingFormContainer}/>
-                <ProtectedRoute exact path="/listings/create-listing/floor-plan" component={FloorPlanContainer}/>
-                <ProtectedRoute exact path="/listings/create-listing/photos" component={CreateListingPhotosContainer}/>
-                <ProtectedRoute exact path="/listings/create-listing/location" component={LocationTypeContainer}/>
-                <ProtectedRoute exact path="/listings/create-listing/privacy-type" component={PrivacyTypeContainer}/>
-                <ProtectedRoute exact path="/listings/create-listing/:type" component={SpecificTypeContainer}/>
+                <ProtectedRoute exact path='/listings/:id/create-listing/complete-listing' component={CompleteListingFormContainer}/>
+                <ProtectedRoute exact path="/listings/:id/create-listing/floor-plan" component={FloorPlanContainer}/>
+                <ProtectedRoute exact path="/listings/:id/create-listing/photos" component={CreateListingPhotosContainer}/>
+                <ProtectedRoute exact path="/listings/:id/create-listing/location" component={LocationTypeContainer}/>
+                <ProtectedRoute exact path="/listings/:id/create-listing/privacy-type" component={PrivacyTypeContainer}/>
+                <ProtectedRoute exact path="/listings/:id/create-listing/:type" component={SpecificTypeContainer}/>
                 <ProtectedRoute exact path="/listings/create-listing" component={CreateListingContainer}/>
                 <ProtectedRoute exact path='/listings/:id/edit' component={EditListingFormContainer} />
                 <Route exact path="/listings/:id" component={ListingItemContainer}></Route>

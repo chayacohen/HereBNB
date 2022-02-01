@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { receivePlaceType } from "../../actions/create_listing_actions";
+import { createListing } from "../../actions/listing_actions";
 import CreateListing from "./create_listing";
 
 const mapStateToProps = (state) => ({
@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    receivePlaceType: (placeType) => dispatch(receivePlaceType(placeType))
+    createListing: (listing) => dispatch(createListing(listing))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateListing))

@@ -16,8 +16,8 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     font-family: $font;
 }
 
-.question, .question-options {
-    width: 100%; 
+.question-options {
+    width: 50%; 
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -25,11 +25,18 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 
 .the-question {
     font-size: 48px;
-    font-weight: 600;
-    text-align: center;
+    font-weight: 500;
+    height: 20%;
+    width: 75%;
+    margin: auto;
+    text-align: left;
+    margin-top: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    // border: solid 1px black ;
+    line-height: 1.15;
+    letter-spacing: 1.5px;
 }
 
 .the-create-question {
@@ -51,8 +58,12 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     background: #BD1E59;
     color: white;
     flex-wrap: wrap;
+    width: 50%;
+    height: 100vh;
     // text-indent: 5%;
     // line-height: 5%;
+    // border: 1px solid black;
+
 }
 
 .question-options {
@@ -61,26 +72,29 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
+    width: 50%;
 }
 
 .options {
     // border: 1px solid black;
     width: 60%;
-    height: 70%;
+    height: 85%;
+    gap: 2%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: column;
+    margin-top: 5%;
     // margin-bottom: 3%;
 }
 
 .options div {
-    height: 15%;
+    height: 13%;
     width: 100%;
     border-radius: 8px;
     border: 1px solid rgb(233, 231, 231);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     text-indent: 10%;
     font-size: 18px;
     font-weight: 500;
@@ -105,10 +119,12 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    width: 88%;
+    height: 6%;
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: 3%;
+    margin-bottom: 3%;
+    // border: black solid 1px;
 }
 
 #back-button {
@@ -127,6 +143,10 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     padding: 2% 3% 2% 3%;
     border-radius: 8px;
     font-weight: 500;
+    border: none;
+    cursor: pointer;
+    font: $font;
+    font-size: 16px;
 }
 
 #location-next-button {
@@ -135,7 +155,11 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     padding: 2% 3% 2% 3%;
     border-radius: 8px;
     font-weight: 500;
-    margin-left: 20%;
+    border: none;
+    cursor: pointer;
+    font: $font;
+    font-size: 16px;
+    // margin-left: 20%;
 }
 
 .options p {
@@ -195,67 +219,85 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
 
 .floor-plan-options {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: column;
-    // align-items: flex-start;
-    margin-top: 40%;
-    margin-bottom: 20%;
+    width: 60%;
+    height: 85%;
+    margin-top: 5%;
+    gap: 5%;
+    // align-items: center;
+    // margin-top: 40%;
+    // margin-bottom: 20%;
+    // border: solid 1px black ;
 }
 
 .floor-plan-options > div {
     display: flex;
-    justify-content: flex-start;
-    // align-items: flex-start;
-    gap: 20%;
-    margin-bottom: 10%;
-    margin-left: 20%;
+    justify-content: center;
+    text-align: flex-start;
+    // border: solid 1px black;
+}
+
+.counter {
+    // border: solid 1px black;
+    width: 50%;
+    height: 100%;
 }
 
 .guest-counter > div, .bed-counter > div, .bath-counter > div {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     align-items: center;
-    gap: 50%;
+    gap: 10%;
 }
 
 .guest-counter > p, .bed-counter > p, .bath-counter > p {
     font-size: 26px;
     font-family: $font;
     font-weight: 500;
-    color: #222222
+    color: #222222; 
+    // border: solid black 1px;
+    width: 50%;
+
 }
 
 .counter p:first-child, .counter p:last-child {
-    border: black 1px solid;
+    border: rgb(163, 161, 161) 1px solid;
     border-radius: 50%;
     padding: 8px;
     // font-size: 30px;
     font-weight: 300;
 }
 
+.counter p:first-child:hover, .counter p:last-child:hover {
+    border: black 1px solid;
+}
+
 .bed-counter > p {
-    margin-right: 9.4%;
+    // margin-right: 9.4%;
 }
 
 .guest-counter > p {
-    margin-right: 5.4%;
+    // margin-right: 5.4%;
 }
 
 .the-photo-question img {
     width: 100%;
-    height: 80.8%;
+    height: 100vh;
+    object-fit: cover;
 }
 
 .attach-photos-container {
     // border: black 1px solid;
-    width: 100%;
-    height: 70%; 
+    width: 60%;
+    height: 85%;
+    margin-top: 10%; 
 }
 
 .attach-photos {
     border: black 1px dotted;
-    width: 50%;
-    height: 70%; 
+    width: 100%;
+    height: 80%; 
     margin: auto; 
     margin-top: 20%;
     display: flex;

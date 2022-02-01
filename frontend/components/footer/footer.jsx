@@ -6,8 +6,7 @@ class Footer extends React.Component {
 
     render () {
         const splitPathname = this.props.location.pathname.split('/');
-        debugger 
-        if (splitPathname[2] === 'create-listing' || splitPathname[1] === "map") {
+        if (splitPathname[3] === 'create-listing' || splitPathname[1] === "map" || splitPathname[2] === 'create-listing') {
             return null
         }
 
@@ -21,12 +20,13 @@ class Footer extends React.Component {
                 </div>
                 <div id="about">
                     <h3>About Me</h3>
-                    <p>Github</p>
-                    <p>LinkedIn</p>
+                    <p><a href="https://github.com/chayacohen" target="_blank">Github</a></p>
+                    <p><a href="https://www.linkedin.com/in/chaya-cohen-6a3035142/" target="_blank">LinkedIn</a></p>
                 </div>
                 <div id="other">
                     <h3>Projects</h3>
-                    <p>Typing Mania</p>
+                    <p><a href="http://a-thousand-miles.herokuapp.com/" target="_blank">A Thousand Miles</a></p>
+                    <p><a href="https://chayacohen.github.io/Typing-Mania/" target="_blank">Typing Mania</a></p>
                 </div>
                 <div id="languages">
                     <h3>Languages</h3>

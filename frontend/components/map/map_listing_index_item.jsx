@@ -1,11 +1,13 @@
 import React from 'react'; 
+import {Link} from 'react-router-dom'; 
 
 class MapListingIndexItem extends React.Component {
     
     constructor(props) {
         super(props); 
-        this.state = {clicked: false }
-        this.handleHeartClick = this.handleHeartClick.bind(this)
+        this.state = {clicked: false };
+        this.handleHeartClick = this.handleHeartClick.bind(this);
+        this.handleListingClick = this.handleListingClick.bind(this); 
     }
 
     handleHeartClick() {
@@ -16,6 +18,10 @@ class MapListingIndexItem extends React.Component {
             this.setState({clicked: false})
         }
     }
+
+    handleListingClick() {
+        this.props.history.push(`/listings/${this.props.listing.id}`)
+    }
     
     
     render () {
@@ -23,15 +29,22 @@ class MapListingIndexItem extends React.Component {
         return (
             <div >
                 <div className="border-line" id="listing-index-item-border"></div>
-                <div className="map-listing-index-item">
+                <div className="map-listing-index-item" onClick={this.handleListingClick}>
+                    <Link to={`/listings/${listing.id}`} className="link">
                     <img src={listing.photoUrls[0]} className="map-listing-image" />
+                    </Link>
                     <div className="map-index-info">
                         <div className="map-index-title">
+                            <Link to={`/listings/${listing.id}`} className="link">
                             <p>{`Entire ${listing.specific.toLowerCase()} in ${listing.city}`}</p>
+                            </Link>
                             {this.state.clicked ? <p className="red-heart" onClick={this.handleHeartClick}>{'\u2665'}</p> : <p className="outline-heart" onClick={this.handleHeartClick}>{'\u2661'}</p>}
                         </div>
-                        <p className="map-title">{listing.title}</p>
-                        <div id="short-border-line" className="border-line"></div>
+                        <Link to={`/listings/${listing.id}`} className="link">
+                        <p className="map-title">{listing.title}</p></Link>
+                        <Link to={`/listings/${listing.id}`} className="link">
+                        <div id="short-border-line" className="border-line"></div></Link>
+                        <Link to={`/listings/${listing.id}`} className="link">
                         <div className="bottom-map-index">
                             <div className="map-floor-plan">
                                 <p>{`${listing.guests} ${listing.guests > 1 ? 'guests' : 'guest'}`}</p>
@@ -56,6 +69,7 @@ class MapListingIndexItem extends React.Component {
                                 </div>
                             </div>
                         </div>
+                        </Link>
                     </div>
                 </div>
             </div>

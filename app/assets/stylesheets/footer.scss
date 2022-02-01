@@ -7,7 +7,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    margin-top: 20%;
+    margin-top: 5%;
     // position: absolute;
     bottom: 0;
     background-color: rgb(241, 239, 239);
@@ -22,11 +22,16 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     margin-top: 20px;
 }
 
-.footer p {
+.footer p{
     font-family: $font;
     font-size: 14px; 
     font-weight: 400;
     margin: 10px; 
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
 }
 
 .footer p:last-child {

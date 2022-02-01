@@ -6,7 +6,7 @@ class CreateListing extends React.Component {
 
     constructor(props) {
         super(props); 
-        this.state = {place_type: ''}
+        this.state = {place_type: '', listingId: ''}
         this.handleLogoClick = this.handleLogoClick.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleNextClick = this.handleNextClick.bind(this); 
@@ -21,7 +21,9 @@ class CreateListing extends React.Component {
     }
 
     handleNextClick() {
-        this.props.receivePlaceType(this.state.place_type.toLowerCase());
+        this.props.createListing({place: this.state.place_type.toLowerCase(), host_id: this.props.currentUser.id}).then(listing => {
+            this.props.history.push(`/listings/${listing.listing.id}/create-listing/${this.state.place_type.split(' ').join('').toLowerCase()}`)
+        })
     }
 
     
@@ -31,7 +33,7 @@ class CreateListing extends React.Component {
             <div className="create-listing">
                 <div className="question">
                     <p className="logo" id="create-listing-logo" onClick={this.handleLogoClick}>herebnb</p>
-                    <p className="the-question">Which kind of place will you host?</p>
+                    <p className="the-question">What kind of place will you host?</p>
                 </div>
                 <div className="question-options">
                     <div className="options">
@@ -59,7 +61,7 @@ class CreateListing extends React.Component {
                     <div className="listing-buttons">
                         <Link className="link" id="back-button" to={`/users/${this.props.currentUser.id}/listings`}>Back</Link>
                         {this.state.place_type !== '' ? 
-                        <Link className="link" id="next-button" onClick={this.handleNextClick} to={`/listings/create-listing/${this.state.place_type.split(' ').join('').toLowerCase()}`}>Next</Link> : null }
+                        <button className="link" id="next-button" onClick={this.handleNextClick}>Next</button> : null }
                     </div>
                 </div>
             </div>

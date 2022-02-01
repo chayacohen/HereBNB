@@ -40,7 +40,7 @@ class Api::ListingsController < ApplicationController
     end 
 
     def user_listings
-        @listings = Listing.find_by_user(params[:id])
+        @listings = Listing.find_by_user(params[:id]).where(complete: true)
         render :index
     end 
 
@@ -50,7 +50,7 @@ class Api::ListingsController < ApplicationController
     end 
 
     def listing_params 
-        params.require(:listing).permit(:title, :about, :host_id, :city, :state, :zip_code, :price, :street, :country, :lat, :lng, :guests, :beds, :bath, :place, :specific, :privacy, :photoUrls, :id, photos: [])
+        params.require(:listing).permit(:title, :about, :host_id, :city, :state, :zip_code, :price, :street, :country, :lat, :lng, :guests, :beds, :bath, :place, :specific, :privacy, :complete, :photoUrls, :id, photos: [])
     end 
 
     def bounds 

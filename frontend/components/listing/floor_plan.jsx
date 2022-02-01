@@ -17,9 +17,14 @@ class FloorPlan extends React.Component {
         this.handleNextClick = this.handleNextClick.bind(this); 
     }
 
+    componentDidMount() {
+        this.props.requestListing(this.props.match.params.id)
+    }
+
     handleLogoClick() {
         this.props.history.push("/");
     }
+
 
     handleGuestDownClick() {
         const num_guests = this.state.guests; 
@@ -58,7 +63,10 @@ class FloorPlan extends React.Component {
     };
 
     handleNextClick() {
-        this.props.receiveFloorPlan(this.state)
+        this.props.listing.beds = this.state.beds
+        this.props.listing.bath = this.state.bathrooms
+        this.props.listing.guests = this.state.guests
+        this.props.updateListing(this.props.listing)
     }
 
     // componentDidMount() {
@@ -66,14 +74,20 @@ class FloorPlan extends React.Component {
 
     render() {
 
+        const listing = this.props.listing
+
+        if (!listing) {
+            return null
+        }
+
         return (
             <div>
                 <div className="location-type-listing">
-                    <div className="question" id="location-question">
+                    <div className="question">
                         <p className="logo" id="create-listing-logo" onClick={this.handleLogoClick}>herebnb</p>
                         <p className="the-question">How many guests would you like to welcome?</p>
                     </div>
-                    <div className="location-input">
+                    <div className="question-options">
                         <div className="floor-plan-options">
                             <div className='guest-counter'>
                                 <p>Guests</p>
@@ -101,9 +115,9 @@ class FloorPlan extends React.Component {
                             </div>
                         </div>
                         <div className="listing-buttons">
-                            <Link className="link" id="back-button" to={this.props.place ? `/listings/create-listing/location` : '/listings/create-listing'}>Back</Link>
-                            {this.state.location !== '' ?
-                                <Link className="link" id="location-next-button" onClick={this.handleNextClick} to={`/listings/create-listing/photos`}>Next</Link> : null}
+                            <Link className="link" id="back-button" to={`/listings/${listing.id}/create-listing/location`}>Back</Link>
+                            {Object.values(this.state).every(value => value !== 0) ?
+                            <Link className="link" id="location-next-button" onClick={this.handleNextClick} to={`/listings/${listing.id}/create-listing/photos`}>Next</Link> : null}
                         </div>
                     </div>
                 </div>
