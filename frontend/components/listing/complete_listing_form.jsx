@@ -7,7 +7,7 @@ class CompleteListingForm extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { about: '', title: '', price: '', question: 'Complete your listing'}
+        this.state = { about: '', title: '', price: ''}
         this.handleLogoClick = this.handleLogoClick.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleNextClick = this.handleNextClick.bind(this); 
@@ -48,15 +48,12 @@ class CompleteListingForm extends React.Component {
         return (
             <div>
                 <div className="location-type-listing">
-                    <div className="question" id="location-question">
+                    <div className="question">
                         <p className="logo" id="create-listing-logo" onClick={this.handleLogoClick}>herebnb</p>
-                        <div className="the-create-question">
-                            <p>{this.state.question}</p>
-                            {this.state.question === 'Submitting your listing' ? <FontAwesomeIcon icon={faCircleNotch} className="fa-spin"/> : null }
-                            </div>
+                        <p className="the-question">Complete your listing</p>
                     </div>
-                    <div className="location-input">
-                        <div className="location-end-form">
+                    <div className="question-options">
+                        <div className="options">
                             <div>
                                 <label>Title of your listing</label>
                                 <input type="text" onChange={this.handleInputChange('title')}/>

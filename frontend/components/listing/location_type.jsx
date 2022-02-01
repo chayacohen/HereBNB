@@ -47,9 +47,9 @@ class LocationType extends React.Component {
             const formatAddress = place.formatted_address.split(', '); 
             const state = formatAddress[2].split(' ')[0]
             const zip_code = formatAddress[2].split(' ')[1]
-            const address = { address: formatAddress[0], city: formatAddress[1], state: state, country: formatAddress[3], zip_code: zip_code, lat: lat, lng: lng}
+            const address = { street: formatAddress[0], city: formatAddress[1], state: state, country: formatAddress[3], zip_code: zip_code, lat: lat, lng: lng}
             this.setState({location: address}) 
-            this.props.listing.address = address.address
+            this.props.listing.street = address.street
             this.props.listing.city = address.city
             this.props.listing.state = address.state
             this.props.listing.country = address.country

@@ -46,11 +46,11 @@ class CreateListingPhotos extends React.Component {
         return (
             <div>
                 <div className="location-type-listing">
-                    <div className="question" id="location-question">
+                    <div className="question" >
                         <p className="logo" id="create-listing-logo" onClick={this.handleLogoClick}>herebnb</p>
                         <p className="the-photo-question"><img src="https://images.unsplash.com/photo-1601134991665-a020399422e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTAxfHxsb29raW5nJTIwYXQlMjBwaG9uZSUyMHRvZ2V0aGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"/></p>
                     </div>
-                    <div className="location-input">
+                    <div className="question-options">
                         <div className='attach-photos-container'>
                             <div className="attach-photos">
                                 <div>

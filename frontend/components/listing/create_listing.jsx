@@ -33,7 +33,7 @@ class CreateListing extends React.Component {
             <div className="create-listing">
                 <div className="question">
                     <p className="logo" id="create-listing-logo" onClick={this.handleLogoClick}>herebnb</p>
-                    <p className="the-question">Which kind of place will you host?</p>
+                    <p className="the-question">What kind of place will you host?</p>
                 </div>
                 <div className="question-options">
                     <div className="options">

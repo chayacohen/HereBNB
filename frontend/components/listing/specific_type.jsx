@@ -52,7 +52,7 @@ class SpecificType extends React.Component {
                 <div className="apartment-listing">
                     <div className="question">
                         <p className="logo" id="create-listing-logo" onClick={this.handleLogoClick}>herebnb</p>
-                        <p className="the-question">Which of these best describe your place?</p>
+                        <p className="the-question">Which of these best describes your place?</p>
                     </div>
                     <div className="question-options">
                         <div className="options">

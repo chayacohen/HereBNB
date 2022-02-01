@@ -83,11 +83,11 @@ class FloorPlan extends React.Component {
         return (
             <div>
                 <div className="location-type-listing">
-                    <div className="question" id="location-question">
+                    <div className="question">
                         <p className="logo" id="create-listing-logo" onClick={this.handleLogoClick}>herebnb</p>
                         <p className="the-question">How many guests would you like to welcome?</p>
                     </div>
-                    <div className="location-input">
+                    <div className="question-options">
                         <div className="floor-plan-options">
                             <div className='guest-counter'>
                                 <p>Guests</p>
