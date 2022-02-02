@@ -6,11 +6,12 @@ class Search extends React.Component {
 
     constructor(props) {
         super(props); 
-        this.state = {goingClicked: false}
+        this.state = {goingClicked: false, location: ''}
         this.onPlaceChanged = this.onPlaceChanged.bind(this); 
         this.toggleGoing = this.toggleGoing.bind(this); 
+        this.removeGoing = this.removeGoing.bind(this); 
+        this.handleSearchButtonClick = this.handleSearchButtonClick.bind(this); 
     }
-
 
     componentDidMount() {
         this.autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'), {
@@ -29,7 +30,19 @@ class Search extends React.Component {
     }
 
     toggleGoing() {
-        this.setState({goingClicked: !this.state.goingClicked})
+        this.setState({goingClicked: true})
+    }
+
+    removeGoing() {
+        this.setState({ goingClicked: false })
+    }
+
+    handleSearchButtonClick(e) {
+        e.stopPropagation(); 
+        // debugger
+        if (!this.state.location && !this.state.goingClicked){
+                this.setState({goingClicked: true}) 
+        }
     }
 
     render() {
@@ -57,14 +70,14 @@ class Search extends React.Component {
                         </label>
                         <input type="text" defaultValue="Add guests" />
                     </div>
-                    <div id="search-button-container" >
+                    <div id="search-button-container" onClick={this.handleSearchButtonClick}>
                         <button type="submit" id="search-icon">
                             <img src={window.search_icon} />
                             {/* <p>Search</p> */}
                         </button>
                     </div>
                 </div>
-                {this.state.goingClicked ? <SearchOptions/> : null}
+                {this.state.goingClicked ? <SearchOptions toggleGoing={this.toggleGoing} removeGoing={this.removeGoing} goingClicked={this.state.goingClicked}/>: null}
             </section>
         )
     }
