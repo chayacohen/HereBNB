@@ -87,4 +87,154 @@
     margin-right: 5px;
 }
 
+.search-option-container {
+    // border: solid black 1px;
+    background-color: white;
+    color: black;
+    position: absolute;
+    top: 100px;
+    left: 29%;
+    z-index: 20;
+    height: 45vh;
+    width: 26vw;
+    border-radius: 32px;
+    // padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.search-option-background {
+    position: fixed; 
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: none;
+    z-index: 10;
+    display: block; 
+}
+
+.so-flexible {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid 1px rgb(221, 221, 221);
+    width: 100%;
+    height: 50%;
+    border-radius: 32px;
+    padding: 20px;
+    box-shadow:  rgba(211, 209, 209, 0.849)0px 6px 16px ;
+    box-sizing: border-box;
+}
+
+.so-flexible:hover {
+    box-shadow:  rgba(211, 209, 209, 0.849)16px 6px 16px 6px ;
+}
+
+.so-flexible > button {
+    background-color: transparent;
+    border: none;
+      color: linear-gradient(
+        90deg, rgb(111, 1, 156) 0%, rgb(198, 1, 126) 135.12%);
+}
+
+.search-option-header {
+    height: 40%;
+    width: 100%;
+    padding: 30px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    // border: solid black 1px; 
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15%;
+}
+
+.search-option-container h1 {
+    font-size: 12px;
+    font-weight: 600;
+}
+.suggested-searches-container {
+    height: 54%;
+    width: 100%;
+    // border: solid blue 1px; 
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    h1 {
+        padding-left: 25px;
+        box-sizing: border-box;
+        // border: purple solid 1px;
+    }
+    box-sizing: border-box;
+}
+
+.so-text {
+    font-size: 18px;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 700;
+    background: linear-gradient(
+        90deg, rgb(111, 1, 156) 0%, rgb(122, 4, 168) 135.12%); 
+    background-clip: text;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+}
+.so-arrow {
+    color: rgb(111, 1, 156); 
+    font-size: 20px;
+}
+
+.search-option {
+    // border: 1px solid red;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5%;
+    height: 20%;
+    width: 100%;
+    padding: 6%;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.search-option > p:last-child {
+    font-weight: 300;
+}
+
+.search-option:hover {
+    background-color: rgba(240, 239, 239, 0.938);
+}
+
+.suggested-icon {
+    height: 100%;
+    width: 13%; 
+    padding: 5%;
+    text-align: center;
+    vertical-align: center;
+    border: solid 1px rgb(176, 176, 176);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+    align-items: center;
+    background-color: #f1f1f1;
+}
+
+.search-options {
+    // border: 1px solid purple;
+    margin-top: 1%;
+    height: 95%;
+    width: 100%;
+    // padding-bottom: 50px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+
+
 

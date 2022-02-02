@@ -1,11 +1,15 @@
 import React from "react";
+import SearchOptions from "./search_options";
 // import SearchIcon from '../../../app/assets/images/search-icon.png';
 
 class Search extends React.Component {
 
     constructor(props) {
         super(props); 
+        this.state = {goingClicked: false}
         this.onPlaceChanged = this.onPlaceChanged.bind(this); 
+        this.focusGoing = this.focusGoing.bind(this); 
+        this.blurGoing = this.blurGoing.bind(this); 
     }
 
 
@@ -25,6 +29,14 @@ class Search extends React.Component {
         }
     }
 
+    focusGoing() {
+        this.setState({goingClicked: true})
+    }
+
+    blurGoing() {
+        this.setState({ goingClicked: false })
+    }
+
     render() {
         return (
             <section className="search-container">
@@ -32,7 +44,8 @@ class Search extends React.Component {
                     <div id="location-container">
                         <label>Location
                         </label>
-                        <input id="autocomplete" placeholder='Where are you going?' type="text" />  
+                        <input id="autocomplete" placeholder='Where are you going?' type="text" onFocus={this.focusGoing}
+                        onBlur={this.blurGoing}/>  
                     </div>
                     <div id="checkin-container">
                         <label>Check In
@@ -56,6 +69,7 @@ class Search extends React.Component {
                         </button>
                     </div>
                 </div>
+                {this.state.goingClicked ? <SearchOptions/> : null}
             </section>
         )
     }
