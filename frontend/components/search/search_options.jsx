@@ -1,18 +1,28 @@
 import React from 'react'; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faClock } from '@fortawesome/free-solid-svg-icons';
-
+import { withRouter } from 'react-router-dom';
 
 
 class SearchOptions extends React.Component {
 
+    constructor(props) {
+        super(props); 
+        this.handleClick = this.handleClick.bind(this); 
+    }
+
+    handleClick(e) {
+        e.preventDefault(); 
+        debugger 
+        this.props.history.push('/listings')
+    }
     render() {
         return (
             <div className="search-option-background">
                 <div className="search-option-container">
                     <div className="search-option-header">
                         <h1>GO ANYWHERE, ANYTIME</h1>
-                        <div className="so-flexible">
+                        <div className="so-flexible" onClick={this.handleClick}>
                             <button><p className="so-text">I'm flexible</p></button>
                             <FontAwesomeIcon icon={faAngleRight} className="so-arrow"/>
                         </div>
@@ -46,4 +56,4 @@ class SearchOptions extends React.Component {
 }
 
 
-export default SearchOptions; 
+export default withRouter(SearchOptions); 

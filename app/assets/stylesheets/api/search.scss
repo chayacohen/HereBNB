@@ -93,10 +93,10 @@
     color: black;
     position: absolute;
     top: 100px;
-    left: 29%;
+    left: 29vw;
     z-index: 20;
-    height: 45vh;
-    width: 26vw;
+    height: 480px;
+    width: 430px;
     border-radius: 32px;
     // padding: 30px;
     box-sizing: border-box;
@@ -156,20 +156,21 @@
 .search-option-container h1 {
     font-size: 12px;
     font-weight: 600;
+    // height: 10%;
 }
 .suggested-searches-container {
-    height: 54%;
+    height: 53%;
     width: 100%;
     // border: solid blue 1px; 
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
+    box-sizing: border-box;
     h1 {
         padding-left: 25px;
         box-sizing: border-box;
         // border: purple solid 1px;
     }
-    box-sizing: border-box;
 }
 
 .so-text {
@@ -193,7 +194,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 5%;
-    height: 20%;
+    height: 26%;
     width: 100%;
     padding: 6%;
     box-sizing: border-box;
@@ -226,7 +227,7 @@
 .search-options {
     // border: 1px solid purple;
     margin-top: 1%;
-    height: 95%;
+    height: 90%;
     width: 100%;
     // padding-bottom: 50px;
     display: flex;

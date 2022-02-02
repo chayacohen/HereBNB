@@ -8,8 +8,7 @@ class Search extends React.Component {
         super(props); 
         this.state = {goingClicked: false}
         this.onPlaceChanged = this.onPlaceChanged.bind(this); 
-        this.focusGoing = this.focusGoing.bind(this); 
-        this.blurGoing = this.blurGoing.bind(this); 
+        this.toggleGoing = this.toggleGoing.bind(this); 
     }
 
 
@@ -29,12 +28,8 @@ class Search extends React.Component {
         }
     }
 
-    focusGoing() {
-        this.setState({goingClicked: true})
-    }
-
-    blurGoing() {
-        this.setState({ goingClicked: false })
+    toggleGoing() {
+        this.setState({goingClicked: !this.state.goingClicked})
     }
 
     render() {
@@ -44,8 +39,8 @@ class Search extends React.Component {
                     <div id="location-container">
                         <label>Location
                         </label>
-                        <input id="autocomplete" placeholder='Where are you going?' type="text" onFocus={this.focusGoing}
-                        onBlur={this.blurGoing}/>  
+                        <input id="autocomplete" placeholder='Where are you going?' type="text" 
+                        onClick={this.toggleGoing}/>  
                     </div>
                     <div id="checkin-container">
                         <label>Check In
