@@ -8,7 +8,7 @@ class GuestOptions extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { scroll: 0 , adults: 0, children: 0, infants: 0}; 
+        this.state = { scroll: 0}; 
         this.handleMinusClick = this.handleMinusClick.bind(this); 
         this.handlePlusClick = this.handlePlusClick.bind(this); 
     }
@@ -22,22 +22,22 @@ class GuestOptions extends React.Component {
     handleMinusClick(field) {
         return () => {
             if (field === "adult") {
-                if (this.state.adults !== 0) {
-                    this.setState({adults: this.state.adults -= 1})
+                if (this.props.adults === 1 && (this.props.infants > 0 || this.props.children > 0)){
+                    return;
                 }
-                this.props.removeAdult(); 
+                else if (this.props.adults !== 0) {
+                    this.props.removeAdult(); 
+                } 
             }
             else if (field === "child") {
-                if (this.state.children !== 0) {
-                    this.setState({children: this.state.children -= 1})
+                if (this.props.children !== 0 ) {
+                    this.props.removeChild(); 
                 }
-                this.props.removeChild(); 
             }
             else if (field === "infant") {
-                if (this.state.infants !== 0) {
-                    this.setState({infants: this.state.infants -= 1})
+                if (this.props.infants !== 0) {
+                    this.props.removeInfant(); 
                 }
-                this.props.removeInfant(); 
             }
         }
     }
@@ -45,16 +45,25 @@ class GuestOptions extends React.Component {
     handlePlusClick(field) {
         return () => {
             if (field === "adult") {
-                this.setState({adults: this.state.adults += 1})
                 this.props.addAdult(); 
             }
             else if (field === "child") {
-                this.setState({children: this.state.children += 1})
-                this.props.addChild(); 
+                if (this.props.children === 0) {
+                    this.props.addChild(); 
+                    this.props.addAdult(); 
+                }
+                else {
+                    this.props.addChild(); 
+                }
             }
             else if (field === "infant") {
-                this.setState({infants: this.state.infants += 1})
-                this.props.addInfant(); 
+                if (this.props.infants === 0 && this.props.adults === 0) {
+                    this.props.addAdult(); 
+                    this.props.addInfant(); 
+                }
+                else if (this.props.infants < 5){
+                    this.props.addInfant(); 
+                }
             }
         }
     }
@@ -72,7 +81,7 @@ class GuestOptions extends React.Component {
                         </div>
                         <div className='option'>
                             <p className="count" onClick={this.handleMinusClick("adult")}>-</p>
-                            <p className="number">{this.state.adults}</p>
+                            <p className="number">{this.props.adults}</p>
                             <p className="count" onClick={this.handlePlusClick("adult")}>+</p>
                         </div>
                     </div>
@@ -83,7 +92,7 @@ class GuestOptions extends React.Component {
                         </div>
                         <div className='option'>
                             <p className="count" onClick={this.handleMinusClick("child")}>-</p>
-                            <p className="number">{this.state.children}</p>
+                            <p className="number">{this.props.children}</p>
                             <p className="count" onClick={this.handlePlusClick("child")}>+</p>
                         </div>
                     </div>
@@ -94,7 +103,7 @@ class GuestOptions extends React.Component {
                         </div>
                         <div className='option'>
                             <p className="count" onClick={this.handleMinusClick("infant")}>-</p>
-                            <p className="number">{this.state.infants}</p>
+                            <p className="number">{this.props.infants}</p>
                             <p className="count" onClick={this.handlePlusClick("infant")}>+</p>
                         </div>
                     </div>

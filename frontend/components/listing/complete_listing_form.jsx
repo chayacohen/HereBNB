@@ -53,16 +53,16 @@ class CompleteListingForm extends React.Component {
                         <p className="the-question">Complete your listing</p>
                     </div>
                     <div className="question-options">
-                        <div className="options">
-                            <div>
+                        <div className="complete-options">
+                            <div className='complete-option'>
                                 <label>Title of your listing</label>
                                 <input type="text" onChange={this.handleInputChange('title')}/>
                             </div>
-                            <div>
+                            <div className='complete-option'>
                                 <label>How much will you charge a night?</label>
                                 <input type="number" onChange={this.handleInputChange('price')} />
                             </div>
-                            <div>
+                            <div className='complete-option'>
                                 <label>Write a description about your listing</label>
                                 <textarea rows="7" onChange={this.handleInputChange('about')}/>
                             </div>
