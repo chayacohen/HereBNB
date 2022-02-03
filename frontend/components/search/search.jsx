@@ -1,16 +1,20 @@
 import React from "react";
 import SearchOptions from "./search_options";
+import GuestOptions from "./guest_options";
 // import SearchIcon from '../../../app/assets/images/search-icon.png';
 
 class Search extends React.Component {
 
     constructor(props) {
         super(props); 
-        this.state = {goingClicked: false, location: ''}
+        this.state = { goingClicked: false, location: '', guestClicked: false, adults: 0, children: 0, infants: 0}
         this.onPlaceChanged = this.onPlaceChanged.bind(this); 
-        this.toggleGoing = this.toggleGoing.bind(this); 
+        this.addGoing = this.addGoing.bind(this); 
         this.removeGoing = this.removeGoing.bind(this); 
+        this.addGuest = this.addGuest.bind(this); 
+        this.removeGuest = this.removeGuest.bind(this); 
         this.handleSearchButtonClick = this.handleSearchButtonClick.bind(this); 
+        this.handleInputFocus = this.handleInputFocus.bind(this); 
     }
 
     componentDidMount() {
@@ -27,9 +31,22 @@ class Search extends React.Component {
         if (!place.geometry) {
             document.getElementById('autocomplete').placeholder = "Where are you going?";
         }
+        else {
+            const lat = place.geometry.location.lat(); 
+            const lng = place.geometry.location.lng(); 
+            this.setState({location: {lat: lat, lng: lng}});
+
+        }
     }
 
-    toggleGoing() {
+    removeGuest() {
+        this.setState({guestClicked: false})
+    }
+    addGuest() {
+        this.setState({guestClicked: true})
+    }
+
+    addGoing() {
         this.setState({goingClicked: true})
     }
 
@@ -37,23 +54,62 @@ class Search extends React.Component {
         this.setState({ goingClicked: false })
     }
 
-    handleSearchButtonClick(e) {
-        e.stopPropagation(); 
-        // debugger
-        if (!this.state.location && !this.state.goingClicked){
-                this.setState({goingClicked: true}) 
+    addAdult() {
+        this.setState({adults: this.state.adults +=1})
+    }
+    removeAdult() {
+        if (this.state.adults !== 0) {
+            this.setState({adults: this.state.adults -=1})
         }
     }
+    addChild() {
+        this.setState({adults: this.state.children +=1})
+    }
+    removeChild() {
+        if (this.state.children !== 0) {
+            this.setState({adults: this.state.children -=1})
+        }
+    }
+    addInfant() {
+        this.setState({infants: this.state.infants +=1})
+    }
+    removeInfant() {
+        if (this.state.infants !== 0) {
+            this.setState({infants: this.state.infants -=1})
+        }
+    }
+ 
+    handleSearchButtonClick(e) {
+        // e.stopPropagation(); 
+        // debugger
+        if (!this.state.location && !this.state.goingClicked){
+            const locationContainer = document.getElementById("location-container"); 
+            locationContainer.focus(); 
+        }
+    }
+
+    handleInputFocus(e) {
+        debugger 
+        if (!this.state.goingClicked) {
+            e.target.blur(); 
+            // e.preventDefault(); 
+        }
+    }
+
+
+    // if dropdown not showing, click on input, prevent default on input 
+    // if it is, dont prevent default 
 
     render() {
         return (
             <section className="search-container">
                 <div className="search">
-                    <div id="location-container">
+                    <div id="location-container" onFocus={this.addGoing} onBlur={this.removeGoing} tabIndex="1">
                         <label>Location
                         </label>
                         <input id="autocomplete" placeholder='Where are you going?' type="text" 
-                        onClick={this.toggleGoing}/>  
+                        onFocus={this.handleInputFocus}/>  
+                        {this.state.goingClicked ? <SearchOptions addGoing={this.addGoing} removeGoing={this.removeGoing} goingClicked={this.state.goingClicked} /> : null}
                     </div>
                     <div id="checkin-container">
                         <label>Check In
@@ -65,10 +121,22 @@ class Search extends React.Component {
                         </label>
                         <input type="text" defaultValue="Add dates" />
                     </div>
-                    <div id="guest-container">
+                    <div id="guest-container" onFocus={this.addGuest} onBlur={this.removeGuest} tabIndex="1">
                         <label>Guests
                         </label>
-                        <input type="text" defaultValue="Add guests" />
+                        <input type="text" value="Add guests" readOnly onFocus={(e) => e.target.blur()}/>
+                        {this.state.guestClicked ? <GuestOptions 
+                        addGuest={this.addGuest} 
+                        removeGuest={this.removeGuest} 
+                        guestClicked={this.state.guestClicked}
+                        addAdult={() => this.addAdult} 
+                        removeAdult={() => this.removeAdult} 
+                        addChild={this.addChild} 
+                        removeChild={this.removeChild} 
+                        addInfant={this.addInfant} 
+                        removeInfant={this.removeInfant} 
+                        onClick={(e) => e.stopPropagation()}/> : null}
+
                     </div>
                     <div id="search-button-container" onClick={this.handleSearchButtonClick}>
                         <button type="submit" id="search-icon">
@@ -77,7 +145,6 @@ class Search extends React.Component {
                         </button>
                     </div>
                 </div>
-                {this.state.goingClicked ? <SearchOptions toggleGoing={this.toggleGoing} removeGoing={this.removeGoing} goingClicked={this.state.goingClicked}/>: null}
             </section>
         )
     }

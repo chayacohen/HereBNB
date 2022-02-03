@@ -21,7 +21,8 @@ class SearchOptions extends React.Component {
     }
 
     handleClick(e) {
-        e.preventDefault(); 
+        // e.preventDefault(); 
+        // e.stopPropagation(); 
         this.props.history.push('/listings')
     }
 
@@ -50,11 +51,11 @@ class SearchOptions extends React.Component {
     render() {
         return (
             // <div className="search-option-background" onClick={this.handleBackgroundClick}>
-                <div className="search-option-container" onClick={(e) => {e.stopPropagation()}}>
+                <div className="search-option-container">
                     <div className="search-option-header">
                         <h1>GO ANYWHERE, ANYTIME</h1>
                         <div className="so-flexible" onClick={this.handleClick}>
-                            <button><p className="so-text">I'm flexible</p></button>
+                            <div><p className="so-text">I'm flexible</p></div>
                             <FontAwesomeIcon icon={faAngleRight} className="so-arrow"/>
                         </div>
                     </div>
