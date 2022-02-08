@@ -10,7 +10,7 @@ class Inspiration extends React.Component {
     }
 
     onPlaceClick(e) {
-        this.props.history.push(`map/${e.currentTarget.children[1].innerText.toLowerCase()}`) 
+        this.props.history.push(`map/${e.currentTarget.children[1].innerText.toLowerCase()}/0`) 
     }
 
     render() {

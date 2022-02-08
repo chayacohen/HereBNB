@@ -4,7 +4,8 @@ export const RECEIVE_CHILD = "RECEIVE_CHILD";
 export const REMOVE_ADULT = "REMOVE_ADULT"; 
 export const REMOVE_INFANT = "REMOVE_INFANT"; 
 export const REMOVE_CHILD = "REMOVE_CHILD"; 
-export const CHANGE_TAB = "CHANGE_TAB"
+export const CHANGE_TAB = "CHANGE_TAB"; 
+export const RESET_GUESTS = "RESET_GUESTS"; 
 
 
 export const receiveAdult = () => ({
@@ -32,4 +33,8 @@ export const removeInfant = () => ({
 })
 export const removeChild = () => ({
     type: REMOVE_CHILD, 
+})
+
+export const resetGuests = () => ({
+    type: RESET_GUESTS
 })

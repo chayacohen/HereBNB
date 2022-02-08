@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faClock } from '@fortawesome/free-solid-svg-icons';
 import { withRouter } from 'react-router-dom';
 import {connect} from 'react-redux'; 
+import { resetGuests } from '../../actions/guest_actions';
 
 class SearchOptions extends React.Component {
 
@@ -24,15 +25,17 @@ class SearchOptions extends React.Component {
         // e.preventDefault(); 
         // e.stopPropagation(); 
         const guests = this.props.adult + this.props.child
-        debugger 
-        if (this.props.searchLocation === '')
+        if (this.props.searchLocation === ''){
+            this.props.resetGuests()
             this.props.history.push(`/listings/guests/${guests}`)
+        }
         else if (this.props.searchLocation && guests === 0) {
             this.props.history.push(`/map/${this.props.searchLocation}/0`)
         }
         else if (this.props.searchLocation && guests > 0) {
             this.props.history.push(`/map/${this.props.searchLocation}/${guests}`)
         }
+        this.props.removeGoing();
     }
 
     handleBackgroundClick(e) {
@@ -103,4 +106,8 @@ const mapStateToProps = (state) => ({
     infant: state.ui.guests.infant  
 })
 
-export default withRouter(connect(mapStateToProps)(SearchOptions)); 
+const mapDispatchToProps = (dispatch) => ({
+    resetGuests: () => dispatch(resetGuests())
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchOptions)); 

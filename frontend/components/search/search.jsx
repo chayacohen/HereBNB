@@ -27,6 +27,15 @@ class Search extends React.Component {
        }
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.location.pathname === "/" && prevProps.location.pathname !== '/') { 
+            this.props.resetGuests(); 
+            const autocomplete = document.getElementById("autocomplete");
+            autocomplete.value = ''; 
+            this.setState({ location: '', guestTab: 'Add guests' })
+        } 
+    }
+
     componentDidMount() {
             this.autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'), {
                 componentRestrictions: { 'country': ['US'] },

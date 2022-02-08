@@ -1,4 +1,4 @@
-import {CHANGE_TAB, RECEIVE_ADULT, RECEIVE_CHILD, RECEIVE_INFANT, REMOVE_ADULT, REMOVE_CHILD, REMOVE_INFANT} from '../actions/guest_actions'; 
+import {CHANGE_TAB, RECEIVE_ADULT, RECEIVE_CHILD, RECEIVE_INFANT, REMOVE_ADULT, REMOVE_CHILD, REMOVE_INFANT, RESET_GUESTS} from '../actions/guest_actions'; 
 
 
 const guestReducer = (state = {adult: 0, child: 0, infant: 0, guestTab: "Add guests"}, action) => {
@@ -18,11 +18,12 @@ const guestReducer = (state = {adult: 0, child: 0, infant: 0, guestTab: "Add gue
         case REMOVE_INFANT:
         return Object.assign({}, state, { infant: nextState.infant -= 1 });
         case CHANGE_TAB: 
-            return Object.assign({}, state, {guestTab: action.string})
+            return Object.assign({}, state, {guestTab: action.string}); 
+        case RESET_GUESTS: 
+            return Object.assign({}, { adult: 0, child: 0, infant: 0, guestTab: "Add guests" })
         default: 
             return state;  
     }
-
 }
 
 export default guestReducer; 
