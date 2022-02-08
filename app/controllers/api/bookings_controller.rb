@@ -1,6 +1,5 @@
 class Api::ListingsController < ApplicationController
 
-
     def index
         @bookings = Booking.all 
     end 

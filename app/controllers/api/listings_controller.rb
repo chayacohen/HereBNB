@@ -55,7 +55,7 @@ class Api::ListingsController < ApplicationController
 
     private 
     def selected_listing
-        Listing.with_attached_photos.find(params[:id])
+        Listing.with_attached_photos.find(params[:id]).includes(:bookings)
     end 
 
     def listing_params 
