@@ -1,16 +1,16 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { withRouter } from 'react-router-dom';
 
 
 class GuestOptions extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { scroll: 0}; 
+        this.state = { scroll: 0, adult: 0, child: 0, infant: 0}; 
         this.handleMinusClick = this.handleMinusClick.bind(this); 
         this.handlePlusClick = this.handlePlusClick.bind(this); 
+        this.tabReturn = this.tabReturn.bind(this); 
     }
 
     componentDidMount() {
@@ -19,55 +19,78 @@ class GuestOptions extends React.Component {
         })
     }
 
+    tabReturn() {
+        if (this.props.adult === 0 && this.props.child === 0 && this.props.infant === 0 ) return 'Add guests'
+        const sing = this.props.infant === 1 ? `, ${this.props.infant} infant` : `, ${this.props.infant} infants`;
+        const infantString = this.props.infant > 0 ? sing : '';
+        const tab = this.props.adult === 1 && this.props.child === 0 ? `${this.props.adult} guest${infantString}` : `${this.props.adult + this.props.child} guests${infantString}`; 
+        return tab 
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.adult !== prevProps.adult || this.props.child !== prevProps.child || this.props.infant !== prevProps.infant) {
+            const tab = this.tabReturn();
+            this.props.changeTab(tab);
+        }
+    }   
+    
     handleMinusClick(field) {
         return () => {
             if (field === "adult") {
-                if (this.props.adults === 1 && (this.props.infants > 0 || this.props.children > 0)){
+                if (this.props.adult === 1 && (this.props.infant > 0 || this.props.child > 0)){
                     return;
                 }
-                else if (this.props.adults !== 0) {
-                    this.props.removeAdult(); 
+                else if (this.props.adult !== 0) {
+                    this.props.removeAdult()
+                    this.setState({adult: this.state.adult -=1})
                 } 
             }
             else if (field === "child") {
-                if (this.props.children !== 0 ) {
-                    this.props.removeChild(); 
+                if (this.props.child !== 0 ) {
+                    this.props.removeChild()
+                    this.setState({ child: this.state.child -= 1 })
                 }
             }
             else if (field === "infant") {
-                if (this.props.infants !== 0) {
-                    this.props.removeInfant(); 
+                if (this.props.infant !== 0) {
+                    this.props.removeInfant()
+                    this.setState({ infant: this.state.infant -= 1 })
                 }
             }
         }
     }
+
 
     handlePlusClick(field) {
         return () => {
             if (field === "adult") {
-                this.props.addAdult(); 
+                this.props.receiveAdult();
+                this.setState({ adult: this.state.adult += 1 })
             }
             else if (field === "child") {
-                if (this.props.children === 0) {
-                    this.props.addChild(); 
-                    this.props.addAdult(); 
+                if (this.props.child === 0 && this.props.adult === 0) {
+                    this.props.receiveChild()
+                    this.props.receiveAdult()
+                    this.setState({ adult: this.state.adult += 1, child: this.state.child += 1 })
                 }
                 else {
-                    this.props.addChild(); 
+                    this.props.receiveChild()
+                    this.setState({ child: this.state.child += 1 })
                 }
             }
             else if (field === "infant") {
-                if (this.props.infants === 0 && this.props.adults === 0) {
-                    this.props.addAdult(); 
-                    this.props.addInfant(); 
+                if (this.props.adult === 0 && this.props.infant < 5) {
+                    this.props.receiveAdult()
+                    this.props.receiveInfant()
+                    this.setState({ adult: this.state.adult += 1, infant: this.state.infant += 1 })
                 }
-                else if (this.props.infants < 5){
-                    this.props.addInfant(); 
+                else if (this.props.infant < 5){
+                    this.props.receiveInfant()
+                    this.setState({ infant: this.state.infant += 1 })
                 }
             }
         }
     }
-
 
 
     render() {
@@ -81,7 +104,7 @@ class GuestOptions extends React.Component {
                         </div>
                         <div className='option'>
                             <p className="count" onClick={this.handleMinusClick("adult")}>-</p>
-                            <p className="number">{this.props.adults}</p>
+                            <p className="number">{this.props.adult}</p>
                             <p className="count" onClick={this.handlePlusClick("adult")}>+</p>
                         </div>
                     </div>
@@ -92,7 +115,7 @@ class GuestOptions extends React.Component {
                         </div>
                         <div className='option'>
                             <p className="count" onClick={this.handleMinusClick("child")}>-</p>
-                            <p className="number">{this.props.children}</p>
+                            <p className="number">{this.props.child}</p>
                             <p className="count" onClick={this.handlePlusClick("child")}>+</p>
                         </div>
                     </div>
@@ -103,7 +126,7 @@ class GuestOptions extends React.Component {
                         </div>
                         <div className='option'>
                             <p className="count" onClick={this.handleMinusClick("infant")}>-</p>
-                            <p className="number">{this.props.infants}</p>
+                            <p className="number">{this.props.infant}</p>
                             <p className="count" onClick={this.handlePlusClick("infant")}>+</p>
                         </div>
                     </div>
@@ -115,4 +138,4 @@ class GuestOptions extends React.Component {
 }
 
 
-export default withRouter(GuestOptions); 
+export default GuestOptions; 

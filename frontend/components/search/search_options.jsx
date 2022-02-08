@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faClock } from '@fortawesome/free-solid-svg-icons';
 import { withRouter } from 'react-router-dom';
-
+import {connect} from 'react-redux'; 
 
 class SearchOptions extends React.Component {
 
@@ -23,7 +23,16 @@ class SearchOptions extends React.Component {
     handleClick(e) {
         // e.preventDefault(); 
         // e.stopPropagation(); 
-        this.props.history.push('/listings')
+        const guests = this.props.adult + this.props.child
+        debugger 
+        if (this.props.searchLocation === '')
+            this.props.history.push(`/listings/guests/${guests}`)
+        else if (this.props.searchLocation && guests === 0) {
+            this.props.history.push(`/map/${this.props.searchLocation}/0`)
+        }
+        else if (this.props.searchLocation && guests > 0) {
+            this.props.history.push(`/map/${this.props.searchLocation}/${guests}`)
+        }
     }
 
     handleBackgroundClick(e) {
@@ -34,16 +43,16 @@ class SearchOptions extends React.Component {
     handleOptionClick(place) {
         return () => {
             if (place === 'newYork') {
-                this.props.history.push('/map/new%20york%20city')
+                this.props.history.push('/map/new%20york%20city/0')
             }
             else if (place === "orlando") {
-                this.props.history.push('/map/orlando')
+                this.props.history.push('/map/orlando/0')
             }
             else if (place === "miami") {
-                this.props.history.push('/map/miami')
+                this.props.history.push('/map/miami/0')
             }
             else if (place === "losAngeles") {
-                this.props.history.push('/map/los%20angeles')
+                this.props.history.push('/map/los%20angeles/0')
             }
             this.props.removeGoing(); 
         }
@@ -88,4 +97,10 @@ class SearchOptions extends React.Component {
 }
 
 
-export default withRouter(SearchOptions); 
+const mapStateToProps = (state) => ({
+    adult: state.ui.guests.adult,
+    child: state.ui.guests.child,
+    infant: state.ui.guests.infant  
+})
+
+export default withRouter(connect(mapStateToProps)(SearchOptions)); 

@@ -5,12 +5,13 @@ import { requestAllUsers } from "../../actions/user_actions";
 import ListingIndex from "./listing_index";
 
 const mapStateToProps = (state) => ({
-    listings: Object.values(state.entities.listings)
+    listings: Object.values(state.entities.listings), 
+    guests: state.ui.guests.adult + state.ui.guests.child
 })
 
 
 const mapDispatchToProps = (dispatch) => ({
-    requestAllListings: () => dispatch(requestAllListings()), 
+    requestAllListings: (filters) => dispatch(requestAllListings(filters)), 
     requestListing: (listing) => dispatch(requestListing(listing)),
     requestAllUsers: () => dispatch(requestAllUsers())
 })

@@ -27,10 +27,11 @@ const removeListing = (listingId) => ({
 //     listings
 // })
 
-export const requestAllListings = (bounds) => dispatch => {
-    ListingApiUtil.fetchAllListings(bounds)
+export const requestAllListings = (filters) => dispatch => {
+    ListingApiUtil.fetchAllListings(filters)
     .then((listings) => dispatch(receiveAllListings(listings)))
 }
+
 
 export const requestListing = (listingId) => dispatch => {
     return (

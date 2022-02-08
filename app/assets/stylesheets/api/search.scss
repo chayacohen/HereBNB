@@ -59,19 +59,11 @@
     width: 35%;
 }
 
-#location-container:hover, #checkin-container:hover, #checkout-container:hover, #guest-container:hover  {
-    background-color: rgb(221, 221, 221);
-    border-radius: 30px;
-}
-
 #location-container, #checkin-container, #checkout-container {
     border-right: solid 1px;
     border-color: rgb(221, 221, 221);
 }
 
-// #location-container {
-//     position: relative;
-// }
 
 .label {
     font-weight: 600;
@@ -93,9 +85,6 @@
     text-overflow: ellipsis;
 }
 
-.search-container input:hover {
-    background-color: rgb(221, 221, 221);
-}
 .replace-input  {
     // border: black solid 1px;
     font-size: 90%; 

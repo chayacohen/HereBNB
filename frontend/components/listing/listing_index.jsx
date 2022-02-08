@@ -4,7 +4,12 @@ import ListingIndexItem from './listing_index_item';
 class ListingIndex extends React.Component {
 
     componentDidMount() {
-         this.props.requestAllListings(); 
+        const guests = this.props.match.params.guests
+        if (guests > 0) 
+         this.props.requestAllListings({guests: guests}); 
+        else {
+            this.props.requestAllListings(); 
+        }
          const header = document.getElementById("nav-bar")
          header.style.backgroundColor = "white"; 
          header.style.color = "red";

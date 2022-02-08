@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import Search from "../search/search";
+import SearchContainer from "../search/search_container";
 import ProfileMenuContainer from "./profile_menu_container";
 
 class Header extends React.Component {
@@ -91,7 +91,7 @@ class Header extends React.Component {
                     <nav id="nav-bar"  style={{backgroundColor: this.state.color}} className={this.state.color}>
                         <p className="logo" id={this.state.color} onClick={this.handleLogoClick}>herebnb</p>
                         <div>
-                            {this.props.location.pathname === '/' || splitPathname[1] === 'map' ?  <Search/> : null } 
+                            {this.props.location.pathname === '/' || splitPathname[1] === 'map' ?  <SearchContainer/> : null } 
                         </div>
                         <div id="right-nav">
                             <section id="profile-button" onClick={this.handleProfileClick}>

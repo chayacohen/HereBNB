@@ -19,7 +19,7 @@ class Splash extends React.Component {
     }
 
     handleClick() {
-        this.props.history.push('/listings')
+        this.props.history.push('/listings/guests/0')
     }
 
     render () {

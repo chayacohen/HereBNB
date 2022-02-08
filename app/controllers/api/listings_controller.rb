@@ -3,7 +3,16 @@ class Api::ListingsController < ApplicationController
     before_action :ensure_logged_in, only: [:update, :create, :destroy]
 
     def index 
-        @listings = bounds ? Listing.inBounds(bounds).where(complete: true) : Listing.all.where(complete: true)
+        @listings = ''
+        if bounds && guests  
+            @listings = Listing.inBounds(bounds).where(complete: true).where('guests >= ?', guests.to_i)
+        elsif bounds 
+            @listings = Listing.inBounds(bounds).where(complete: true)
+        elsif guests 
+            @listings = Listing.all.where(complete: true).where('guests >= ?', guests)
+        else 
+            @listings = Listing.all.where(complete: true)
+        end 
     end 
 
     def show 
@@ -55,5 +64,8 @@ class Api::ListingsController < ApplicationController
 
     def bounds 
         params[:bounds]
+    end 
+    def guests 
+        params[:guests]
     end 
 end 

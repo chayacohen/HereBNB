@@ -31,11 +31,25 @@ class MapListingIndex extends React.Component {
                 // this.setState({ center: result.toJSON() })
                 this.map.setCenter(result.toJSON()); 
                 const bounds = this.map.getBounds().toJSON();
-                this.props.requestAllListings({ bounds: bounds });
+                const guests = this.props.match.params.guests; 
+                // debugger 
+                if (guests > 0) {
+                    // debugger 
+                    this.props.requestAllListings( {bounds: bounds, guests: guests});
+                }
+                else {
+                    // debugger 
+                    this.props.requestAllListings({ bounds: bounds })
+                }
 
                 google.maps.event.addListener(this.map, 'idle', () => {
                     const bounds = this.map.getBounds().toJSON();
-                    this.props.requestAllListings({ bounds: bounds })
+                    if (guests > 0 ) {
+                        this.props.requestAllListings({ bounds: bounds, guests: guests })
+                    }
+                    else {
+                        this.props.requestAllListings({ bounds: bounds })
+                    }
                 })
 
                 if (this.map) {
