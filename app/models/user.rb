@@ -10,6 +10,9 @@ class User < ApplicationRecord
     class_name: :User 
     # dependent: :destroy
 
+    has_many :bookings, 
+    foreign_key: :user_id, 
+    class_name: :Booking
 
     validates :email, presence: true, uniqueness: true
     validates :password_digest, presence: true

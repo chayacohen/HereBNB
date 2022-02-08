@@ -1,12 +1,14 @@
 class Listing < ApplicationRecord 
 
-
     validates :host_id, :place,  presence: true
     
     belongs_to :host, 
         foreign_key: :host_id, 
         class_name: :User 
 
+    has_many :bookings, 
+        foreign_key: :listing_id, 
+        class_name: :Booking
     
     has_one :host_photo, 
     through: :host, 

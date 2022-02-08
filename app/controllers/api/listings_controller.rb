@@ -44,7 +44,7 @@ class Api::ListingsController < ApplicationController
         if @listing 
             @listing.destroy 
         else 
-            render json: ["Cannot locate user"], status: 404
+            render json: ["Cannot locate listing"], status: 404
         end 
     end 
 
