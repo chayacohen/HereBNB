@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     get '/users/:id/listings', :to => 'listings#user_listings'
     resources :listings, only: [:index, :create, :update, :show, :destroy]
     resource :session, only: [:create, :destroy]
+    resources :bookings
   end 
 end
