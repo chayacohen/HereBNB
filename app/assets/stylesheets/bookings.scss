@@ -1,0 +1,274 @@
+$font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+
+.booking-container {
+    display: block;
+    height: 500px;
+    max-width: 50%;
+    min-width: 350px;
+    border: rgb(221, 221, 221) solid 1px;
+    border-radius: 8px;
+    font-family: $font;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;  
+    box-sizing: border-box;
+      // margin-left: 5%;
+}
+
+.booking {
+    // position: absolute;
+    // margin: 5%;
+    width: 100%;
+    height: 95%;
+    // width: 100%;
+    // top: 50%;
+    // border: solid 1px black; 
+
+}
+
+.booking-box-header{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    // gap: 15%;
+    margin-bottom: 20px;
+    // border: solid 1px red;
+    height: 10%;
+}
+
+// .booking-box-header p:first-child {
+//         // margin-right: 15%;
+
+// }
+
+.booking-box-header div:first-child {
+    display: flex;
+    justify-content: flex-start;
+    // white-space: nowrap;
+    align-items: center;
+    gap: 5%;
+    // border: solid 1px black;
+    width: 50%;
+}
+
+.lastp{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    align-items: center;
+    // white-space: nowrap;
+    // margin-right: 50%;
+    font-weight: 500;
+    // border: solid 1px black;
+    width: 50%;
+}
+
+#star {
+    color: #ff385c;
+    font-size: 14px;
+}
+
+.listing-price-text {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.per-night {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.check-in-booking, .check-out-booking {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-bottom: 1px solid black;
+    width: 50%;
+    padding: 3%; 
+    gap: 10%;
+    box-sizing: border-box;
+}
+
+.check-in-booking {
+    border-right: solid black 1px;
+}
+
+.check-in-booking input, .check-out-booking input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #717171;
+    height: 80%;
+}
+.check-in-booking label, .check-out-booking label {
+    font-size: 12px;
+    font-weight: 600;
+    color: black;
+    width: 100%;
+    height: 20%;
+}
+
+
+.date-inputs > div:first-child{
+    display: flex;
+    justify-content: space-between;   
+}
+
+.date-inputs {
+    border: solid black 1px;
+    border-radius: 8px;
+    width: 100%;
+    height: 30%;
+    // padding: 3%;
+    box-sizing: border-box;
+}
+
+.booking-dates {
+    width: 100%;  
+    height: 50%; 
+}
+
+.add-booking-guests {
+    // border: solid 1px red;
+    width: 100%;
+    height: 50%;
+    padding: 3%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.booking-guest-container {
+    position: absolute;
+    top: 101%;
+    border: solid rgb(240, 239, 239) 1px;
+    width: 100%;
+    left: 0;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 6px, 
+    rgba(0, 0, 0,  0.07) 0px 0px 0px 1px;
+    height: 40vh;
+    z-index: 1;
+    background-color: white;
+    padding: 6%;
+    box-sizing: border-box;
+    // , rgba(0 0 0 / 7%) 0px 0px 0px 1px;
+
+}
+.add-booking-guests-header {
+    // border: solid 1px red;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+
+     > label {
+        font-size: 12px;
+        font-weight: 600;
+        color: black;
+        width: 50%;
+    }
+    >p {
+        width: 100%;
+        font-size: 14px;
+        font-weight: 300;
+        margin-bottom: 5px;
+    }
+}
+
+.arrow {
+    width: 50%;
+    // border: solid 1px blue;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 4%;
+    font-size: 25px;
+    // font-weight: 300;
+}
+
+
+.booking-guest-options {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    // border: solid 1px black;
+    height: 100%;
+    width: 100%;
+    // gap: 2%;
+}
+
+.booking-guest-option-header {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    width: 100%;
+    // border: solid 1px black;
+}
+
+.booking-guest-option-description {
+    font-size: 14px;
+    font-weight: 300;
+    color: #717171;
+    width: 100%;
+    //  border: solid 1px black;
+}
+
+.booking-guest-left-option {
+    // border: solid 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 50%;
+}
+
+.booking-adult-option, .booking-child-option, .booking-infant-option {
+    display: flex;
+    justify-content: space-between;
+    height: 30%;
+}
+
+.booking-option {
+    // border: solid 1px black;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 7%;
+}
+
+.number {
+    // border: solid 1px black;
+    height: 100%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.count {
+    height: 32px;
+    width: 32px;
+    border: solid 1px rgb(176, 176, 176);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 20px;
+    color: rgb(113, 113, 113);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.count:hover {
+    border: solid 1px black;
+}
+
+.booking-guest-statement {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+

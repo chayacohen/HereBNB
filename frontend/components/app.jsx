@@ -42,8 +42,8 @@ const App = () => (
                 <ProtectedRoute exact path="/listings/:id/create-listing/:type" component={SpecificTypeContainer}/>
                 <ProtectedRoute exact path="/listings/create-listing" component={CreateListingContainer}/>
                 <ProtectedRoute exact path='/listings/:id/edit' component={EditListingFormContainer} />
-                <Route exact path="/listings/guests/:guests" component={ListingIndexContainer}></Route>
                 <Route exact path="/listings/:id" component={ListingItemContainer}></Route>
+                <Route exact path="/listings/guests/:guests" component={ListingIndexContainer}></Route>
                 <Route exact path="/map/:id/:guests" component={MapListingIndexContainer}></Route>
                 <Route exact path = "/" component={Splash}/>
             </Switch>

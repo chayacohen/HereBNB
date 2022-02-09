@@ -16,6 +16,7 @@ class Search extends React.Component {
         this.handleSearchButtonClick = this.handleSearchButtonClick.bind(this); 
         this.handleInputFocus = this.handleInputFocus.bind(this); 
         this.changeTab = this.changeTab.bind(this); 
+        this.handleDateClick = this.handleDateClick.bind(this); 
     }
 
     handleInputChange(e) {
@@ -102,6 +103,14 @@ class Search extends React.Component {
         }
     }
 
+    handleDateClick(e) {
+        if (!this.state.type) {
+            e.target.type = "date"; 
+            debugger 
+            this.setState({type: "date"})
+        }
+    }
+
     // if dropdown not showing, click on input, prevent default on input 
     // if it is, dont prevent default 
 
@@ -120,12 +129,12 @@ class Search extends React.Component {
                     <div id="checkin-container">
                         <p className="label">Check In
                         </p>
-                        <input type="text" placeholder="Add dates" />
+                        <input type="text" placeholder="Add dates" onFocus={(e) => e.target.type = "date"}/>
                     </div>
                     <div id="checkout-container">
                         <p className="label">Check Out
                         </p>
-                        <input type="text" placeholder="Add dates" />
+                        <input type="text" placeholder="Add dates" onFocus={(e) => e.target.type = "date"}/>
                     </div>
                     <div id="guest-container" onFocus={this.addGuest} onBlur={this.removeGuest} tabIndex="1">
                         <p className="label">Guests

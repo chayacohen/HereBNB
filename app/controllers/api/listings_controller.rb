@@ -4,7 +4,11 @@ class Api::ListingsController < ApplicationController
 
     def index 
         @listings = ''
-        if bounds && guests  
+        # if bounds && guests && dates 
+            # start_date = dates[:start_date]
+            # end_date = dates[:end_date]
+            # 
+        if bounds && guests
             @listings = Listing.inBounds(bounds).where(complete: true).where('guests >= ?', guests.to_i)
         elsif bounds 
             @listings = Listing.inBounds(bounds).where(complete: true)
@@ -55,7 +59,7 @@ class Api::ListingsController < ApplicationController
 
     private 
     def selected_listing
-        Listing.with_attached_photos.find(params[:id]).includes(:bookings)
+        Listing.includes(:bookings).with_attached_photos.find(params[:id])
     end 
 
     def listing_params 
@@ -67,5 +71,8 @@ class Api::ListingsController < ApplicationController
     end 
     def guests 
         params[:guests]
+    end 
+    def dates 
+        params[:dates]
     end 
 end 

@@ -144,9 +144,6 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     height: 50px;
     width: 50px; 
     object-fit: cover;
-
-
-
 border-radius: 50%;
  margin-top: 1%;
     // margin-left: 20%;
@@ -161,35 +158,19 @@ border-radius: 50%;
 
 .about-host {
     height: 100%;
-    width: 66%;
+    width: 60%;
+    //  border: black solid 1px;
+
 }
 
 .details-section {
     display: flex;
     justify-content: space-between;
+    // gap: 20%;
     // border: black solid 1px;
+    width: 100%;
 }
 
-.booking-container {
-    display: block;
-    height: 500px;
-    width: 30%;
-    border: black solid 1px;
-    border-radius: 8px;
-    font-family: $font;
-    // box-shadow: 0 6px 16px rgb(0 0 0 0.12) ;
-    // margin-left: 5%;
-}
-
-.booking {
-    // position: absolute;
-    margin: 5%;
-    width: 95%;
-    height: 95%;
-    // width: 100%;
-    // top: 50%;
-
-}
 
 .home-icon {
     margin-left: 2px;
@@ -292,89 +273,6 @@ border-radius: 50%;
     font-weight: 500;
     margin-bottom: 30px;
 }
-
-.booking-box-header{
-    display: flex;
-    justify-content: space-evenly;
-    // width: 200%;
-    gap: 15%;
-    margin-bottom: 20px;
-}
-
-// .booking-box-header p:first-child {
-//         // margin-right: 15%;
-
-// }
-
-.booking-box-header div:first-child {
-    display: flex;
-    justify-content: flex-start;
-    // white-space: nowrap;
-    align-items: center;
-    gap: 5%;
-
-}
-
-.lastp{
-    display: flex;
-    justify-content: flex-end;
-    font-size: 14px;
-    // white-space: nowrap;
-    // margin-right: 50%;
-    font-weight: 500;
-}
-
-#star {
-    color: #ff385c;
-    font-size: 14px;
-}
-
-.listing-price-text {
-    font-size: 22px;
-    font-weight: 500;
-}
-
-.per-night {
-    font-size: 16px;
-    font-weight: 300;
-}
-
-.check-in-booking, .check-out-booking {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    // border: 1px solid red;
-}
-
-.check-in-booking {
-    border-right: solid black 1px;
-}
-
-.check-in-booking input, .check-out-booking input {
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    color: #717171;
-}
-.check-in-booking label, .check-out-booking label {
-    font-size: 10px;
-    font-weight: 600;
-    color: black;
-}
-
-.date-inputs div:first-child{
-    display: flex;
-    justify-content: space-between;
-    // margin-left: 10%;
-}
-
-.date-inputs {
-    border: solid black 1px;
-    border-radius: 8px;
-    width: 90%;
-}
-
 
 .listing-image-header img {
     width: 100%;

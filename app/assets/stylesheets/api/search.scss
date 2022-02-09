@@ -13,8 +13,9 @@
     // padding-left: 30px;
     // padding-top: 10px;
     // padding-bottom: 10px;
-    padding: 1%;
+    // padding: 1%;
     padding-left: 3%;
+    padding-right: 1%;
     // padding-right: 2%;
     border: rgb(214, 211, 211) solid 1px; 
     // margin-top: 2.75%; 
@@ -31,7 +32,7 @@
     // display: flex;
     // justify-content: center; 
     // border: solid blue 1px; 
-    width: 50vw;
+    width: 55vw;
     height: 7vh;
     position: relative; 
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
@@ -44,11 +45,11 @@
     flex-direction: column;
     text-align: left;
     // border-radius: 30px;
-    // border: solid 1px red;
+    // borde,r: solid 1px red;
     height: 70%;
     width: 25%;
     gap: 5%;
-    padding: 3%;
+    // padding: 3%;
     box-sizing: border-box;
     cursor: pointer;
     outline: none;
@@ -56,13 +57,23 @@
 }
 
 #location-container {
-    width: 35%;
+    width: 25%;
 }
 
 #location-container, #checkin-container, #checkout-container {
     border-right: solid 1px;
     border-color: rgb(221, 221, 221);
 }
+
+// #checkin-container > input {
+    // border: solid red 1px;
+    // height: 100%;
+
+// }
+
+// #checkin-container  {
+//     border: solid black 1px; 
+// }
 
 
 .label {
@@ -72,6 +83,8 @@
     margin-left: 2px;
     font-family: inherit;
     color: black;
+    // height: 50%;
+    // width: 100%;
 }
 .search-container input {
     border: none;

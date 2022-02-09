@@ -1,0 +1,1 @@
+json.extract! booking, :id, :user_id, :listing_id, :start_date, :end_date, :price, :adults, :children, :infants
