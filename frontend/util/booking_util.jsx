@@ -32,6 +32,6 @@ export const createBooking = booking => (
 export const deleteBooking = bookingId => (
     $.ajax({
         method: "DELETE", 
-        url: `/api/bookings/${bookingId}`, 
+        url: `/api/bookings/${booking}`, 
     })
 )

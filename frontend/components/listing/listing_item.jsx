@@ -3,7 +3,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faHome, faSquare, faDoorClosed} from '@fortawesome/free-solid-svg-icons'
 import {Link} from 'react-router-dom';
 import Calendar from "./calendar";
-import BookingBox from "../bookings/booking_box";
+import BookingBoxContainer from "../bookings/booking_box_container";
 
 
 class ListingItem extends React.Component {
@@ -117,7 +117,7 @@ class ListingItem extends React.Component {
                         </div>
                         <p className="border-line"></p>
                     </div>
-                   <BookingBox listing={listing}/>
+                   <BookingBoxContainer listing={listing}/>
                 </section>
             </div>
         )

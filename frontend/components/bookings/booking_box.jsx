@@ -8,7 +8,8 @@ class BookingBox extends React.Component {
 
     constructor(props) {
         super(props); 
-        this.state = { firstInputType: 'text', secondInputType: 'text', arrowClick: false, guestTab: '1 guest', buttonText: "Check Availability", start_date: '', end_date: '', dateClick: false},
+        this.state = { firstInputType: 'text', secondInputType: 'text', arrowClick: false, guestTab: '1 guest', buttonText: "Check Availability", start_date: '', end_date: '', dateClick: false,
+        adult: 1, child: 0, infant: 0},
         this.focusFirstInputType = this.focusFirstInputType.bind(this);
         this.focusSecondInputType = this.focusSecondInputType.bind(this);
         this.blurFirstInputType = this.blurFirstInputType.bind(this);
@@ -41,8 +42,8 @@ class BookingBox extends React.Component {
         this.setState({arrowClick: !this.state.arrowClick})
     }
 
-    changeGuestTab(tab){
-        this.setState({guestTab: tab})
+    changeGuestTab(tab, adult, child, infant){
+        this.setState({guestTab: tab, adult: adult, child: child, infant: infant})
     }
 
     numDays() {
@@ -61,7 +62,7 @@ class BookingBox extends React.Component {
                 this.setState({[field]: ''})
                 e.target.value = ''; 
             }
-            else if ((this.state.start_date && this.state.start_date) && (new Date(this.state.start_date) > new Date(this.state.end_date))) {
+            else if ((this.state.start_date && this.state.start_date) && (new Date(this.state.start_date) >= new Date(this.state.end_date))) {
                 this.setState({[field]: ''});
                 e.target.value = ''; 
             }
@@ -76,16 +77,31 @@ class BookingBox extends React.Component {
     }
 
     handleReserveClick() {
-        // if (this.buttonText === "reserve") {
-
-        // }
+        debugger 
+        if (this.state.buttonText === "Reserve") {
+            debugger
+            const nights = this.numDays(); 
+            const booking = {
+                listing_id: this.props.listing.id, 
+                user_id: this.props.userId, 
+                start_date: this.state.start_date, 
+                end_date: this.state.end_date, 
+                price: (this.props.listing.price * nights + 75 + 100), 
+                adults: this.state.adult, 
+                children: this.state.child, 
+                infants: this.state.infant
+            }
+            this.props.createBooking(booking).then(() => {
+                this.props.history.push(`/user/${this.props.userId}/bookings`)
+            })
+        }
     }
 
     render () {
         const listing = this.props.listing;
         let nights = ''; 
         if (this.state.start_date && this.state.end_date) {
-            nights = this.numDays() - 1; 
+            nights = this.numDays(); 
         }
         return (
          <div className="booking-container">
@@ -128,10 +144,10 @@ class BookingBox extends React.Component {
                     </div>
                     {nights ? 
                     <div className="booking-price-info">
-                        <div className="price-statement">
+                        {/* <div className="price-statement">
                             <p>You wont be charged yet</p>
-                        </div>
-                        <div className="booking-price">
+                        </div> */}
+                        <div className="booking-price first-booking-price">
                             <p>{`$${listing.price} x ${nights} nights`}</p>
                             <p>{`$${listing.price * nights}`}</p>
                         </div>

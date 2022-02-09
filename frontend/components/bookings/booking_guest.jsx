@@ -38,7 +38,7 @@ class BookingGuest extends React.Component {
         const sing = this.state.infant === 1 ? `, ${this.state.infant} infant` : `, ${this.state.infant} infants`;
         const infantString = this.state.infant > 0 ? sing : '';
         const tab = this.state.adult === 1 && this.state.child === 0 ? `${this.state.adult} guest${infantString}` : `${this.state.adult + this.state.child} guests${infantString}`;
-        this.props.changeGuestTab(tab); 
+        this.props.changeGuestTab(tab, this.state.adult, this.state.child, this.state.infant); 
     }
 
 

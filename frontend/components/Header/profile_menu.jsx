@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
         this.handleModalClick = this.handleModalClick.bind(this); 
         this.handleAccountClick = this.handleAccountClick.bind(this);
+        this.handleTripsClick = this.handleTripsClick.bind(this); 
     }
 
     handleLogoutClick() {
@@ -26,6 +27,11 @@ import { Link } from "react-router-dom";
         this.props.closeDropdown();
     }
 
+    handleTripsClick() {
+        this.props.closeDropdown()
+        this.props.history.push(`/user/${this.props.currentUser.id}/bookings`)
+    }
+
     render() {
         const changeColor = this.props.changeColor
         if (this.props.currentUser) {
@@ -33,7 +39,7 @@ import { Link } from "react-router-dom";
                 <div id="profile-menu-background" onClick={this.props.closeDropdown}>
                     <div id="profile-menu-container" onClick={e => e.stopPropagation()}>
                         <div id="profile-menu">
-                            <button>Trips</button>
+                            <button onClick={this.handleTripsClick}>Trips</button>
                             <button>Wishlist</button>
                             <Link to={`/users/${this.props.currentUser.id}/listings`} className="link" onClick={this.handleAccountClick}><button>Manage Listings</button></Link>
                             <button><Link to={{ pathname: `/users/show/${this.props.currentUser.id}`, data: {changeColor}}} className="link" onClick={this.handleAccountClick}>Account</Link></button>

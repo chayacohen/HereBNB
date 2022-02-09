@@ -4,9 +4,6 @@ import { openModal } from "../../actions/modal_actions";
 import ProfileMenu from "./profile_menu";
 import { logout } from '../../actions/session_actions';
 
-
-
-
 const mapStateToProps = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.id]
 })
@@ -17,4 +14,4 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileMenu); 
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfileMenu)); 
