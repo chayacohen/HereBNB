@@ -1,7 +1,7 @@
 class Api::BookingsController < ApplicationController
 
     def index
-        @bookings = Booking.all 
+        guest ? @bookings = Booking.all.where(user_id: guest) : Booking.all 
     end 
 
     def show 
@@ -38,6 +38,10 @@ class Api::BookingsController < ApplicationController
     def booking_params 
         params.require(:booking).permit(:listing_id, :user_id, :start_date, :end_date, :price, :adults, :children, :infants)
     end 
+
+    def guest 
+        params[:guest]
+    end
 
     def selected_booking 
         Booking.find(params[:id])
