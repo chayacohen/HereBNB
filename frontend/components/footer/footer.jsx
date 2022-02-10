@@ -6,7 +6,7 @@ class Footer extends React.Component {
 
     render () {
         const splitPathname = this.props.location.pathname.split('/');
-        if (splitPathname[3] === 'create-listing' || splitPathname[1] === "map" || splitPathname[2] === 'create-listing') {
+        if (splitPathname[3] === 'create-listing' || splitPathname[1] === "map" || splitPathname[2] === 'create-listing' || splitPathname[1] === "bookings") {
             return null
         }
 

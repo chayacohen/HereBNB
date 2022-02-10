@@ -5,7 +5,7 @@ import Trip from "./trip";
 
 const mapStateToProps = (state) => ({
     userId: state.session.id, 
-    bookings: state.entities.bookings
+    bookings: Object.values(state.entities.bookings)
 })
 
 const mapDispatchToProps = (dispatch) => ({

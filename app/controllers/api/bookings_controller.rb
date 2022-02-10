@@ -5,7 +5,7 @@ class Api::BookingsController < ApplicationController
     end 
 
     def show 
-        @booking - selected_booking
+        @booking = selected_booking
     end 
 
     def create 

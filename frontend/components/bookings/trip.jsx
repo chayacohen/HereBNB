@@ -1,5 +1,5 @@
-import React from "react"
-
+import React from "react"; 
+import BookingIndexItemContainer from './booking_index_item_container'; 
 
 class Trip extends React.Component {
 
@@ -12,7 +12,7 @@ class Trip extends React.Component {
         this.props.requestAllBookings({guest: this.props.userId})
     }
     render() {
-        if (!this.props.bookings || !Object.keys(this.props.bookings).length) {
+        if (!this.props.bookings.length) {
             return(
                 <div className="booking-listing-index">
                     <div className="no-trip-container">
@@ -27,8 +27,15 @@ class Trip extends React.Component {
             )
         }
         return (
-        <div className="booking-listing-index">
-            
+        <div className="booking-listing-index"> 
+            <h1>Trips</h1>
+            <h2>Upcoming Reservations</h2>
+                <ul className="booking-index">
+                    {this.props.bookings.map((booking, index) => (
+                        <BookingIndexItemContainer booking={booking} key={index}/>
+                    )
+                    )}
+                </ul>     
         </div>)
     }
 }

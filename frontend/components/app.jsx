@@ -21,6 +21,7 @@ import CompleteListingFormContainer from './listing/complete_listing_form_contai
 import EditListingFormContainer from './listing/edit_listing_form_container';
 import MapListingIndexContainer from './map/listing_map_index_container';
 import TripContainer from './bookings/trip_container'; 
+import BookingItemContainer from './bookings/booking_item_container';
 
 const App = () => (
     <div>
@@ -43,6 +44,7 @@ const App = () => (
                 <ProtectedRoute exact path="/listings/create-listing" component={CreateListingContainer}/>
                 <ProtectedRoute exact path='/listings/:id/edit' component={EditListingFormContainer} />
                 <ProtectedRoute exact path='/user/:id/bookings' component={TripContainer} />
+                <ProtectedRoute exact path='/bookings/:id' component={BookingItemContainer} />
                 <Route exact path="/listings/:id" component={ListingItemContainer}></Route>
                 <Route exact path="/listings/guests/:guests" component={ListingIndexContainer}></Route>
                 <Route exact path="/map/:id/:guests" component={MapListingIndexContainer}></Route>
