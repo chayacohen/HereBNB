@@ -10,6 +10,8 @@ class BookingItem extends React.Component {
         this.tab = this.tab.bind(this);
         this.handleShowMoreClick = this.handleShowMoreClick.bind(this) 
         this.handleShowListingClick = this.handleShowListingClick.bind(this) 
+        this.handleCancelResClick = this.handleCancelResClick.bind(this) 
+        this.handleChangeResClick = this.handleChangeResClick.bind(this) 
     }
 
     componentDidMount() {
@@ -39,6 +41,16 @@ class BookingItem extends React.Component {
 
     handleShowListingClick() {
         this.props.history.push(`/listings/${this.state.listing.id}`)
+    }
+
+    handleCancelResClick() {
+        this.props.deleteBooking(this.props.booking.id).then(() => {
+            this.props.history.push(`/user/${this.props.userId}/bookings`)
+        }) 
+    }
+
+    handleChangeResClick() {
+        this.props.history.push(`/bookings/${this.props.booking.id}/edit`)
     }
 
     render() {
@@ -74,7 +86,7 @@ class BookingItem extends React.Component {
                                 <p>{tab}</p>
                             </div>
                         </div>
-                        <div className="change-res">
+                        <div className="change-res" onClick={this.handleChangeResClick}>
                             <div>
                                 <div>
                                     <p><FontAwesomeIcon icon={faUsers}/></p>
@@ -83,7 +95,7 @@ class BookingItem extends React.Component {
                                 <p><FontAwesomeIcon icon={faAngleRight} /></p>
                             </div>
                         </div>
-                        <div className="change-res">
+                        <div className="change-res" onClick={this.handleCancelResClick}>
                             <div>
                                 <div>
                                     <p><FontAwesomeIcon icon={faBan}/></p>
