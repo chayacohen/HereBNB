@@ -82,7 +82,7 @@ class Header extends React.Component {
         if (splitPathname[2] === 'create-listing') {
             return null 
         }
-        if (splitPathname[1] === 'bookings') {
+        if (splitPathname[1] === 'bookings' && splitPathname[3] === "edit") {
             return null 
         }
         if (splitPathname[3] === 'create-listing') {

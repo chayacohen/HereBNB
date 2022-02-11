@@ -106,7 +106,6 @@ class Search extends React.Component {
     handleDateClick(e) {
         if (!this.state.type) {
             e.target.type = "date"; 
-            debugger 
             this.setState({type: "date"})
         }
     }

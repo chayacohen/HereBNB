@@ -298,8 +298,9 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     >p {
         text-decoration: underline;
         font-weight: 500;
+        cursor: pointer;
     }
-    >button {
+    >h1 {
         background-color: black;
         border: none;
         color: white;
@@ -308,6 +309,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
         font-size: 16px;
         border-radius: 8px;
         font-weight: 500;
+        cursor: pointer;
     }
 }
 

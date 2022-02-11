@@ -77,9 +77,7 @@ class BookingBox extends React.Component {
     }
 
     handleReserveClick() {
-        debugger 
         if (this.state.buttonText === "Reserve") {
-            debugger
             const nights = this.numDays(); 
             const booking = {
                 listing_id: this.props.listing.id, 

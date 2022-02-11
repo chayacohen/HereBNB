@@ -11,7 +11,13 @@ class EditBooking extends React.Component {
         this.tab = this.tab.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this); 
         this.numDays = this.numDays.bind(this);
-        this.handleGuestClick = this.handleGuestClick.bind(this);  
+        this.handleFocusGuest = this.handleFocusGuest.bind(this);
+        this.handleBlurGuest = this.handleBlurGuest.bind(this);
+        this.handlePlusClick= this.handlePlusClick.bind(this);  
+        this.handleMinusClick= this.handleMinusClick.bind(this);  
+        this.handleSaveClick= this.handleSaveClick.bind(this);  
+        this.handleCancelClick= this.handleCancelClick.bind(this);
+        this.handleUpdateSubmit = this.handleUpdateSubmit.bind(this);   
     }
 
     handleLogoClick() {
@@ -47,20 +53,100 @@ class EditBooking extends React.Component {
 
     componentDidMount() {
         this.props.requestBooking(this.props.match.params.id).then((booking) => {
-            this.setState({start_date: booking.booking.start_date, end_date: booking.booking.end_date})
+            this.setState({ start_date: booking.booking.start_date, end_date: booking.booking.end_date, adults: booking.booking.adults, children: booking.booking.children, infants: booking.booking.infants})
             this.props.requestListing(booking.booking.listing_id)
         })
     }
 
     tab() {
-        const sing = this.props.booking.infants === 1 ? `, ${this.props.booking.infanta} infant` : `, ${this.props.booking.infants} infants`;
-        const infantString = this.props.booking.infants > 0 ? sing : '';
-        const tab = this.props.booking.adults === 1 && this.props.booking.children === 0 ? `${this.props.booking.adults} guest${infantString}` : `${this.props.booking.adults + this.props.booking.children} guests${infantString}`;
+        const sing = this.state.infants === 1 ? `, ${this.state.infants} infant` : `, ${this.state.infants} infants`;
+        const infantString = this.state.infants > 0 ? sing : '';
+        const tab = this.state.adults === 1 && this.state.children === 0 ? `${this.state.adults} guest${infantString}` : `${this.state.adults + this.state.children} guests${infantString}`;
         return tab;
     }
 
-    handleGuestClick() {
-        this.setState({guestClick: !this.state.guestClick})
+    handleFocusGuest() {
+        this.setState({guestClick: true})
+    }
+
+    handleBlurGuest() {
+        this.setState({guestClick: false})
+    }
+
+    handleCancelClick() {
+        const guestOptionsBookingEdit = document.querySelector(".guest-options-booking-edit"); 
+        guestOptionsBookingEdit.blur()
+    }
+
+
+    handlePlusClick(field) {
+        return () => {
+            const listing = this.props.listings[this.props.booking.listing_id]
+            if (field === "adult") { 
+                if (this.state.adults + this.state.children < listing.guests)
+                    this.setState({ adults: this.state.adults += 1 })
+                    this.state.adults += 1
+            }
+            else if (field === "child") {
+                if (this.state.adults + this.state.children < listing.guests)
+                    this.setState({ children: this.state.children += 1 })
+                    this.state.children += 1
+            }
+            else if (field === "infant") {
+                if (this.state.infants < 5) {
+                    this.setState({ infants: this.state.infants += 1 })
+                    this.state.infants += 1
+                }
+            }
+        }
+    }
+
+    handleMinusClick(field) {
+        return () => {
+            if (field === "adult") {
+                if (this.state.adults !== 1) {
+                    this.setState({ adults: this.state.adults -= 1 })
+                    this.state.adults -=1
+                }
+            }
+            else if (field === "child") {
+                if (this.state.children !== 0) {
+                    this.setState({ children: this.state.children -= 1 })
+                    this.state.children -= 1
+                }
+            }
+            else if (field === "infant") {
+                if (this.state.infants !== 0) {
+                    this.setState({ infants: this.state.infants -= 1 })
+                    this.state.infants -= 1
+                }
+            }
+        }
+    }
+
+    handleSaveClick(e) {
+        e.preventDefault(); 
+        if (this.state.adults !== this.props.booking.adults || this.state.children !== this.props.booking.children || this.state.infants !== this.props.booking.infants) {
+            this.setState({ disabled: false})
+
+        }
+        const guestOptionsBookingEdit = document.querySelector(".guest-options-booking-edit");
+        guestOptionsBookingEdit.blur() 
+    }
+
+    handleUpdateSubmit(e) {
+        e.preventDefault(); 
+        const booking = this.props.booking;
+        booking.start_date = this.state.start_date; 
+        booking.end_date = this.state.end_date; 
+        booking.adults = this.state.adults; 
+        booking.children = this.state.children; 
+        booking.infants = this.state.infants; 
+
+        this.props.updateBooking(booking).then(() => {
+            this.props.history.push(`/bookings/${booking.id}`)
+        })
+
     }
 
     render() {
@@ -73,7 +159,6 @@ class EditBooking extends React.Component {
         const listing = this.props.listings[this.props.booking.listing_id]
         const host = this.props.users[listing.host_id]; 
         const numDays = this.numDays(); 
-        debugger 
 
         return(
             <div className="edit-booking-container">
@@ -114,7 +199,7 @@ class EditBooking extends React.Component {
                         </div>
                         <p className="edit-booking-change-label">Guests</p>
                         <div>
-                            <div className="guest-options-booking-edit" onFocus={this.handleGuestClick} onBlur={this.handleGuestClick} tabIndex="1">
+                            <div className="guest-options-booking-edit" onFocus={this.handleFocusGuest} onBlur={this.handleBlurGuest} tabIndex="1">
                                 <p>{tab}</p>
                                 <p><FontAwesomeIcon icon={faAngleDown}/></p>
                                 {this.state.guestClick ? 
@@ -125,9 +210,9 @@ class EditBooking extends React.Component {
                                             <p className='guest-option-description'>Ages 13 or above</p>
                                         </div>
                                         <div className='option'>
-                                            <p className="count">-</p>
-                                            <p className="number">{this.props.booking.adults}</p>
-                                            <p className="count">+</p>
+                                            <p className="count" onClick={this.handleMinusClick("adult")}>-</p>
+                                            <p className="number">{this.state.adults}</p>
+                                            <p className="count" onClick={this.handlePlusClick("adult")}>+</p>
                                         </div>
                                     </div>
                                     <div className='child-option' id="edit-booking">
@@ -136,9 +221,9 @@ class EditBooking extends React.Component {
                                             <p className='guest-option-description'>Ages 2-12</p>
                                         </div>
                                         <div className='option'>
-                                            <p className="count" >-</p>
-                                            <p className="number">{this.props.booking.children}</p>
-                                            <p className="count">+</p>
+                                            <p className="count" onClick={this.handleMinusClick("child")} >-</p>
+                                            <p className="number">{this.state.children}</p>
+                                            <p className="count" onClick={this.handlePlusClick("child")}>+</p>
                                         </div>
                                     </div>
                                     <div className='infant-option' id="edit-booking">
@@ -147,21 +232,21 @@ class EditBooking extends React.Component {
                                             <p className='guest-option-description'>Under 2</p>
                                         </div>
                                         <div className='option'>
-                                            <p className="count">-</p>
-                                            <p className="number">{this.props.booking.infants}</p>
-                                            <p className="count" >+</p>
+                                            <p className="count" onClick={this.handleMinusClick("infant")}>-</p>
+                                            <p className="number">{this.state.infants}</p>
+                                            <p className="count" onClick={this.handlePlusClick("infant")}>+</p>
                                         </div>
                                     </div>
                                     <div className="edit-booking-guest-buttons">
-                                        <p>Cancel</p>
-                                        <button>Save</button>
+                                        <p onClick={this.handleCancelClick}>Cancel</p>
+                                        <h1 onClick={this.handleSaveClick}>Save</h1>
                                     </div>
                                 </div> : null }
                             </div>
                         </div>
                     </div>
                     <div>
-                        <button className="non-active-request" disabled={this.state.disabled}>Send Request</button>
+                        <button className="non-active-request" disabled={this.state.disabled} onClick={this.handleUpdateSubmit}>Send Request</button>
                     </div>
                 </div>
                 <div className="right-edit-booking">
@@ -179,7 +264,7 @@ class EditBooking extends React.Component {
                             </div>
                             <div>
                                 <h1>Price difference</h1>
-                                <h1>${(listing.price * numDays + 75 + 100) - this.props.booking.price}</h1>
+                                <h1>${(listing.price * numDays) - this.props.booking.price}</h1>
                             </div>
                         </div>
                     </div> }
