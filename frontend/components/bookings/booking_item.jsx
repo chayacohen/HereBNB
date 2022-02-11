@@ -60,6 +60,13 @@ class BookingItem extends React.Component {
 
         const tab = this.tab();
         const host = this.props.users[this.state.listing.host_id]
+        const booking = this.props.booking;
+        const months = { "01": "Jan", "02": "Feb", "30": "Mar", "04": "Apr", "05": "May", "06": "Jun", "07": "Jul", "08": "Aug", "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec" }
+        const bookingStartDate = booking.start_date.split("-"); 
+        const startDate = `${months[bookingStartDate[1]]} ${bookingStartDate[2]}, ${bookingStartDate[0]}`; 
+        const bookingEndDate = booking.end_date.split("-"); 
+        const endDate = `${months[bookingEndDate[1]]} ${bookingEndDate[2]}, ${bookingEndDate[0]}`; 
+        debugger 
         return(
             <div className="booking-show">
                 <div className="booking-map-info">
@@ -68,12 +75,12 @@ class BookingItem extends React.Component {
                         <div className="checkin-checkout">
                             <div className="booking-checkin">
                                 <h1 className="check-header">Check-in</h1>
-                                <p className="booking-item-date">Start Date</p>
+                                <p className="booking-item-date">{startDate}</p>
                                 <p>2:00 PM</p>
                             </div>
                             <div className="booking-checkout">
                                 <h1 className="check-header">Checkout</h1>
-                                <p className="booking-item-date">End Date</p>
+                                <p className="booking-item-date">{endDate}</p>
                                 <p>11:00 AM</p>
                             </div>
                         </div>
