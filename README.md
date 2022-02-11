@@ -56,6 +56,64 @@ Search results render with a map if a location is provided. Users can dynamicall
  ### To be continued 
  - Users will be able to like a listing and it will be added to their wishlist. 
  - Users will be able to leave reviews on locations 
-  
+
+
+## Code Snippet 
+
+``` Javascript
+
+     handleDateChange(field) {
+        return (e) => {
+            const today = new Date();
+            const todayDate = today.toISOString().split('T')[0];
+            this.state[field] = e.target.value;  
+            if (e.target.value < todayDate) {  
+                this.setState({[field]: ''})
+                e.target.value = ''; 
+            }
+            else if ((this.state.start_date && this.state.start_date) && (new Date(this.state.start_date) >= new Date(this.state.end_date))) {
+                this.setState({[field]: ''});
+                e.target.value = ''; 
+            }
+            else {
+                this.setState({[field]: e.target.value})
+                this.state[field] = e.target.value; 
+                if (this.state.start_date && this.state.end_date) {
+                    this.setState({ buttonText: "Reserve"} )
+                 } 
+            }
+        }
+     } 
+```
+
+- The above code ensures that you cannot book a date that's is prior to the current date
+- It also ensures that the end date must be one day past the start date 
+
+``` Javascript 
+   handlePlusClick(field) {
+        return () => {
+            if (field === "adult") {
+                if (this.state.adult + this.state.child < this.props.listing.guests)
+                this.setState({ adult: this.state.adult += 1 })
+                this.tabReturn()
+            }
+            else if (field === "child") {
+                if (this.state.adult + this.state.child < this.props.listing.guests)
+                    this.setState({ child: this.state.child += 1 })
+                    this.tabReturn()
+            }
+            else if (field === "infant") {
+                if (this.state.infant < 5) {
+                    this.setState({ infant: this.state.infant += 1 })
+                    this.tabReturn()
+                }
+            }
+        }
+       }
+```
+
+- The above allows for the plus button to add guests as long as the total guests are less than the amount allowed by the listing 
+- The tabReturn function dynamically changes the line displayed about the amount of guests currently selected (e.g 1 guest, 1 infant)
+- There is a corresponding function that handles the minus click, ensuring you can't go down passed 0
   
 
