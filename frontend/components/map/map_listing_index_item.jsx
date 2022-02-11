@@ -10,7 +10,8 @@ class MapListingIndexItem extends React.Component {
         this.handleListingClick = this.handleListingClick.bind(this); 
     }
 
-    handleHeartClick() {
+    handleHeartClick(e) {
+        e.preventDefault(); 
         if (this.state.clicked === false) {
             this.setState({clicked: true})
         }
@@ -40,7 +41,7 @@ class MapListingIndexItem extends React.Component {
                                 {this.state.clicked ? <p className="red-heart" onClick={this.handleHeartClick}>{'\u2665'}</p> : <p className="outline-heart" onClick={this.handleHeartClick}>{'\u2661'}</p>}
                             </div>
                             <p className="map-title">{listing.title}</p>
-                            <div id="short-border-line" className="border-line"></div>
+                            {/* <div id="short-border-line" className="border-line"></div> */}
                         </div>
                         <div className="bottom-map-index">
                             <div className="map-floor-plan">

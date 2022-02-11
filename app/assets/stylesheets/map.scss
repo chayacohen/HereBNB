@@ -34,9 +34,14 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     width: 49%;
     padding-left: 3%;
     box-sizing: border-box;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
     // border: solid 1px blue;
 }
 
+.map-listing-index::-webkit-scrollbar {
+  display: none;
+}
 
 .map-index  {
     display: flex;
@@ -120,6 +125,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     font-weight: 300;
     padding: 2%;
     border-radius: 50%;
+    z-index: 10;
 }
 
 .outline-heart:hover, .red-heart:hover {
@@ -132,6 +138,7 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sa
     color: #ff385c;
     padding: 2%;
     border-radius: 50%;
+    z-index: 10; 
 }
 
 .map-title {
