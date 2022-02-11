@@ -55,6 +55,7 @@ Search results render with a map if a location is provided. Users can dynamicall
   
  ### To be continued 
  - Users will be able to like a listing and it will be added to their wishlist. 
+ - Users will be able to leave reviews on locations 
   
   
 
