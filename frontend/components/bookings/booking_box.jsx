@@ -78,7 +78,7 @@ class BookingBox extends React.Component {
 
 
     handleReserveClick() {
-        if (this.state.buttonText === "Reserve") {
+        if (this.state.buttonText === "Reserve" && this.props.userId) { 
             const nights = this.numDays(); 
             const booking = {
                 listing_id: this.props.listing.id, 
@@ -93,6 +93,9 @@ class BookingBox extends React.Component {
             this.props.createBooking(booking).then(() => {
                 this.props.history.push(`/user/${this.props.userId}/bookings`)
             })
+        }
+        else {
+            this.props.openModal("email")
         }
     }
 
