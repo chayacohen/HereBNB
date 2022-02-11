@@ -15,9 +15,7 @@ class CalendarComponent extends React.Component {
 
 
     handleChange(e) {
-        // debugger 
         const {startDate, endDate} = e.selection; 
-        debugger 
         this.setState({start_date: startDate, end_date: endDate})
     }
 
@@ -52,7 +50,6 @@ class CalendarComponent extends React.Component {
     render() {
 
         const selectionRange = this.selectionRange(); 
-        debugger 
         return (
             <DateRange
                 ranges={[selectionRange]}

@@ -3,10 +3,7 @@ import React from "react";
 class BookingIndexItem extends React.Component {
 
     componentDidMount() {
-        this.props.requestListing(this.props.booking.listing_id).then(listing => {
-            debugger 
-        })
-        debugger
+        this.props.requestListing(this.props.booking.listing_id)
     }
 
     handleBookingClick() {

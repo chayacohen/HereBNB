@@ -159,7 +159,6 @@ class EditBooking extends React.Component {
         const listing = this.props.listings[this.props.booking.listing_id]
         const host = this.props.users[listing.host_id]; 
         const numDays = this.numDays(); 
-        debugger
         return(
             <div className="edit-booking-container">
                 <div className="left-edit-booking">
