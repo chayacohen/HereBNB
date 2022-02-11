@@ -1,20 +1,65 @@
 import React, {useState} from 'react'; 
-import Calendar from 'react-calendar';
-// import 'react-calendar/dist/Calendar.css';
+import { Calendar } from 'react-date-range';
+import { DateRange } from 'react-date-range';
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+
+class CalendarComponent extends React.Component {
+
+    constructor(props) {
+        super(props); 
+        this.handleChange = this.handleChange.bind(this); 
+        this.state = {start_date: '', end_date: ''}; 
+        this.selectionRange = this.selectionRange.bind(this); 
+    }
 
 
-function showNeighboringMonth() {
-    return false; 
+    handleChange(e) {
+        // debugger 
+        const {startDate, endDate} = e.selection; 
+        debugger 
+        this.setState({start_date: startDate, end_date: endDate})
+    }
+
+    selectionRange() {
+        if (!this.state.start_date) {
+            return ({
+                startDate: new Date(),
+                endDate: new Date(),
+                key: 'selection',
+            })
+        }
+        else if (this.state.start_date && !this.state.end_date) {
+            return (
+                {
+                    startDate: this.state.start_date,
+                    endDate: new Date(),
+                    key: "selection",
+                }
+            )
+        }
+        else if (this.state.start_date && this.state.end_date) {
+            return (
+                {
+                    startDate: this.state.start_date,
+                    endDate: this.state.end_date,
+                    key: "selection",
+                }
+            )
+        }
+    }
+
+    render() {
+
+        const selectionRange = this.selectionRange(); 
+        debugger 
+        return (
+            <DateRange
+                ranges={[selectionRange]}
+                onChange={this.handleChange}
+                className="calendar"
+            />
+        )
+    }
 }
-
-const CalendarComponent = () => {
-    const [value, onChange] = useState(new Date());
-    return (
-        <div className="two-calendars">
-            <Calendar onChange={onChange} value={value} className="calendar"/>
-            <Calendar onChange={onChange} value={value} className="calendar"/>
-        </div>
-    )
-}
-
 export default CalendarComponent; 

@@ -76,6 +76,7 @@ class BookingBox extends React.Component {
         }
     }
 
+
     handleReserveClick() {
         if (this.state.buttonText === "Reserve") {
             const nights = this.numDays(); 

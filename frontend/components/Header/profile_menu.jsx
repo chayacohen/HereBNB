@@ -40,7 +40,7 @@ import { Link } from "react-router-dom";
                     <div id="profile-menu-container" onClick={e => e.stopPropagation()}>
                         <div id="profile-menu">
                             <button onClick={this.handleTripsClick}>Trips</button>
-                            <button>Wishlist</button>
+                            {/* <button>Wishlist</button> */}
                             <Link to={`/users/${this.props.currentUser.id}/listings`} className="link" onClick={this.handleAccountClick}><button>Manage Listings</button></Link>
                             <button><Link to={{ pathname: `/users/show/${this.props.currentUser.id}`, data: {changeColor}}} className="link" onClick={this.handleAccountClick}>Account</Link></button>
                             <button onClick={this.handleLogoutClick}>Logout</button>
@@ -57,7 +57,7 @@ import { Link } from "react-router-dom";
                             <button id="login" value="Log In" onClick={this.handleModalClick}>Log In</button>
                             <button className="other_button" value="Sign Up" onClick={this.handleModalClick}>Sign Up</button>
                             <button className="other_button" value="Host your home" onClick={this.handleModalClick}>Host your home</button>
-                            <button className="other_button" value="Resume">Resume</button>
+                            {/* <button className="other_button" value="Resume">Resume</button> */}
                         </div>
                     </div>
                 </div>

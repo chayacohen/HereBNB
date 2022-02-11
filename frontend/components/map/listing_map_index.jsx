@@ -100,12 +100,9 @@ class MapListingIndex extends React.Component {
                     <ul>{this.props.listings.map(listing => (
                         <MapListingIndexItem listing={listing} key={listing.id}/>
                     ))}</ul>
-                    <div className="border-line" id="listing-index-item-border"></div>
-                    <div>
-                    </div>
                 </div>
-                <div className="map-container">
-                    <div id="map" className="map" ref={map => this.mapNode = map}></div>
+                <div className="listing-index-map-container">
+                    <div id="map" className="listing-index-map" ref={map => this.mapNode = map}></div>
                 </div>
             </div>
         )

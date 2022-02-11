@@ -93,16 +93,16 @@ class ListingItem extends React.Component {
                         <p className="at-description" id="check-in">Check yourself in with a lockbox.</p> 
                         <p className="border-line"></p>
                         <p className="about-listing">{listing.about}</p>
-                        <p className="border-line"></p>
-                        <div className="sleep">
+                        {/* <p className="border-line"></p> */}
+                        {/* <div className="sleep">
                             <h1>Where you'll sleep</h1>
                             <div>
                             </div>
-                        </div>
-                        <p className="border-line"></p>
+                        </div> */}
+                        {/* <p className="border-line"></p>
                         <div>
-                            <Calendar/>
-                        </div>
+                            <Calendar setStartDate={this.setStartDate} setEndDate={this.setEndDate}/>
+                        </div> */}
                         <p className="border-line"></p>
                         <div className="reviews-listing">
                             <h1><p className="star">{'\u2605'}</p>{'5.0 \u00b7 2 reviews'} </h1>
@@ -117,7 +117,7 @@ class ListingItem extends React.Component {
                         </div>
                         <p className="border-line"></p>
                     </div>
-                   <BookingBoxContainer listing={listing}/>
+                    <BookingBoxContainer listing={listing}/>
                 </section>
             </div>
         )

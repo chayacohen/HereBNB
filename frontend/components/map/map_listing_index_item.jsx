@@ -27,24 +27,21 @@ class MapListingIndexItem extends React.Component {
     render () {
         const listing = this.props.listing
         return (
-            <div >
-                <div className="border-line" id="listing-index-item-border"></div>
-                <div className="map-listing-index-item" onClick={this.handleListingClick}>
-                    <Link to={`/listings/${listing.id}`} className="link">
-                    <img src={listing.photoUrls ? listing.photoUrls[0] : null} className="map-listing-image" />
-                    </Link>
-                    <div className="map-index-info">
-                        <div className="map-index-title">
-                            <Link to={`/listings/${listing.id}`} className="link">
-                            <p>{`Entire ${listing.specific.toLowerCase()} in ${listing.city}`}</p>
-                            </Link>
-                            {this.state.clicked ? <p className="red-heart" onClick={this.handleHeartClick}>{'\u2665'}</p> : <p className="outline-heart" onClick={this.handleHeartClick}>{'\u2661'}</p>}
+           <Link to={`/listings/${listing.id}`} className="map-index-link">
+            <div className="map-listing-index-item" onClick={this.handleListingClick} tabIndex="1">
+                        <div className="map-listing-image-container">
+                            {/* <p>hello world</p> */}
+                            <img src={listing.photoUrls ? listing.photoUrls[0] : null} className="map-listing-image" />
                         </div>
-                        <Link to={`/listings/${listing.id}`} className="link">
-                        <p className="map-title">{listing.title}</p></Link>
-                        <Link to={`/listings/${listing.id}`} className="link">
-                        <div id="short-border-line" className="border-line"></div></Link>
-                        <Link to={`/listings/${listing.id}`} className="link">
+                    <div className="map-index-info">
+                        <div className="top-map-index">
+                            <div className="map-index-title">
+                                <p>{`Entire ${listing.specific.toLowerCase()} in ${listing.city}`}</p>
+                                {this.state.clicked ? <p className="red-heart" onClick={this.handleHeartClick}>{'\u2665'}</p> : <p className="outline-heart" onClick={this.handleHeartClick}>{'\u2661'}</p>}
+                            </div>
+                            <p className="map-title">{listing.title}</p>
+                            <div id="short-border-line" className="border-line"></div>
+                        </div>
                         <div className="bottom-map-index">
                             <div className="map-floor-plan">
                                 <p>{`${listing.guests} ${listing.guests > 1 ? 'guests' : 'guest'}`}</p>
@@ -69,10 +66,9 @@ class MapListingIndexItem extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        </Link>
                     </div>
-                </div>
             </div>
+            </Link>
         )
     }
     
