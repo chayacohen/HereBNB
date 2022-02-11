@@ -159,7 +159,7 @@ class EditBooking extends React.Component {
         const listing = this.props.listings[this.props.booking.listing_id]
         const host = this.props.users[listing.host_id]; 
         const numDays = this.numDays(); 
-
+        debugger
         return(
             <div className="edit-booking-container">
                 <div className="left-edit-booking">
@@ -264,7 +264,9 @@ class EditBooking extends React.Component {
                             </div>
                             <div>
                                 <h1>Price difference</h1>
+                                {(listing.price * numDays) - this.props.booking.price > 0 ? 
                                 <h1>${(listing.price * numDays) - this.props.booking.price}</h1>
+                                : <h1>${((listing.price * numDays) - this.props.booking.price) * -1}</h1>}
                             </div>
                         </div>
                     </div> }

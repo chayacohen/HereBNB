@@ -3,7 +3,10 @@ import React from "react";
 class BookingIndexItem extends React.Component {
 
     componentDidMount() {
-        this.props.requestListing(this.props.booking.listing_id)
+        this.props.requestListing(this.props.booking.listing_id).then(listing => {
+            debugger 
+        })
+        debugger
     }
 
     handleBookingClick() {
@@ -15,8 +18,11 @@ class BookingIndexItem extends React.Component {
             return null; 
         }
         const listing = this.props.listings[this.props.booking.listing_id]
+        if(!listing) {
+            return null
+        } 
         const host = this.props.users[listing.host_id]
-        const months = {"01": "Jan", "02":"Feb", "30": "Mar", "04":"Apr", "05":"May", "06":"Jun", "07":"Jul", "08":"Aug", "09":"Sep", "10":"Oct", "11":"Nov", "12":"Dec"}
+        const months = {"01": "Jan", "02":"Feb", "03": "Mar", "04":"Apr", "05":"May", "06":"Jun", "07":"Jul", "08":"Aug", "09":"Sep", "10":"Oct", "11":"Nov", "12":"Dec"}
         const bookingStartDate = this.props.booking.start_date.split("-")
         const bookingEndDate = this.props.booking.end_date.split("-")
         const startMonth = months[bookingStartDate[1]]

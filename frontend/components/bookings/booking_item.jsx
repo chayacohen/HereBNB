@@ -29,7 +29,7 @@ class BookingItem extends React.Component {
     }
 
     tab() {
-        const sing = this.props.booking.infants === 1 ? `, ${this.props.booking.infanta} infant` : `, ${this.props.booking.infants} infants`;
+        const sing = this.props.booking.infants === 1 ? `, ${this.props.booking.infants} infant` : `, ${this.props.booking.infants} infants`;
         const infantString = this.props.booking.infants > 0 ? sing : '';
         const tab = this.props.booking.adults === 1 && this.props.booking.children === 0 ? `${this.props.booking.adults} guest${infantString}` : `${this.props.booking.adults + this.props.booking.children} guests${infantString}`;
         return tab; 
@@ -58,15 +58,18 @@ class BookingItem extends React.Component {
             return null;
         }
 
+        debugger 
+
         const tab = this.tab();
         const host = this.props.users[this.state.listing.host_id]
         const booking = this.props.booking;
-        const months = { "01": "Jan", "02": "Feb", "30": "Mar", "04": "Apr", "05": "May", "06": "Jun", "07": "Jul", "08": "Aug", "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec" }
+        debugger 
+        const months = { "01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr", "05": "May", "06": "Jun", "07": "Jul", "08": "Aug", "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec" }
         const bookingStartDate = booking.start_date.split("-"); 
         const startDate = `${months[bookingStartDate[1]]} ${bookingStartDate[2]}, ${bookingStartDate[0]}`; 
+        debugger 
         const bookingEndDate = booking.end_date.split("-"); 
         const endDate = `${months[bookingEndDate[1]]} ${bookingEndDate[2]}, ${bookingEndDate[0]}`; 
-        debugger 
         return(
             <div className="booking-show">
                 <div className="booking-map-info">

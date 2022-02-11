@@ -10,6 +10,7 @@ require 'open-uri'
 
 User.destroy_all 
 Listing.destroy_all 
+Booking.destroy_all 
 
 user_one = User.create({email: 'demo@user.com', password: 'password', first_name: 'Demo', last_name: "User", about: 'Hi! I am the demo user! Feel free to look around the website and see what there is to offer!' , location: 'Brooklyn, NY'})
 user_two = User.create({email: 'john@doe.com', password: 'password', first_name: 'John', last_name: "Doe", about: 'Hi! I am John! I aim to make your vacation experience one that you will never forget!' , location: 'Orlando, FL'})
@@ -36,7 +37,7 @@ user_five = User.create({email: 'sara@smith.com', password: 'password', first_na
 
 
     #orlando 
-    listing_two = Listing.create({title: 'Orlando Resort Home', about: 'Newly built home! Fits up to 15 people. Its a 15 minute drive from all the parks. Perfect vacation home!', host_id: user_two.id, city: 'Reunion', state: "FL", zip_code: 34747, beds: 6, price: 350, street: '2400 Tangier Dr' , lat: 28.314926324668004, lng: -81.64713817988773, country: 'US', guests: 12 , bath: 6 , place: 'house', specific: 'vacation home', privacy: 'an entire place', complete: true})
+    listing_two = Listing.create({title: 'Orlando Resort Home', about: 'Newly built home! Fits up to 12 people. Its a 15 minute drive from all the parks. Perfect vacation home!', host_id: user_two.id, city: 'Reunion', state: "FL", zip_code: 34747, beds: 6, price: 350, street: '2400 Tangier Dr' , lat: 28.314926324668004, lng: -81.64713817988773, country: 'US', guests: 12 , bath: 6 , place: 'house', specific: 'vacation home', privacy: 'an entire place', complete: true})
 
     listing_one = Listing.create({title: 'Beautiful resort home', about: 'This beautiful townhouse is located right acrros the street from the beach', host_id: user_two.id, city: 'Kissimmee', state: "FL", zip_code: 34747, beds: 5, price: 185, lat: 28.306627 , lng:-81.650637 , country: 'US', street: '9031 Sunset Palms Ter', guests: 10, bath: 5, place: 'house', specific: 'vacation home', privacy: 'an entire place', complete: true})
 
@@ -66,6 +67,16 @@ user_five = User.create({email: 'sara@smith.com', password: 'password', first_na
     listing_nineteen = Listing.create({title: 'Vacation home right near Santa Monica', about: 'This vacation home is located minutes from Santa Monica and a short drive to the beach.', host_id: user_four.id, city: 'Los Angeles', state: "CA", zip_code: 90025, country: 'US', beds: 3, guests: 7, bath: 3, price: 223, street: '2014 S Barrington Ave' , place: "house" , specific: 'Vacation house' , privacy: 'an entire place' , lat: 34.036719, lng: -118.449871, complete: true})
     listing_twenty = Listing.create({title: 'Condo in downtown LA', about: '3 bedroom condo in the heart of downtown Los Angeles. This is a perfect place for business conferences. It allows you to beat the LA traffic.', host_id: user_one.id, city: 'Los Angeles', state: "CA", zip_code: 90010, country: 'US', beds: 3, guests:5 , bath: 2, price: 300, street: '4633-4647 Wilshire Blvd' , place: "apartment" , specific: 'Condominium(condo)' , privacy: 'an entire place' , lat:34.061961, lng: -118.330197, complete: true})
 
+
+
+#bookings 
+
+booking_one = Booking.create({listing_id: listing_two.id, user_id: user_one.id, start_date: '2022-03-15', end_date: '2022-03-18', price: 1225, adults: 3, children: 2, infants: 1})
+booking_one = Booking.create({listing_id: listing_eight.id, user_id: user_one.id, start_date: '2022-06-18', end_date: '2022-06-28', price: 2065, adults:4 , children: 0 , infants: 0 })
+booking_one = Booking.create({listing_id: listing_thirteen.id, user_id: user_two.id, start_date: '2022-05-05', end_date: '2022-05-20', price: 3307, adults: 5, children: 0 , infants: 1 })
+booking_one = Booking.create({listing_id: listing_fifteen.id, user_id: user_one.id, start_date:'2022-07-29' , end_date: '2022-08-02' , price: 875 , adults: 3, children: 1 , infants: 0 })
+booking_one = Booking.create({listing_id: listing_nine.id, user_id: user_three.id, start_date: '2022-06-15' , end_date: '2022-06-18', price: 1350, adults: 6, children: 0, infants: 0})
+booking_one = Booking.create({listing_id: listing_ten.id, user_id: user_four.id, start_date: '2022-04-18', end_date: '2022-04-22', price: 2400, adults: 8, children: 0, infants: 0})
 
 # attach to user
 user_one.photo.attach(io: URI.open('https://herebnb-seeds.s3.amazonaws.com/demo.jpg'), filename: "demo.png")
