@@ -33,7 +33,8 @@ Herebnb is build with the following technologies:
  
  <img src="https://user-images.githubusercontent.com/90418154/149543760-73dcb6b3-818a-4417-9087-13db12c49a80.gif" height=400px width="auto"/>
  
- ### Account Profile Page 
+ ### Account Profile Page
+ 
   Users are able to visit their account page. They can update their profile, update their profile photo and view all of their listings. Users can only update their own profiles and listings, all other users are restricted from accessing that page. Users can view other users' profile pages, however no buttons to update profile is rendered. 
   
   ### Listings
@@ -41,9 +42,15 @@ Herebnb is build with the following technologies:
   Users can create, update, and destroy their own listings. They can view all listings (whether or not they are logged in). They can also view listings filtered by location. A map is rendered with markers corresponding to the appropriate listings. 
   
   ### Search 
+  
  Users can search listings to filter by city and number of guests. They can view all listings if they are feeling flexible. 
  
+### Map 
+
+Search results render with a map if a location is provided. Users can dynamically move the map to view listings that are within the map bounds. 
+
  ### Bookings 
+ 
   Users can book dates for listings. They can view all their listings by clicking the trips button from the profile menu. Users can change their reservations as well and cancel reservations. 
   
  ### To be continued 
